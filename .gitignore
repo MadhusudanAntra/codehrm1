@@ -475,3 +475,5 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+src/.idea/.idea.AntraHRM/.idea/vcs.xml
+src/.idea/.idea.AntraHRM/.idea/workspace.xml
