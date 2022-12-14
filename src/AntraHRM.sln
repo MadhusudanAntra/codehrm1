@@ -9,6 +9,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Recruiting", "Recruiting", "{261851D6-B287-447E-8F88-05B3312A0DD4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Authentication", "Authentication", "{2629869E-D4D8-4D07-A036-D308D9E7C837}"
+	ProjectSection(SolutionItems) = preProject
+		Services\Authentication\Readme.md = Services\Authentication\Readme.md
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Authentication.API", "Services\Authentication\Authentication.API\Authentication.API.csproj", "{6A8BCD8E-947A-41F0-A565-3C3A979F5AF8}"
 EndProject
