@@ -8,5 +8,19 @@ namespace Recruiting.ApplicationCore.Entities
 {
     public class JobRequirement
     {
+        public int JobRequirementId { get; set; }
+        public int NumberOfPosition { get; set; }
+        public string? Title { get; set; }
+        public string? Description { get; set; }
+        public int HiringManagerId { get; set; }
+        public string? HiringManagerName { get; set; }
+        public DateTime StartDate { get; set; }
+        public bool IsActive { get; set; }
+        public DateTime ClosedOn { get; set; }
+        public bool ClosedReason { get; set; }
+        public DateTime CreatedOn { get; set; }
+        public JobRequirementCategory JobRequirementCategory { get; set; }
+        public List<EmployeeRequirementType> EmployeeRequirementType {get; set;} 
+
     }
 }
