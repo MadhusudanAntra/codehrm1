@@ -42,7 +42,7 @@ public class AuthenticationService : IAuthenticationService<User>
         await _signInManager.SignInAsync(user, properties, authenticationMethod);
     }
 
-    public async Task<Guid> CreateUserAsync(RegisterViewModel model)
+    public async Task<(IdentityResult identityResult, Guid userId)> CreateUserAsync(RegisterViewModel model)
     {
         var user = new User
         {
@@ -52,8 +52,9 @@ public class AuthenticationService : IAuthenticationService<User>
             UserName = model.Email
         };
 
-        var result = await _userManager.CreateAsync(user, model.Password);
+       var result = await _userManager.CreateAsync(user, model.Password);
+       return (result, user.Id);
 
-        return !result.Errors.Any() ? user.Id : Guid.Empty;
+
     }
 }

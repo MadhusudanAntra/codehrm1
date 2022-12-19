@@ -4,9 +4,11 @@ using System.Text;
 using Authentication.API.Entities;
 using Authentication.API.Models;
 using Authentication.API.Services;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using NuGet.Packaging;
 using JwtRegisteredClaimNames = Microsoft.IdentityModel.JsonWebTokens.JwtRegisteredClaimNames;
 
 namespace Authentication.API.Controllers
@@ -46,11 +48,13 @@ namespace Authentication.API.Controllers
             [FromBody] RegisterViewModel model)
         {
 
-            var createdUser = await _authenticationService.CreateUserAsync(model);
-         
-            return CreatedAtRoute("GetUser", new { controller = "account", id = createdUser },
-                $"User {createdUser} is created");
-           
+            var result = await _authenticationService.CreateUserAsync(model);
+            if (!result.identityResult.Errors.Any())
+                return CreatedAtRoute("GetUser", new { controller = "account", id = result.userId },
+                    $"User {result.userId} is created");
+            AddErrors(result.identityResult);
+            return BadRequest( AddErrors(result.identityResult));
+
         }
         
         [HttpGet("{id:guid}", Name = "GetUser")]
@@ -58,7 +62,8 @@ namespace Authentication.API.Controllers
         public async Task<ActionResult<UserViewModel>> GetUserByIdAsync(Guid id)
         {
             var user = await _authenticationService.FindByUserId(id);
-            return Ok(user);
+            var userViewModel = new UserViewModel { Id = user.Id, FirstName = user.FirstName, LastName = user.LastName, Email = user.Email};
+            return Ok(userViewModel);
         }
 
 
@@ -83,6 +88,11 @@ namespace Authentication.API.Controllers
 
             var token = tokenHandler.CreateToken(tokenDescriptor);
             return tokenHandler.WriteToken(token);
+        }
+        
+        private List<string> AddErrors(IdentityResult result)
+        {
+            return result.Errors.Select(error => error.Description).ToList();
         }
     }
 }

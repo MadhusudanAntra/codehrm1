@@ -1,5 +1,6 @@
 using Authentication.API.Models;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Identity;
 
 namespace Authentication.API.Services;
 
@@ -15,5 +16,5 @@ public interface IAuthenticationService<T>
 
     Task SignInAsync(T user, AuthenticationProperties properties, string authenticationMethod = null);
 
-    Task<Guid> CreateUserAsync(RegisterViewModel model);
+    Task<(IdentityResult identityResult, Guid userId)> CreateUserAsync(RegisterViewModel model);
 }
