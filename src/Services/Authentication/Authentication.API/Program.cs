@@ -21,7 +21,7 @@ builder.Services.AddIdentity<User, Role>()
     .AddEntityFrameworkStores<AuthenticationDbContext>()
     .AddDefaultTokenProviders();
 
-builder.Services.Configure<AppSettings>(builder.Configuration);
+builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
