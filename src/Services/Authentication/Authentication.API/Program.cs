@@ -1,10 +1,8 @@
-using System.Configuration;
 using Authentication.API;
 using Authentication.API.Data;
 using Authentication.API.Entities;
 using Authentication.API.Services;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

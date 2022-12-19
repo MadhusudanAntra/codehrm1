@@ -1,13 +1,14 @@
 using Authentication.API.Entities;
+using Authentication.API.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 
 namespace Authentication.API.Services;
 
-public class AuthenticationService:IAuthenticationService<User>
+public class AuthenticationService : IAuthenticationService<User>
 {
-    private UserManager<User> _userManager;
-    private SignInManager<User> _signInManager;
+    private readonly SignInManager<User> _signInManager;
+    private readonly UserManager<User> _userManager;
 
 
     public AuthenticationService(UserManager<User> userManager, SignInManager<User> signInManager)
@@ -26,6 +27,11 @@ public class AuthenticationService:IAuthenticationService<User>
         return await _userManager.FindByEmailAsync(user);
     }
 
+    public async Task<User> FindByUserId(Guid userId)
+    {
+        return await _userManager.FindByIdAsync(userId.ToString());
+    }
+
     public async Task SignIn(User user)
     {
         await _signInManager.SignInAsync(user, true);
@@ -34,5 +40,20 @@ public class AuthenticationService:IAuthenticationService<User>
     public async Task SignInAsync(User user, AuthenticationProperties properties, string authenticationMethod = null)
     {
         await _signInManager.SignInAsync(user, properties, authenticationMethod);
+    }
+
+    public async Task<Guid> CreateUserAsync(RegisterViewModel model)
+    {
+        var user = new User
+        {
+            Email = model.Email,
+            FirstName = model.FirstName,
+            LastName = model.LastName,
+            UserName = model.Email
+        };
+
+        var result = await _userManager.CreateAsync(user, model.Password);
+
+        return !result.Errors.Any() ? user.Id : Guid.Empty;
     }
 }
