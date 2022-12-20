@@ -13,10 +13,10 @@ namespace OnBoarding.ApplicationCore.Entities
 		public string SSN { get; set; }
 		public DateTime HireDate { get; set; }
 		public DateTime EndDate { get; set; }
-		public EmployeeCategory EmployeeCategoryCode { get; set; }
+		public EmployeeStatus EmployeeCategoryCode { get; set; }
 		public EmployeeStatus EmployeeStatusCode { get; set; }
 		public string Address { get; set; }
 		public string Email { get; set; }
-		public EmployeeRole EmployeeRoleId { get; set; }
+		public EmployeeStatus EmployeeRoleId { get; set; }
 	}
 }
