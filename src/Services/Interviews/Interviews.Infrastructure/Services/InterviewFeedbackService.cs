@@ -46,9 +46,8 @@ public class InterviewFeedbackService : IInterviewFeedbackService
     }
     
 
-    public async Task DeleteInterviewFeedback(InterviewFeedbackDeleteRequestModel requestModel)
+    public async Task DeleteInterviewFeedback(int  id)
     {
-        int id = requestModel.InterviewFeedbackId;
         await _interviewFeedbackRepository.Delete(id);
     }
 }

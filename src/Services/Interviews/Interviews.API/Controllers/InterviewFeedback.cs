@@ -47,9 +47,9 @@ public class InterviewFeedback : ControllerBase
 
     [HttpDelete]
     [Route("{id:int}")]
-    public async Task<ActionResult> DeleteInterviewFeedback(InterviewFeedbackDeleteRequestModel requestModel)
+    public async Task<ActionResult> DeleteInterviewFeedback(int id)
     {
-        await _interviewFeedbackService.DeleteInterviewFeedback(requestModel);
+        await _interviewFeedbackService.DeleteInterviewFeedback(id);
         return Ok();
     }
 }

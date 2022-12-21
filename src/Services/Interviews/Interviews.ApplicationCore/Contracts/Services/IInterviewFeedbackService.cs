@@ -12,5 +12,5 @@ public interface IInterviewFeedbackService
     Task<InterviewFeedbackResponseModel> UpdateInterviewFeedback(
         InterviewFeedbackCreateOrUpdateRequestModel interviewFeedbackCreateOrUpdateRequestModel);
 
-    Task DeleteInterviewFeedback(InterviewFeedbackDeleteRequestModel interviewFeedbackDeleteRequest);
+    Task DeleteInterviewFeedback(int id);
 }
