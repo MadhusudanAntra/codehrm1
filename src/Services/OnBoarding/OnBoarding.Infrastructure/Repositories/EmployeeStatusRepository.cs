@@ -33,7 +33,7 @@ namespace OnBoarding.Infrastructure.Repositories
             throw new NotImplementedException();
         }
 
-        public async Task<int> Delete(EmployeeStatus employeeStatus)
+        public async Task<EmployeeStatus> Delete(EmployeeStatus employeeStatus)
         {
             throw new NotImplementedException();
         }

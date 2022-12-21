@@ -9,7 +9,7 @@ namespace OnBoarding.ApplicationCore.Contracts.Repositories
         Task<EmployeeRole> GetById(int id);
         Task<EmployeeRole> Add(EmployeeRole employeeRole);
         Task<EmployeeRole> Update(EmployeeRole employeeRole);
-        Task<int> Delete(EmployeeRole employeeRole);
+        Task<EmployeeRole> Delete(EmployeeRole employeeRole);
     }
 }
 

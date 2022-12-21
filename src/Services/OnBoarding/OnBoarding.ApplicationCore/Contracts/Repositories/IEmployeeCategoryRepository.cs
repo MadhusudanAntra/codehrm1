@@ -9,7 +9,7 @@ namespace OnBoarding.ApplicationCore.Contracts.Repositories
         Task<EmployeeCategory> GetById(int id);
         Task<EmployeeCategory> Add(EmployeeCategory employeeCategory);
         Task<EmployeeCategory> Update(EmployeeCategory employeeCategory);
-        Task<int> Delete(EmployeeCategory employeeCategory);
+        Task<EmployeeCategory> Delete(EmployeeCategory employeeCategory);
     }
 }
 

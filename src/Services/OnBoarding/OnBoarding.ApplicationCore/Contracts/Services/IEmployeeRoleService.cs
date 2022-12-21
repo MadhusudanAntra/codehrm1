@@ -1,14 +1,14 @@
 ﻿using System;
-using OnBoarding.ApplicationCore.Entities;
+using OnBoarding.ApplicationCore.Models;
 
 namespace OnBoarding.ApplicationCore.Contracts.Services
 {
 	public interface IEmployeeRoleService
 	{
-        Task<IEnumerable<EmployeeRole>> GetAll();
-        Task<EmployeeRole> GetById(int id);
-        Task<EmployeeRole> Add(EmployeeRole employeeRole);
-        Task<EmployeeRole> Update(EmployeeRole employeeRole);
-        Task<int> Delete(EmployeeRole employeeRole);
+        Task<IEnumerable<EmployeeRoleInfoModel>> GetAll();
+        Task<EmployeeRoleInfoModel> GetById(int id);
+        Task<EmployeeRoleInfoModel> Add(EmployeeRoleCreateModel employeeRole);
+        Task<EmployeeRoleInfoModel> Update(EmployeeRoleInfoModel employeeRole);
+        Task<bool> Delete(EmployeeRoleInfoModel employeeRole);
     }
 }

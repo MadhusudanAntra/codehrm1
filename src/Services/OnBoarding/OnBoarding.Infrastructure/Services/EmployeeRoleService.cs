@@ -1,38 +1,113 @@
 ﻿using System;
+using OnBoarding.ApplicationCore.Contracts.Repositories;
 using OnBoarding.ApplicationCore.Contracts.Services;
 using OnBoarding.ApplicationCore.Entities;
+using OnBoarding.ApplicationCore.Models;
+using OnBoarding.Infrastructure.Repositories;
 
 namespace OnBoarding.Infrastructure.Services
 {
 	public class EmployeeRoleService : IEmployeeRoleService
 	{
-		public EmployeeRoleService()
+        private readonly IEmployeeRoleRepository _employeeRoleRepository;
+        public EmployeeRoleService(IEmployeeRoleRepository employeeRoleRepository)
 		{
+            _employeeRoleRepository = employeeRoleRepository;
 		}
 
-        public async Task<EmployeeRole> Add(EmployeeRole employeeRole)
+        public async Task<EmployeeRoleInfoModel> Add(EmployeeRoleCreateModel employeeRole)
         {
-            throw new NotImplementedException();
+            var newEmployeeRole = new EmployeeRole
+            {
+                RoleID = 0,
+                Name = employeeRole.Name,
+                Description = employeeRole.Description
+            };
+
+            var Added = await _employeeRoleRepository.Add(newEmployeeRole);
+
+            var result = new EmployeeRoleInfoModel
+            {
+                RoleID = Added.RoleID,
+                Name = Added.Name,
+                Description = Added.Description
+            };
+
+            return result;
         }
 
-        public async Task<int> Delete(EmployeeRole employeeRole)
+        public async Task<bool> Delete(EmployeeRoleInfoModel employeeRole)
         {
-            throw new NotImplementedException();
+            var Deleted = new EmployeeRole
+            {
+                RoleID = employeeRole.RoleID,
+                Name = employeeRole.Name,
+                Description = employeeRole.Description
+            };
+
+            var result = await _employeeRoleRepository.Delete(Deleted);
+            if (result != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            };
         }
 
-        public async Task<IEnumerable<EmployeeRole>> GetAll()
+        public async Task<IEnumerable<EmployeeRoleInfoModel>> GetAll()
         {
-            throw new NotImplementedException();
+            var EmployeeRoles = await _employeeRoleRepository.GetAll();
+
+            IEnumerable<EmployeeRoleInfoModel> result = new List<EmployeeRoleInfoModel>();
+
+            foreach (EmployeeRole role in EmployeeRoles)
+            {
+                result.Append(new EmployeeRoleInfoModel
+                {
+                    RoleID = role.RoleID,
+                    Name = role.Name,
+                    Description = role.Description
+                });
+            }
+
+            return result;
         }
 
-        public async Task<EmployeeRole> GetById(int id)
+        public async Task<EmployeeRoleInfoModel> GetById(int id)
         {
-            throw new NotImplementedException();
+            var employeeRole = await _employeeRoleRepository.GetById(id);
+
+            var result = new EmployeeRoleInfoModel
+            {
+                RoleID = employeeRole.RoleID,
+                Name = employeeRole.Name,
+                Description = employeeRole.Description
+            };
+
+            return result;
         }
 
-        public async Task<EmployeeRole> Update(EmployeeRole employeeRole)
+        public async Task<EmployeeRoleInfoModel> Update(EmployeeRoleInfoModel employeeRole)
         {
-            throw new NotImplementedException();
+            var RoleToUpdate = new EmployeeRole
+            {
+                RoleID = employeeRole.RoleID,
+                Name = employeeRole.Name,
+                Description = employeeRole.Description
+            };
+
+            var UpdatedRole = await _employeeRoleRepository.Update(RoleToUpdate);
+
+            var result = new EmployeeRoleInfoModel
+            {
+                RoleID = UpdatedRole.RoleID,
+                Name = UpdatedRole.Name,
+                Description = UpdatedRole.Description
+            };
+
+            return result;
         }
     }
 }

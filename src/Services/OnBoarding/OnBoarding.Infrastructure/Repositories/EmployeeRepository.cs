@@ -17,11 +17,6 @@ namespace OnBoarding.Infrastructure.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<int> Delete(Employee employee)
-        {
-            throw new NotImplementedException();
-        }
-
         public Task<IEnumerable<Employee>> GetAll()
         {
             throw new NotImplementedException();
@@ -38,7 +33,7 @@ namespace OnBoarding.Infrastructure.Repositories
             throw new NotImplementedException();
         }
 
-        Task<Employee> IRepository<Employee>.Delete(Employee entity)
+        public Task<Employee> Delete(Employee employee)
         {
             throw new NotImplementedException();
         }
