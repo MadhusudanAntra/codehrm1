@@ -39,8 +39,13 @@ public class Recruiter : ControllerBase
     }
 
     [HttpPut]
-    public async Task<ActionResult> UpdateRecruiter([FromBody] RecruiterCreateOrUpdateRequestModel requestModel)
+    [Route("{id:int}")]
+    public async Task<ActionResult> UpdateRecruiter(int id, [FromBody] RecruiterCreateOrUpdateRequestModel requestModel)
     {
+        if (id != requestModel.RecruiterId)
+        {
+            return BadRequest("Recruiter id doesn't match");
+        }
         var updatedRecruiter = await _recruiterService.UpdateRecruiter(requestModel);
         return Ok();
     }

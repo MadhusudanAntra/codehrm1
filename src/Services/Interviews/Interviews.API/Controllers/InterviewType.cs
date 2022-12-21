@@ -42,9 +42,14 @@ public class InterviewType : ControllerBase
     }
     
     [HttpPut]
-    public async Task<ActionResult> UpdateInterviewType(
+    [Route("{id:int}")]
+    public async Task<ActionResult> UpdateInterviewType(int id,
         [FromBody] InterviewTypeCreateOrUpdateRequestModel requestModel)
     {
+        if (id != requestModel.LookupCode)
+        {
+            return BadRequest("Interview type lookup code doesn't match");
+        }
         var updatedInterviewType = await _interviewTypeService.UpdateInterviewType(requestModel);
         return Ok();
     }

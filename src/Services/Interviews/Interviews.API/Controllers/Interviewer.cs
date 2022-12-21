@@ -1,3 +1,4 @@
+using System.Data;
 using Interviews.ApplicationCore.Contracts.Services;
 using Interviews.ApplicationCore.DataModels.RequestModels;
 using Interviews.ApplicationCore.DataModels.ResponseModels;
@@ -39,8 +40,13 @@ public class Interviewer : ControllerBase
     }
 
     [HttpPut]
-    public async Task<ActionResult> UpdateInterviewer([FromBody] InterviewerCreateOrUpdateRequestModel requestModel)
+    [Route("{id:int}")]
+    public async Task<ActionResult> UpdateInterviewer(int id, [FromBody] InterviewerCreateOrUpdateRequestModel requestModel)
     {
+        if (id != requestModel.InterviewerId)
+        {
+            return BadRequest("Interviewer Id doesn't match");
+        }
         var updatedInterviewer = await _interviewerService.UpdateInterviewer(requestModel);
         return Ok();
     }

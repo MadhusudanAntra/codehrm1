@@ -33,9 +33,14 @@ public class InterviewFeedback : ControllerBase
     }
 
     [HttpPut]
-    public async Task<ActionResult> UpdateInterviewFeedback(
+    [Route("{id:int}")]
+    public async Task<ActionResult> UpdateInterviewFeedback(int id,
         [FromBody] InterviewFeedbackCreateOrUpdateRequestModel requestModel)
     {
+        if (id != requestModel.InterviewFeedbackId)
+        {
+            return BadRequest("Interview Feedback Id doesn't match");
+        }
         var updatedInterviewFeedback = await _interviewFeedbackService.UpdateInterviewFeedback(requestModel);
         return Ok();
     }
