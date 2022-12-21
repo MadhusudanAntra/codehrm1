@@ -17,7 +17,7 @@ public class InterviewRepository : IInterviewRepository
     public async Task<Interview> Create(Interview entity)
     {
         IDbConnection conn = _dbConnection.GetConnection();
-        await conn.ExecuteAsync("INSERT INTO Interview VALUES(@InterviewId, @InterviewFeedbackId, @InterviewerId, @InterviewTypeCode, @RecruiterId, @SubmissionId, @BeginTime, @EndTime)", entity);
+        await conn.ExecuteAsync("INSERT INTO Interview VALUES(@InterviewId, @InterviewerId, @InterviewTypeCode, @RecruiterId, @SubmissionId, @BeginTime, @EndTime)", entity);
         return entity;
     }
 
@@ -25,7 +25,7 @@ public class InterviewRepository : IInterviewRepository
     {
         IDbConnection conn = _dbConnection.GetConnection();
         await conn.ExecuteAsync(
-            "UPDATE Interview SET InterviewerId = @InterviewerId, @InterviewTypeCode = InterviewTypeCode, @RecruiterId = RecruiterId, SubmissionId = @SubmissionId, BeginTime = @BeginTime, EndTime = @EndTime  WHERE InterviewFeedbackId = @InterviewFeedbackId", entity);
+            "UPDATE Interview SET InterviewerId = @InterviewerId, @InterviewTypeCode = InterviewTypeCode, @RecruiterId = RecruiterId, SubmissionId = @SubmissionId, BeginTime = @BeginTime, EndTime = @EndTime  WHERE InterviewId = @InterviewId", entity);
         return entity;
     }
 
@@ -44,7 +44,7 @@ public class InterviewRepository : IInterviewRepository
     public async Task<Interview> GetById(int id)
     {
         IDbConnection conn = _dbConnection.GetConnection();
-        return await conn.QuerySingleOrDefaultAsync<Interview>("SELECT InterviewId, InterviewerId, InterviewTypeCode, RecruiterId, SubmissionId,BeginTime, EndTime FROM Interviewer WHERE InterviewerId = @InterviewId", new{InterviewId = id});
+        return await conn.QuerySingleOrDefaultAsync<Interview>("SELECT InterviewId, InterviewerId, InterviewTypeCode, RecruiterId, SubmissionId,BeginTime, EndTime FROM Interview WHERE InterviewerId = @InterviewId", new{InterviewId = id});
     }
 
     public async Task<IEnumerable<Interview>> GetInterviewByDate(DateTime date)

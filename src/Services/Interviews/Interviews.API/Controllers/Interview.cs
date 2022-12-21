@@ -24,15 +24,15 @@ public class Interview : ControllerBase
     }
 
     [HttpGet]
-    [Route("{interviewerId:int}")]
-    public async Task<ActionResult<InterviewResponseModel>> GetInterviewById(int interviewerId)
+    [Route("{id:int}")]
+    public async Task<ActionResult<InterviewResponseModel>> GetInterviewById(int id)
     {
-        var interview = await _interviewService.GetInterviewById(interviewerId);
+        var interview = await _interviewService.GetInterviewById(id);
         return Ok(interview);
     }
     
     [HttpGet]
-    [Route("{id:int}")]
+    [Route("interviewer/{id:int}")]
     public async Task<ActionResult<IEnumerable<InterviewResponseModel>>> GetInterviewByInterviewer(int id)
     {
         var interviews = await _interviewService.GetInterviewsByInterviewerId(id);
