@@ -15,8 +15,7 @@ public class DbConnection
 
     public SqlConnection GetConnection()
     {
-        //string conn = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build().GetConnectionString("HRM_Interview");
-        string conn = _configuration.GetConnectionString("HRM_Interview");
+        var conn = _configuration.GetConnectionString("HRM_Interview");
         return new SqlConnection(conn);
     }
 
