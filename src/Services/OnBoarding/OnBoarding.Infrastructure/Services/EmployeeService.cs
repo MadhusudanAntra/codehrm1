@@ -56,25 +56,11 @@ namespace OnBoarding.Infrastructure.Services
             return result;
         }
 
-        public async Task<bool> Delete(EmployeeInfoModel employee)
+        public async Task<bool> Delete(int id)
         {
-            var Deleted = new Employee
-            {
-                EmployeeId = employee.EmployeeId,
-                FirstName = employee.FirstName,
-                LastName = employee.LastName,
-                MiddleName = employee.MiddleName,
-                SSN = employee.SSN,
-                HireDate = employee.HireDate,
-                EndDate = employee.EndDate,
-                EmployeeCategoryCode = employee.EmployeeCategoryCode,
-                EmployeeStatusCode = employee.EmployeeStatusCode,
-                Address = employee.Address,
-                Email = employee.Email,
-                EmployeeRoleId = employee.EmployeeRoleId
-            };
+            var employee = await _employeeRepository.GetById(id);
 
-            var result = await _employeeRepository.Delete(Deleted);
+            var result = await _employeeRepository.Delete(employee);
             if (result != null)
             {
                 return true;

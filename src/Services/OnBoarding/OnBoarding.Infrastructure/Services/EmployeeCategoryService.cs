@@ -35,14 +35,9 @@ namespace OnBoarding.Infrastructure.Services
             return result;
         }
 
-        public async Task<bool> Delete(EmployeeCategoryInfoModel employeeCategory)
+        public async Task<bool> Delete(int id)
         {
-            var Deleted = new EmployeeCategory
-            {
-                CategoryID = employeeCategory.CategoryID,
-                Name = employeeCategory.Name,
-                Description = employeeCategory.Description
-            };
+            var Deleted = await _employeeCategoryRepository.GetById(id);
 
             var result = await _employeeCategoryRepository.Delete(Deleted);
             if (result != null)

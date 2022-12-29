@@ -9,6 +9,6 @@ namespace OnBoarding.ApplicationCore.Contracts.Services
         Task<EmployeeRoleInfoModel> GetById(int id);
         Task<EmployeeRoleInfoModel> Add(EmployeeRoleCreateModel employeeRole);
         Task<EmployeeRoleInfoModel> Update(EmployeeRoleInfoModel employeeRole);
-        Task<bool> Delete(EmployeeRoleInfoModel employeeRole);
+        Task<bool> Delete(int id);
     }
 }

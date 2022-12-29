@@ -36,14 +36,9 @@ namespace OnBoarding.Infrastructure.Services
             return result;
         }
 
-        public async Task<bool> Delete(EmployeeRoleInfoModel employeeRole)
+        public async Task<bool> Delete(int id)
         {
-            var Deleted = new EmployeeRole
-            {
-                RoleID = employeeRole.RoleID,
-                Name = employeeRole.Name,
-                Description = employeeRole.Description
-            };
+            var Deleted = await _employeeRoleRepository.GetById(id);
 
             var result = await _employeeRoleRepository.Delete(Deleted);
             if (result != null)
