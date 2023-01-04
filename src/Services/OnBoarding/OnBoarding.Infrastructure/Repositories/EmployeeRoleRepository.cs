@@ -12,30 +12,10 @@ namespace OnBoarding.Infrastructure.Repositories
 		{
 		}
 
-        public async Task<EmployeeRole> Add(EmployeeRole employeeRole)
-        {
-            throw new NotImplementedException();
-        }
-     
-        public async Task<IEnumerable<EmployeeRole>> GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task<EmployeeRole> GetById(int id)
         {
             var role = await _dbContext.EmployeeRoles.Where(r => r.RoleID == id).FirstOrDefaultAsync();
             return role;
-        }
-
-        public async Task<EmployeeRole> Update(EmployeeRole employeeRole)
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task<EmployeeRole> Delete(EmployeeRole employeeRole)
-        {
-            throw new NotImplementedException();
         }
     }
 }

@@ -11,31 +11,10 @@ namespace OnBoarding.Infrastructure.Repositories
 		public EmployeeRepository(HRMDbContext dbContext) : base(dbContext)
 		{
 		}
-
-        public Task<Employee> Add(Employee employee)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<IEnumerable<Employee>> GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task<Employee> GetById(int id)
         {
             var employee = await _dbContext.Employees.Where(e => e.EmployeeId == id).FirstOrDefaultAsync();
             return employee;
-        }
-
-        public Task<Employee> Update(Employee employee)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Employee> Delete(Employee employee)
-        {
-            throw new NotImplementedException();
         }
     }
 }
