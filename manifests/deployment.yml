@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: antrahrmimage 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: antrahrmimage
+  template:
+    metadata:
+      labels:
+        app: antrahrmimage 
+    spec:
+      containers:
+        - name: antrahrmimage 
+          image: antrahrm.azurecr.io/antrahrmimage
+          ports:
+          - containerPort: 8080
