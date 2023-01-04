@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Recruiting.ApplicationCore.Entities
+namespace Recruiting.ApplicationCore.Models
 {
-    public class Candidate
+    public interface CandidateResponseModel
     {
         public int CandidateId { get; set; }
         [MaxLength(50)]
@@ -17,7 +16,5 @@ namespace Recruiting.ApplicationCore.Entities
         public string LastName { get; set; }
         public string Email { get; set; }
         public string ResumeURL { get; set; }
-        List<Submission>? Submissions { get; set; }
-
     }
 }

@@ -1,12 +1,13 @@
-﻿using System;
+﻿using Recruiting.ApplicationCore.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Recruiting.ApplicationCore.Entities
+namespace Recruiting.ApplicationCore.Models
 {
-    public class JobRequirement
+    public class JobRequirementRequestModel
     {
         public int JobRequirementId { get; set; }
         public int NumberOfPosition { get; set; }
@@ -17,11 +18,7 @@ namespace Recruiting.ApplicationCore.Entities
         public DateTime StartDate { get; set; }
         public bool IsActive { get; set; }
         public DateTime? ClosedOn { get; set; }
-        public string ClosedReason { get; set; }
+        public bool ClosedReason { get; set; }
         public DateTime CreatedOn { get; set; }
-        public JobRequirementCategory JobRequirementCategory { get; set; }
-        public List<EmployeeRequirementType> EmployeeRequirementType {get; set;} 
-        public List<Submission> Submissions { get; set; }
-
     }
 }

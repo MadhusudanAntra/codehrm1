@@ -12,7 +12,7 @@ namespace Recruiting.Infrastructure.Data
     {
         public RecruitingDbContext(DbContextOptions<RecruitingDbContext> option) : base(option)
         {
-
+            
         }
         public DbSet<Candidate> Candidates { get; set; }
         public DbSet<JobRequirement> JobRequirements { get; set; }

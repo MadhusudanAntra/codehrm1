@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Recruiting.ApplicationCore.Entities
+namespace Recruiting.ApplicationCore.Models
 {
-    public class Submission
+    public class SubmissionRequestModel
     {
         public int SubmissionId { get; set; }
         public int JobRequirementId { get; set; }
@@ -14,8 +14,5 @@ namespace Recruiting.ApplicationCore.Entities
         public DateTime SubmittedOn { get; set; }
         public DateTime ConfirmedOn { get; set; }
         public DateTime RejectedOn { get; set; }
-        public List<SubmissionStatus> SubmissionStatus { get; set; }
-        public JobRequirement JobRequirement { get; set; }
-        public Candidate Candidate { get; set; }
     }
 }

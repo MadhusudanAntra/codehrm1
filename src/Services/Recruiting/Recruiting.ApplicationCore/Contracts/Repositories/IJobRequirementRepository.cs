@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Recruiting.ApplicationCore.Contracts
+namespace Recruiting.ApplicationCore.Contracts.Repositories
 {
-    public interface ISubmissionStatusRepository : IRepository<SubmissionStatus>
+    public interface IJobRequirementRepository : IRepository<JobRequirement>
     {
     }
 }

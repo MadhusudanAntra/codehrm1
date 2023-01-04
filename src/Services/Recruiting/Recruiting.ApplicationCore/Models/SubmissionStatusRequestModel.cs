@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Recruiting.ApplicationCore.Entities
+namespace Recruiting.ApplicationCore.Models
 {
-    public class SubmissionStatus
+    public class SubmissionStatusRequestModel
     {
         public int Id { get; set; }
         public int SubmissionId { get; set; }
         public int StatusId { get; set; }
-        public Submission Submission { get; set; }
-        public Status Status { get; set; }
+        public DateTime ChangedOn { get; set; }
+        public string StatusMessage { get; set; }
     }
 }
