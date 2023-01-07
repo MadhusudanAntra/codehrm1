@@ -18,5 +18,5 @@ namespace OnBoarding.ApplicationCore.Entities
 		public string Address { get; set; }
 		public string Email { get; set; }
 		public EmployeeRole EmployeeRoleId { get; set; }
-	}
+	} 
 }
