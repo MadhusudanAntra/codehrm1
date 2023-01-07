@@ -1,0 +1,50 @@
+CREATE DATABASE HRM_Interview
+GO
+
+USE HRM_Interview
+
+GO
+
+CREATE TABLE Recruiter (
+   RecruiterId int PRIMARY KEY,
+   FirstName NVARCHAR(128) NOT NULL,
+   LastName NVARCHAR(128) NOT NULL,
+   EmployeeId int --get from Recruiting Mircroservice
+)
+
+CREATE TABLE InterviewType(
+   LookupCode int PRIMARY KEY,
+   InterviewTypeName NVARCHAR(128)
+)
+
+GO
+
+CREATE TABLE Interviewer (
+   InterviewerId int PRIMARY KEY,
+   FirstName NVARCHAR(128) NOT NULL,
+   LastName NVARCHAR(128) NOT NULL,
+   EmployeeId int --get from Recruiting microservices
+)
+
+
+GO
+
+CREATE TABLE Interview (
+   InterviewId int PRIMARY KEY,
+   RecruiterId int FOREIGN KEY REFERENCES Recruiter(RecruiterId),
+   SubmissionId int, --get from Recruiting Mircroservice
+   InterviewTypeCode int FOREIGN KEY REFERENCES InterviewType(LookupCode),
+   InterviewerId int FOREIGN KEY REFERENCES Interviewer(InterviewerId),
+   BeginTime DATETIME,
+   EndTime DATETIME
+)
+
+Go
+
+CREATE TABLE InterviewFeedback(
+  InterviewFeedbackId int PRIMARY KEY,
+  Rating int NOT NULL CHECK (Rating IN (1,2,3,4,5)),
+  Comment NVARCHAR(max),
+  InterviewId int FOREIGN KEY REFERENCES Interview(InterviewId)
+)
+
