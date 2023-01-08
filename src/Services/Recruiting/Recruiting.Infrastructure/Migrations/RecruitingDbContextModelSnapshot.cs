@@ -80,17 +80,17 @@ namespace Recruiting.Infrastructure.Migrations
 
             modelBuilder.Entity("Recruiting.ApplicationCore.Entities.EmployeeType", b =>
                 {
-                    b.Property<int>("EmployeeTypeId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("EmployeeTypeId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("TypeName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("EmployeeTypeId");
+                    b.HasKey("Id");
 
                     b.ToTable("EmployeeTypes");
                 });
@@ -114,17 +114,18 @@ namespace Recruiting.Infrastructure.Migrations
 
             modelBuilder.Entity("Recruiting.ApplicationCore.Entities.JobRequirement", b =>
                 {
-                    b.Property<int>("JobRequirementId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("JobRequirementId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("ClosedOn")
+                    b.Property<DateTime?>("ClosedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<bool>("ClosedReason")
-                        .HasColumnType("bit");
+                    b.Property<string>("ClosedReason")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -141,6 +142,9 @@ namespace Recruiting.Infrastructure.Migrations
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
+                    b.Property<int>("JobCategoryId")
+                        .HasColumnType("int");
+
                     b.Property<int>("NumberOfPosition")
                         .HasColumnType("int");
 
@@ -150,37 +154,11 @@ namespace Recruiting.Infrastructure.Migrations
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("JobRequirementId");
-
-                    b.ToTable("JobRequirements");
-                });
-
-            modelBuilder.Entity("Recruiting.ApplicationCore.Entities.JobRequirementCategory", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("JobCategoryId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("JobCategoryId1")
-                        .HasColumnType("int");
-
-                    b.Property<int>("JobRequirementId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("JobCategoryId1");
+                    b.HasIndex("JobCategoryId");
 
-                    b.HasIndex("JobRequirementId")
-                        .IsUnique();
-
-                    b.ToTable("JobRequirementCategories");
+                    b.ToTable("JobRequirements");
                 });
 
             modelBuilder.Entity("Recruiting.ApplicationCore.Entities.Status", b =>
@@ -191,7 +169,14 @@ namespace Recruiting.Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<DateTime?>("ChangedOn")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("State")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("StatusMessage")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -240,15 +225,8 @@ namespace Recruiting.Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("ChangedOn")
-                        .HasColumnType("datetime2");
-
                     b.Property<int>("StatusId")
                         .HasColumnType("int");
-
-                    b.Property<string>("StatusMessage")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("SubmissionId")
                         .HasColumnType("int");
@@ -281,23 +259,15 @@ namespace Recruiting.Infrastructure.Migrations
                     b.Navigation("JobRequirement");
                 });
 
-            modelBuilder.Entity("Recruiting.ApplicationCore.Entities.JobRequirementCategory", b =>
+            modelBuilder.Entity("Recruiting.ApplicationCore.Entities.JobRequirement", b =>
                 {
                     b.HasOne("Recruiting.ApplicationCore.Entities.JobCategory", "JobCategory")
-                        .WithMany("JobRequirementCategories")
-                        .HasForeignKey("JobCategoryId1")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Recruiting.ApplicationCore.Entities.JobRequirement", "JobRequirement")
-                        .WithOne("JobRequirementCategory")
-                        .HasForeignKey("Recruiting.ApplicationCore.Entities.JobRequirementCategory", "JobRequirementId")
+                        .WithMany("JobRequirements")
+                        .HasForeignKey("JobCategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("JobCategory");
-
-                    b.Navigation("JobRequirement");
                 });
 
             modelBuilder.Entity("Recruiting.ApplicationCore.Entities.Submission", b =>
@@ -345,15 +315,12 @@ namespace Recruiting.Infrastructure.Migrations
 
             modelBuilder.Entity("Recruiting.ApplicationCore.Entities.JobCategory", b =>
                 {
-                    b.Navigation("JobRequirementCategories");
+                    b.Navigation("JobRequirements");
                 });
 
             modelBuilder.Entity("Recruiting.ApplicationCore.Entities.JobRequirement", b =>
                 {
                     b.Navigation("EmployeeRequirementType");
-
-                    b.Navigation("JobRequirementCategory")
-                        .IsRequired();
 
                     b.Navigation("Submissions");
                 });

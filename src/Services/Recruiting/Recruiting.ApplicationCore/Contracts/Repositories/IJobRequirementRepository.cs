@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,5 +10,6 @@ namespace Recruiting.ApplicationCore.Contracts.Repositories
 {
     public interface IJobRequirementRepository : IRepository<JobRequirement>
     {
+        public Task<IEnumerable<JobRequirement>> GetJobRequirementsIncludingCategory(Expression<Func<JobRequirement, bool>> filter);
     }
 }

@@ -13,6 +13,6 @@ namespace Recruiting.ApplicationCore.Contracts.Services
         Task<int> AddJobRequirementAsync(JobRequirementRequestModel model);
         Task<int> UpdateJobRequirementAsync(JobRequirementRequestModel model);
         Task<int> DeleteJobRequirementAsync(int id);
-        Task<List<Candidate>> GetAllJobRequirements();
+        Task<List<JobRequirement>> GetAllJobRequirements();
     }
 }

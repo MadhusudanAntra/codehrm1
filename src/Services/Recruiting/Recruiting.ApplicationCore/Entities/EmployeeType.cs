@@ -15,7 +15,7 @@ namespace Recruiting.ApplicationCore.Entities
     }*/
     public class EmployeeType
     {
-        public int EmployeeTypeId { get; set; }
+        public int Id { get; set; }
         public string TypeName { get; set; }
 
         public List<EmployeeRequirementType> EmployeeRequirementTypes{ get; set; }

@@ -19,20 +19,20 @@ namespace Recruiting.Infrastructure.Services
         }
         public async Task<int> AddSubmissionAsync(SubmissionRequestModel model)
         {
-            var existingSubmission = await submissionRepository.GetUserByEmail(model.Email);
+            var existingSubmission = await submissionRepository.GetSubmissionsByJobAndCandidateId(model.JobRequirementId, model.CandidateId);
             if (existingSubmission != null)
             {
-                throw new Exception("Email is already used");
+                throw new Exception("Submission already made");
             }
             Submission submission = new Submission();
             if (model != null)
             {
-                submission.FirstName = model.FirstName;
-                submission.MiddleName = model.MiddleName;
-                submission.LastName = model.LastName;
-                submission.Email = model.Email;
-                submission.ResumeURL = model.ResumeURL;
-            }
+                submission.JobRequirementId = model.JobRequirementId;
+                submission.CandidateId = model.CandidateId;
+                submission.SubmittedOn = model.SubmittedOn;
+                submission.ConfirmedOn = model.ConfirmedOn;
+                submission.RejectedOn = model.RejectedOn;
+    }
             //returns number of rows affected, typically 1
             return await submissionRepository.InsertAsync(submission);
         }
@@ -50,7 +50,8 @@ namespace Recruiting.Infrastructure.Services
 
         public async Task<int> UpdateSubmissionAsync(SubmissionRequestModel model)
         {
-            var existingSubmission = await submissionRepository.GetUserByEmail(model.Email);
+            var existingSubmission = await submissionRepository
+                .GetSubmissionsByJobAndCandidateId(model.JobRequirementId, model.CandidateId);
             if (existingSubmission == null)
             {
                 throw new Exception("Submission does not exist");
@@ -59,11 +60,11 @@ namespace Recruiting.Infrastructure.Services
             if (model != null)
             {
                 submission.SubmissionId = model.SubmissionId;
-                submission.FirstName = model.FirstName;
-                submission.MiddleName = model.MiddleName;
-                submission.LastName = model.LastName;
-                submission.Email = model.Email;
-                submission.ResumeURL = model.ResumeURL;
+                submission.JobRequirementId = model.JobRequirementId;
+                submission.CandidateId = model.CandidateId;
+                submission.SubmittedOn = model.SubmittedOn;
+                submission.ConfirmedOn = model.ConfirmedOn;
+                submission.RejectedOn = model.RejectedOn;
                 return await submissionRepository.UpdateAsync(submission);
             }
             else

@@ -8,7 +8,7 @@ namespace Recruiting.ApplicationCore.Entities
 {
     public class JobRequirement
     {
-        public int JobRequirementId { get; set; }
+        public int Id { get; set; }
         public int NumberOfPosition { get; set; }
         public string? Title { get; set; }
         public string? Description { get; set; }
@@ -19,7 +19,8 @@ namespace Recruiting.ApplicationCore.Entities
         public DateTime? ClosedOn { get; set; }
         public string ClosedReason { get; set; }
         public DateTime CreatedOn { get; set; }
-        public JobRequirementCategory JobRequirementCategory { get; set; }
+        public int JobCategoryId { get; set; }
+        public JobCategory JobCategory { get; set; } //Manager, employee, Lead, Senior, 
         public List<EmployeeRequirementType> EmployeeRequirementType {get; set;} 
         public List<Submission> Submissions { get; set; }
 

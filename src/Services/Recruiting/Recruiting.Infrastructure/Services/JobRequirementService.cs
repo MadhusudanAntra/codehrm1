@@ -20,52 +20,62 @@ namespace Recruiting.Infrastructure.Services
         }
         public async Task<int> AddJobRequirementAsync(JobRequirementRequestModel model)
         {
-            var existingCandidate = await jobRequirementRepository.GetUserByEmail(model.Email);
-            if (existingCandidate != null)
+            var existingJobRequirement = await jobRequirementRepository.GetJobRequirementsIncludingCategory(x => model.JobCategory.Id == x.JobCategoryId && model.Title == x.Title);
+            
+            if (existingJobRequirement != null)
             {
-                throw new Exception("Email is already used");
+                throw new Exception("Job Category is already used");
             }
-            JobRequirement candidate = new JobRequirement();
+            JobRequirement jobRequirement = new JobRequirement();
             if (model != null)
             {
-                candidate.FirstName = model.FirstName;
-                candidate.MiddleName = model.MiddleName;
-                candidate.LastName = model.LastName;
-                candidate.Email = model.Email;
-                candidate.ResumeURL = model.ResumeURL;
+                jobRequirement.NumberOfPosition = model.NumberOfPosition;
+                jobRequirement.Title = model.Title;
+                jobRequirement.Description = model.Description;
+                jobRequirement.HiringManagerId = model.HiringManagerId;
+                jobRequirement.StartDate = model.StartDate;
+                jobRequirement.IsActive = model.IsActive;
+                jobRequirement.ClosedOn = model.ClosedOn;
+                jobRequirement.ClosedReason = model.ClosedReason;
+                jobRequirement.CreatedOn = model.CreatedOn;
+                jobRequirement.JobCategory = model.JobCategory;
             }
             //returns number of rows affected, typically 1
-            return await JobRequirementRepository.InsertAsync(candidate);
+            return await jobRequirementRepository.InsertAsync(jobRequirement);
         }
 
         public async Task<int> DeleteJobRequirementAsync(int id)
         {
             //returns number of rows affected, typically 1
-            return await JobRequirementRepository.DeleteAsync(id);
+            return await jobRequirementRepository.DeleteAsync(id);
         }
 
-        public async Task<List<Candidate>> GetAllJobRequirements()
+        public async Task<List<JobRequirement>> GetAllJobRequirements()
         {
-            return (await JobRequirementRepository.GetAllAsync()).ToList();
+            return (await jobRequirementRepository.GetAllAsync()).ToList();
         }
 
         public async Task<int> UpdateJobRequirementAsync(JobRequirementRequestModel model)
         {
-            var existingCandidate = await JobRequirementRepository.GetUserByEmail(model.Email);
-            if (existingCandidate == null)
+            var existingJobRequirement = await jobRequirementRepository.GetJobRequirementsIncludingCategory(x => model.JobCategory.Id == x.JobCategoryId && model.Title == x.Title);
+            if (existingJobRequirement == null)
             {
-                throw new Exception("Candidate does not exist");
+                throw new Exception("JobRequirement does not exist");
             }
-            Candidate candidate = new Candidate();
+            JobRequirement jobRequirement = new JobRequirement();
             if (model != null)
             {
-                candidate.CandidateId = model.CandidateId;
-                candidate.FirstName = model.FirstName;
-                candidate.MiddleName = model.MiddleName;
-                candidate.LastName = model.LastName;
-                candidate.Email = model.Email;
-                candidate.ResumeURL = model.ResumeURL;
-                return await candidateRepository.UpdateAsync(candidate);
+                jobRequirement.NumberOfPosition = model.NumberOfPosition;
+                jobRequirement.Title = model.Title;
+                jobRequirement.Description = model.Description;
+                jobRequirement.HiringManagerId = model.HiringManagerId;
+                jobRequirement.StartDate = model.StartDate;
+                jobRequirement.IsActive = model.IsActive;
+                jobRequirement.ClosedOn = model.ClosedOn;
+                jobRequirement.ClosedReason = model.ClosedReason;
+                jobRequirement.CreatedOn = model.CreatedOn;
+                jobRequirement.JobCategory = model.JobCategory;
+                return await jobRequirementRepository.UpdateAsync(jobRequirement);
             }
             else
             {

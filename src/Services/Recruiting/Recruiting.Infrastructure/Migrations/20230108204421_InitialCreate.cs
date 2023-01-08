@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Recruiting.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialMigration : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -32,13 +32,13 @@ namespace Recruiting.Infrastructure.Migrations
                 name: "EmployeeTypes",
                 columns: table => new
                 {
-                    EmployeeTypeId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     TypeName = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_EmployeeTypes", x => x.EmployeeTypeId);
+                    table.PrimaryKey("PK_EmployeeTypes", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -55,10 +55,25 @@ namespace Recruiting.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Statuses",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    State = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ChangedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    StatusMessage = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Statuses", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "JobRequirements",
                 columns: table => new
                 {
-                    JobRequirementId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     NumberOfPosition = table.Column<int>(type: "int", nullable: false),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -67,43 +82,20 @@ namespace Recruiting.Infrastructure.Migrations
                     HiringManagerName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     StartDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     IsActive = table.Column<bool>(type: "bit", nullable: false),
-                    ClosedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ClosedReason = table.Column<bool>(type: "bit", nullable: false),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    ClosedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    ClosedReason = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    JobCategoryId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_JobRequirements", x => x.JobRequirementId);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Statuses",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    State = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Statuses", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Submissions",
-                columns: table => new
-                {
-                    SubmissionId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    JobRequirementId = table.Column<int>(type: "int", nullable: false),
-                    CandidateId = table.Column<int>(type: "int", nullable: false),
-                    SubmittedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ConfirmedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    RejectedOn = table.Column<DateTime>(type: "datetime2", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Submissions", x => x.SubmissionId);
+                    table.PrimaryKey("PK_JobRequirements", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_JobRequirements_JobCategories_JobCategoryId",
+                        column: x => x.JobCategoryId,
+                        principalTable: "JobCategories",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -122,40 +114,42 @@ namespace Recruiting.Infrastructure.Migrations
                         name: "FK_EmployeeRequirementTypes_EmployeeTypes_EmployeeTypeId",
                         column: x => x.EmployeeTypeId,
                         principalTable: "EmployeeTypes",
-                        principalColumn: "EmployeeTypeId",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_EmployeeRequirementTypes_JobRequirements_JobRequirementId",
                         column: x => x.JobRequirementId,
                         principalTable: "JobRequirements",
-                        principalColumn: "JobRequirementId",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "JobRequirementCategories",
+                name: "Submissions",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    SubmissionId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     JobRequirementId = table.Column<int>(type: "int", nullable: false),
-                    JobCategoryId = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    JobCategoryId1 = table.Column<int>(type: "int", nullable: false)
+                    CandidateId = table.Column<int>(type: "int", nullable: false),
+                    SubmittedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ConfirmedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    RejectedOn = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_JobRequirementCategories", x => x.Id);
+                    table.PrimaryKey("PK_Submissions", x => x.SubmissionId);
                     table.ForeignKey(
-                        name: "FK_JobRequirementCategories_JobCategories_JobCategoryId1",
-                        column: x => x.JobCategoryId1,
-                        principalTable: "JobCategories",
-                        principalColumn: "Id",
+                        name: "FK_Submissions_Candidates_CandidateId",
+                        column: x => x.CandidateId,
+                        principalTable: "Candidates",
+                        principalColumn: "CandidateId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_JobRequirementCategories_JobRequirements_JobRequirementId",
+                        name: "FK_Submissions_JobRequirements_JobRequirementId",
                         column: x => x.JobRequirementId,
                         principalTable: "JobRequirements",
-                        principalColumn: "JobRequirementId",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -166,9 +160,7 @@ namespace Recruiting.Infrastructure.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     SubmissionId = table.Column<int>(type: "int", nullable: false),
-                    StatusId = table.Column<int>(type: "int", nullable: false),
-                    ChangedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    StatusMessage = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    StatusId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -198,15 +190,19 @@ namespace Recruiting.Infrastructure.Migrations
                 column: "JobRequirementId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_JobRequirementCategories_JobCategoryId1",
-                table: "JobRequirementCategories",
-                column: "JobCategoryId1");
+                name: "IX_JobRequirements_JobCategoryId",
+                table: "JobRequirements",
+                column: "JobCategoryId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_JobRequirementCategories_JobRequirementId",
-                table: "JobRequirementCategories",
-                column: "JobRequirementId",
-                unique: true);
+                name: "IX_Submissions_CandidateId",
+                table: "Submissions",
+                column: "CandidateId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Submissions_JobRequirementId",
+                table: "Submissions",
+                column: "JobRequirementId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_SubmissionStatuses_StatusId",
@@ -223,13 +219,7 @@ namespace Recruiting.Infrastructure.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Candidates");
-
-            migrationBuilder.DropTable(
                 name: "EmployeeRequirementTypes");
-
-            migrationBuilder.DropTable(
-                name: "JobRequirementCategories");
 
             migrationBuilder.DropTable(
                 name: "SubmissionStatuses");
@@ -238,16 +228,19 @@ namespace Recruiting.Infrastructure.Migrations
                 name: "EmployeeTypes");
 
             migrationBuilder.DropTable(
-                name: "JobCategories");
+                name: "Statuses");
+
+            migrationBuilder.DropTable(
+                name: "Submissions");
+
+            migrationBuilder.DropTable(
+                name: "Candidates");
 
             migrationBuilder.DropTable(
                 name: "JobRequirements");
 
             migrationBuilder.DropTable(
-                name: "Statuses");
-
-            migrationBuilder.DropTable(
-                name: "Submissions");
+                name: "JobCategories");
         }
     }
 }

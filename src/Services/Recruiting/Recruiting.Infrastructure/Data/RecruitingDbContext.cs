@@ -17,7 +17,6 @@ namespace Recruiting.Infrastructure.Data
         public DbSet<Candidate> Candidates { get; set; }
         public DbSet<JobRequirement> JobRequirements { get; set; }
         public DbSet<JobCategory> JobCategories { get; set; }
-        public DbSet<JobRequirementCategory> JobRequirementCategories { get; set; }
         public DbSet<EmployeeType> EmployeeTypes { get; set; }
         public DbSet<EmployeeRequirementType> EmployeeRequirementTypes { get; set; }
         public DbSet<Submission> Submissions { get; set; }

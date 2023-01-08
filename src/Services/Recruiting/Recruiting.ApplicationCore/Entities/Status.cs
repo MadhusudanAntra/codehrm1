@@ -10,7 +10,7 @@ namespace Recruiting.ApplicationCore.Entities
     {
         public int Id { get; set; }
         public string State { get; set; }
-        public DateTime ChangedOn { get; set; }
+        public DateTime? ChangedOn { get; set; }
         public string StatusMessage { get; set; }
 
         //naviagational property

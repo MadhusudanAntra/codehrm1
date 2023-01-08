@@ -13,6 +13,6 @@ namespace Recruiting.ApplicationCore.Contracts.Services
         Task<int> AddStatusAsync(StatusRequestModel model);
         Task<int> UpdateStatusAsync(StatusRequestModel model);
         Task<int> DeleteStatusAsync(int id);
-        Task<List<Candidate>> GetAllStatuss();
+        Task<List<Status>> GetAllStatus();
     }
 }

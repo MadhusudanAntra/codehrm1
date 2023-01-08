@@ -1,4 +1,5 @@
-﻿using Recruiting.ApplicationCore.Contracts.Repositories;
+﻿using Microsoft.EntityFrameworkCore;
+using Recruiting.ApplicationCore.Contracts.Repositories;
 using Recruiting.ApplicationCore.Entities;
 using Recruiting.Infrastructure.Data;
 using System;
@@ -15,6 +16,10 @@ namespace Recruiting.Infrastructure.Repositories
         public SubmissionRepository(RecruitingDbContext context) : base(context)
         {
             _dbContext = context;
+        }
+        public async Task<Submission> GetSubmissionsByJobAndCandidateId(int jobReqId, int candidateId)
+        {
+            return await _dbContext.Submissions.Where(x => x.JobRequirementId == jobReqId && x.CandidateId == candidateId).FirstOrDefaultAsync();
         }
     }
 }

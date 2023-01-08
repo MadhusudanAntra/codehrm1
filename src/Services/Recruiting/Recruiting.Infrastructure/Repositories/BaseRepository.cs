@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query;
 using Recruiting.ApplicationCore.Contracts.Repositories;
 using Recruiting.Infrastructure.Data;
 using System;
@@ -53,7 +54,6 @@ namespace Recruiting.Infrastructure.Repositories
             await _db.SaveChangesAsync();
             return 1;
         }
-
 
         public async Task<int> UpdateAsync(T entity)
         {

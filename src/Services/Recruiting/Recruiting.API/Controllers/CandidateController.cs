@@ -38,6 +38,7 @@ namespace Recruiting.API.Controllers
             }
             return BadRequest();
         }
+
         [HttpDelete]
         [Route("{id}")]
         public async Task<IActionResult> Delete(int id)

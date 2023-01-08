@@ -19,15 +19,15 @@ namespace Recruiting.Infrastructure.Services
         }
         public async Task<int> AddEmployeeTypeAsync(EmployeeTypeRequestModel model)
         {
-            var existingEmployeeType = await employeeTypeRepository.GetUserByEmail(model.Email);
+            var existingEmployeeType = await employeeTypeRepository.GetByConditionAsync(x => x.TypeName == model.TypeName.ToLower());
             if (existingEmployeeType != null)
             {
-                throw new Exception("Email is already used");
+                throw new Exception("Employee Type already exists");
             }
             EmployeeType EmployeeType = new EmployeeType();
             if (model != null)
             {
-                EmployeeType.FirstName = model.FirstName;
+                EmployeeType.TypeName = model.TypeName;
             }
             //returns number of rows affected, typically 1
             return await employeeTypeRepository.InsertAsync(EmployeeType);
@@ -46,7 +46,7 @@ namespace Recruiting.Infrastructure.Services
 
         public async Task<int> UpdateEmployeeTypeAsync(EmployeeTypeRequestModel model)
         {
-            var existingEmployeeType = await employeeTypeRepository.GetUserByEmail(model.Email);
+            var existingEmployeeType = await employeeTypeRepository.GetByConditionAsync(x => x.TypeName == model.TypeName.ToLower());
             if (existingEmployeeType == null)
             {
                 throw new Exception("EmployeeType does not exist");
@@ -54,12 +54,7 @@ namespace Recruiting.Infrastructure.Services
             EmployeeType EmployeeType = new EmployeeType();
             if (model != null)
             {
-                EmployeeType.EmployeeTypeId = model.EmployeeTypeId;
-                EmployeeType.FirstName = model.FirstName;
-                EmployeeType.MiddleName = model.MiddleName;
-                EmployeeType.LastName = model.LastName;
-                EmployeeType.Email = model.Email;
-                EmployeeType.ResumeURL = model.ResumeURL;
+                EmployeeType.TypeName = model.TypeName.ToLower();
                 return await employeeTypeRepository.UpdateAsync(EmployeeType);
             }
             else

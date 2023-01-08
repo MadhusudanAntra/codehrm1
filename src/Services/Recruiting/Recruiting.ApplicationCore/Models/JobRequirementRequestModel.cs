@@ -9,7 +9,7 @@ namespace Recruiting.ApplicationCore.Models
 {
     public class JobRequirementRequestModel
     {
-        public int JobRequirementId { get; set; }
+        public int Id { get; set; }
         public int NumberOfPosition { get; set; }
         public string? Title { get; set; }
         public string? Description { get; set; }
@@ -18,7 +18,8 @@ namespace Recruiting.ApplicationCore.Models
         public DateTime StartDate { get; set; }
         public bool IsActive { get; set; }
         public DateTime? ClosedOn { get; set; }
-        public bool ClosedReason { get; set; }
+        public string ClosedReason { get; set; }
         public DateTime CreatedOn { get; set; }
+        public JobCategory JobCategory { get; set; }
     }
 }

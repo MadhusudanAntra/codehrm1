@@ -2,6 +2,7 @@
 using Recruiting.ApplicationCore.Contracts.Services;
 using Recruiting.ApplicationCore.Entities;
 using Recruiting.ApplicationCore.Models;
+using Recruiting.Infrastructure.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,56 +13,56 @@ namespace Recruiting.Infrastructure.Services
 {
     public class StatusService : IStatusService
     {
-        IEmployeeTypeRepository employeeTypeRepository;
-        public EmployeeTypeService(IEmployeeTypeRepository _employeeTypes)
+        IStatusRepository statusRepository;
+        public StatusService(IStatusRepository _status)
         {
-            employeeTypeRepository = _employeeTypes;
+            statusRepository = _status;
         }
-        public async Task<int> AddEmployeeTypeAsync(EmployeeTypeRequestModel model)
+        public async Task<int> AddStatusAsync(StatusRequestModel model)
         {
-            var existingEmployeeType = await employeeTypeRepository.GetUserByEmail(model.Email);
-            if (existingEmployeeType != null)
+            var existingStatus = await statusRepository.GetAllAsync();
+            if (existingStatus != null && existingStatus.First(x => x.ChangedOn == existingStatus.Max(x => x.ChangedOn)).State == model.State)
             {
-                throw new Exception("Email is already used");
+                throw new Exception("Status is not changing");
             }
-            EmployeeType EmployeeType = new EmployeeType();
+            Status status = new Status();
             if (model != null)
             {
-                EmployeeType.FirstName = model.FirstName;
+                status.State = model.State;
+                status.ChangedOn = DateTime.Now;
+                status.StatusMessage = model.StatusMessage;
             }
             //returns number of rows affected, typically 1
-            return await employeeTypeRepository.InsertAsync(EmployeeType);
+            return await statusRepository.InsertAsync(status);
         }
 
-        public async Task<int> DeleteEmployeeTypeAsync(int id)
+        public async Task<int> DeleteStatusAsync(int id)
         {
             //returns number of rows affected, typically 1
-            return await employeeTypeRepository.DeleteAsync(id);
+            return await statusRepository.DeleteAsync(id);
         }
 
-        public async Task<List<EmployeeType>> GetAllEmployeeTypes()
+        public async Task<List<Status>> GetAllStatus()
         {
-            return (await employeeTypeRepository.GetAllAsync()).ToList();
+            return (await statusRepository.GetAllAsync()).ToList();
         }
 
-        public async Task<int> UpdateEmployeeTypeAsync(EmployeeTypeRequestModel model)
+        public async Task<int> UpdateStatusAsync(StatusRequestModel model)
         {
-            var existingEmployeeType = await employeeTypeRepository.GetUserByEmail(model.Email);
-            if (existingEmployeeType == null)
+            var existingStatus = await statusRepository.GetAllAsync();
+            if (existingStatus != null && existingStatus.First(x => x.ChangedOn == existingStatus.Max(x => x.ChangedOn)).State == model.State)
             {
-                throw new Exception("EmployeeType does not exist");
+                throw new Exception("Status is not changing");
             }
-            EmployeeType EmployeeType = new EmployeeType();
+            Status status = new Status();
             if (model != null)
             {
-                EmployeeType.EmployeeTypeId = model.EmployeeTypeId;
-                EmployeeType.FirstName = model.FirstName;
-                EmployeeType.MiddleName = model.MiddleName;
-                EmployeeType.LastName = model.LastName;
-                EmployeeType.Email = model.Email;
-                EmployeeType.ResumeURL = model.ResumeURL;
-                return await employeeTypeRepository.UpdateAsync(EmployeeType);
+                status.State = model.State;
+                status.ChangedOn = DateTime.Now;
+                status.StatusMessage = model.StatusMessage;
+                return await statusRepository.UpdateAsync(status);
             }
+            
             else
             {
                 //unsuccessful update

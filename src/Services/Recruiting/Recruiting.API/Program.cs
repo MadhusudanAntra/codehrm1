@@ -18,16 +18,16 @@ builder.Services.AddScoped<ICandidateRepository, CandidateRepository>();
 builder.Services.AddScoped<ICandidateService, CandidateService>();
 
 builder.Services.AddScoped<IJobRequirementRepository, JobRequirementRepository>();
-//builder.Services.AddScoped<ICandidateService, CandidateService>();
+builder.Services.AddScoped<IJobRequirementService, JobRequirementService>();
 
 builder.Services.AddScoped<ISubmissionRepository, SubmissionRepository>();
-//builder.Services.AddScoped<ICandidateService, CandidateService>();
+builder.Services.AddScoped<ISubmissionService, SubmissionService>();
 
-builder.Services.AddScoped<IStatusRepository, SubmissionStatusRepository>();
-//builder.Services.AddScoped<ICandidateService, CandidateService>();
+builder.Services.AddScoped<IStatusRepository, StatusRepository>();
+builder.Services.AddScoped<IStatusService, StatusService>();
 
-//builder.Services.AddScoped<ICandidateRepository, CandidateRepository>();
-//builder.Services.AddScoped<ICandidateService, CandidateService>();
+builder.Services.AddScoped<IEmployeeTypeRepository, EmployeeTypeRepository>();
+builder.Services.AddScoped<IEmployeeTypeService, EmployeeTypeService>();
 
 builder.Services.AddDbContext<RecruitingDbContext>(option => {
     option.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
