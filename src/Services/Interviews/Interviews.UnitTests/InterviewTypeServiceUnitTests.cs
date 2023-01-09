@@ -1,6 +1,6 @@
 namespace Interviews.UnitTests;
 
-public class Tests
+public class InterviewTypeServiceUnitTests
 {
     [SetUp]
     public void Setup()

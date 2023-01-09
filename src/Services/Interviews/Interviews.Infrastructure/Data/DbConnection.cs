@@ -15,7 +15,8 @@ public class DbConnection
 
     public SqlConnection GetConnection()
     {
-        var conn = _configuration.GetConnectionString("HRM_Interview");
+        //var conn = _configuration.GetConnectionString("HRM_Interview");
+        var conn = Environment.GetEnvironmentVariable("MSSQLConnectionString");
         return new SqlConnection(conn);
     }
 
