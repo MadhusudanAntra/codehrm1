@@ -7,7 +7,40 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3"/>
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+        <PackageReference Include="System.Text.Json" Version="7.0.1" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Logging" Version="7.0.0" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.1" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.1">
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.1" />
+        <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.11" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\OnBoarding.ApplicationCore\OnBoarding.ApplicationCore.csproj">
+        <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+      </ProjectReference>
+      <ProjectReference Include="..\OnBoarding.Infrastructure\OnBoarding.Infrastructure.csproj">
+        <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+      </ProjectReference>
+    </ItemGroup>
+    <ItemGroup>
+      <None Remove="Newtonsoft.Json" />
+      <None Remove="System.Text.Json" />
+      <None Remove="Microsoft.Extensions.DependencyInjection" />
+      <None Remove="Microsoft.Extensions.Logging" />
+      <None Remove="Microsoft.EntityFrameworkCore" />
+      <None Remove="Microsoft.EntityFrameworkCore.Tools" />
+      <None Remove="Microsoft.EntityFrameworkCore.SqlServer" />
+      <None Remove="Controllers\" />
+      <None Remove="Microsoft.VisualStudio.Web.CodeGeneration.Design" />
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="Controllers\" />
+    </ItemGroup>
 </Project>
