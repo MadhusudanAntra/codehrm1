@@ -11,9 +11,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
-builder.Services.AddDbContext<AuthenticationDbContext>(options =>
-    options.UseSqlServer(builder.Configuration
-        .GetConnectionString("IdentityDbConnection")));
+var MSSQLDB = Environment.GetEnvironmentVariable("MSSQLConnectionString");
+
+builder.Services.AddDbContext<AuthenticationDbContext>(options => options.UseSqlServer(MSSQLDB));
 
 builder.Services.AddScoped<IAuthenticationService<User>, AuthenticationService>();
 
