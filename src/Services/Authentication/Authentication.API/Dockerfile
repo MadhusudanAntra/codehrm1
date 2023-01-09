@@ -1,8 +1,20 @@
-﻿FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
+﻿FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
+WORKDIR /app
+EXPOSE 80
+EXPOSE 443
+
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-RUN dotnet dev-certs https
-COPY bin/Release/net6.0/publish/ app/
-ENV ASPNETCORE_URLS https://+:83
-EXPOSE 83
-ENV MSSQLConnectionString='Server=tcp:hrm.database.windows.net,1433;Initial Catalog=OnBoarding;Persist Security Info=False;User ID=AntraFS;Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;'
-ENTRYPOINT ["dotnet", "app/Authentication.API.dll"]
+COPY ["Services/Authentication/Authentication.API/Authentication.API.csproj", "Services/Authentication/Authentication.API/"]
+RUN dotnet restore "Services/Authentication/Authentication.API/Authentication.API.csproj"
+COPY . .
+WORKDIR "/src/Services/Authentication/Authentication.API"
+RUN dotnet build "Authentication.API.csproj" -c Release -o /app/build
+
+FROM build AS publish
+RUN dotnet publish "Authentication.API.csproj" -c Release -o /app/publish
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "Authentication.API.dll"]
