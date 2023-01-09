@@ -23,11 +23,18 @@ namespace Recruiting.API.Controllers
         public async Task<IActionResult> GetAllJobRequirements()
         {
             var jobRequirement = await jobRequirementService.GetAllJobRequirements();
-            if (!jobRequirement.Any() || jobRequirement.Count == 0)
+            if (!jobRequirement.Any() || jobRequirement.Count() == 0)
             {
                 return NotFound();
             }
             return Ok(jobRequirement);
+        }
+        [HttpGet]
+        [Route("{id:int", Name = "GetJobRequirement")]
+        public async Task<ActionResult<JobRequirementResponseModel>> GetJobRequirement(int id)
+        {
+            var jR = await jobRequirementService.GetJobRequirementByIdAsync(id);
+            return Ok(jR);
         }
 
         // GET api/<JobRequirementController>/5
@@ -50,7 +57,7 @@ namespace Recruiting.API.Controllers
         }
 
         [HttpDelete]
-        [Route("{id}")]
+        [Route("delete-{id}")]
         public async Task<IActionResult> Delete(int id)
         {
             var response = new { Message = "deleted" };

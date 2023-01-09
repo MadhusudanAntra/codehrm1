@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Recruiting.ApplicationCore.Contracts.Repositories
 {
-    public interface ISubmissionRepository : IRepository<Submission>
+    public interface ISubmissionRepository : IBaseRepository<Submission>
     {
         public Task<Submission> GetSubmissionsByJobAndCandidateId(int jobReqId, int candidateId);
     }

@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Recruiting.ApplicationCore.Models
 {
-    public class CandidateCreateRequestModel
+    public class CandidateRequestModel
     {
-        public int CandidateId { get; set; }
+        public int Id { get; set; }
         [MaxLength(50)]
         public string FirstName { get; set; }
         public string? MiddleName { get; set; }

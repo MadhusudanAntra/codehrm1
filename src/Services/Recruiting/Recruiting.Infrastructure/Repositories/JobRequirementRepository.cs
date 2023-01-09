@@ -13,10 +13,8 @@ namespace Recruiting.Infrastructure.Repositories
 {
     public class JobRequirementRepository : BaseRepository<JobRequirement>, IJobRequirementRepository
     {
-        RecruitingDbContext _dbContext;
         public JobRequirementRepository(RecruitingDbContext context) : base(context)
         {
-            _dbContext = context;
         }
 
         public async Task<IEnumerable<JobRequirement>> GetJobRequirementsIncludingCategory(Expression<Func<JobRequirement, bool>> filter)

@@ -20,16 +20,23 @@ namespace Recruiting.API.Controllers
         public async Task<IActionResult> GetAllCandidate()
         {
             var candidates = await candidateService.GetAllCandidates();
-            if(!candidates.Any() || candidates.Count == 0)
+            if(!candidates.Any() || candidates.Count() == 0)
             {
                 return NotFound();
             }
             return Ok(candidates);
         }
+        [HttpGet]
+        [Route("{id:int", Name = "GetCandidate")]
+        public async Task<ActionResult<CandidateResponseModel>> GetCandidate(int id)
+        {
+            var candidate = await candidateService.GetCandidateByIdAsync(id);
+            return Ok(candidate);
+        }
 
         [HttpPost]
         [Route("addcandidate")]
-        public async Task<IActionResult> Post(CandidateCreateRequestModel model)
+        public async Task<IActionResult> Post(CandidateRequestModel model)
         {
             if (model!= null)
             {
@@ -40,7 +47,7 @@ namespace Recruiting.API.Controllers
         }
 
         [HttpDelete]
-        [Route("{id}")]
+        [Route("delete-{id}")]
         public async Task<IActionResult> Delete(int id)
         {
             var response = new { Message = "deleted" };
@@ -49,7 +56,7 @@ namespace Recruiting.API.Controllers
             return NoContent();
         }
         [HttpPut]
-        public async Task<IActionResult> Put(CandidateCreateRequestModel model)
+        public async Task<IActionResult> Put(CandidateRequestModel model)
         {
             var response = new { Message = "Candidate is updated" };
             if (await candidateService.UpdateCandidateAsync(model) > 0)

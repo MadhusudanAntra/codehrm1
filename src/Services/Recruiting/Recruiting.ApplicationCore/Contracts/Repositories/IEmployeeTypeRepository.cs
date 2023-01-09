@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace Recruiting.ApplicationCore.Contracts.Repositories
 {
-    public interface IEmployeeTypeRepository : IRepository<EmployeeType>
+    public interface IEmployeeTypeRepository : IBaseRepository<EmployeeType>
     {
+        Task<EmployeeType> GetEmployeeTypeByTypeName(string typeName);
     }
 }

@@ -11,10 +11,11 @@ namespace Recruiting.ApplicationCore.Contracts.Services
     public interface ICandidateService
     {
     
-        Task<int> AddCandidateAsync(CandidateCreateRequestModel model);
-        Task<int> UpdateCandidateAsync(CandidateCreateRequestModel model);
+        Task<int> AddCandidateAsync(CandidateRequestModel model);
+        Task<int> UpdateCandidateAsync(CandidateRequestModel model);
         Task<int> DeleteCandidateAsync(int id);
         //Task <CandidateInfoResponseModel> GetCandidateInfo(int id);
-        Task<List<Candidate>> GetAllCandidates();
+        Task<IEnumerable<CandidateResponseModel>> GetAllCandidates();
+        Task<CandidateResponseModel> GetCandidateByIdAsync(int id);
     }
 }

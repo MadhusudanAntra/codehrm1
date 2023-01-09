@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace Recruiting.ApplicationCore.Models
 {
-    public class EmployeeTypeRequestModel
+    public class StatusResponseModel
     {
         public int Id { get; set; }
-        public string TypeName { get; set; }
+        public string State { get; set; }
+        public DateTime? ChangedOn { get; set; }
+        public string StatusMessage { get; set; }
     }
 }

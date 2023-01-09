@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Recruiting.ApplicationCore.Contracts.Services;
 using Recruiting.ApplicationCore.Models;
+using Recruiting.Infrastructure.Services;
 
 namespace Recruiting.API.Controllers
 {
@@ -21,11 +22,18 @@ namespace Recruiting.API.Controllers
         public async Task<IActionResult> GetAllEmployeeTypes()
         {
             var employeeType = await employeeTypeService.GetAllEmployeeTypes();
-            if (!employeeType.Any() || employeeType.Count == 0)
+            if (!employeeType.Any() || employeeType.Count() == 0)
             {
                 return NotFound();
             }
             return Ok(employeeType);
+        }
+        [HttpGet]
+        [Route("{id:int", Name = "GetEmployeeType")]
+        public async Task<ActionResult<EmployeeTypeResponseModel>> GetEmployeeType(int id)
+        {
+            var empType = await employeeTypeService.GetEmployeeTypeByIdAsync(id);
+            return Ok(empType);
         }
 
         // GET api/<EmployeeTypeController>/5
@@ -48,7 +56,7 @@ namespace Recruiting.API.Controllers
         }
 
         [HttpDelete]
-        [Route("{id}")]
+        [Route("delete-{id}")]
         public async Task<IActionResult> Delete(int id)
         {
             var response = new { Message = "deleted" };

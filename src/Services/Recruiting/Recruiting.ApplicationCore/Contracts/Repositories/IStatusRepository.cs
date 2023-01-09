@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Recruiting.ApplicationCore.Contracts.Repositories
 {
-    public interface IStatusRepository : IRepository<Status>
+    public interface IStatusRepository : IBaseRepository<Status>
     {
     }
 }

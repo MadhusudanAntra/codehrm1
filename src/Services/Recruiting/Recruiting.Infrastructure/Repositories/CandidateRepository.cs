@@ -12,10 +12,8 @@ namespace Recruiting.Infrastructure.Repositories
 {
     public class CandidateRepository :BaseRepository<Candidate>, ICandidateRepository
     {
-        RecruitingDbContext _dbContext;
         public CandidateRepository(RecruitingDbContext context) : base(context)
         {
-            _dbContext = context;
         }
 
         public async Task<Candidate> GetUserByEmail(string email)

@@ -11,10 +11,8 @@ namespace Recruiting.Infrastructure.Repositories
 {
     public class JobCategoryRepository : BaseRepository<JobCategory>, IJobCategoryRepository
     {
-        RecruitingDbContext _dbContext;
         public JobCategoryRepository(RecruitingDbContext context) : base(context)
         {
-            _dbContext = context;
         }
     }
 }

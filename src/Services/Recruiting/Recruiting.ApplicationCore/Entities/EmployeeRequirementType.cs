@@ -8,7 +8,7 @@ namespace Recruiting.ApplicationCore.Entities
 {
     public class EmployeeRequirementType
     {
-        public int EmployeeRequirementTypeId { get; set; }
+        public int Id { get; set; }
         public int JobRequirementId { get; set; }
         public int EmployeeTypeId { get; set; }
 

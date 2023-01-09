@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Recruiting.ApplicationCore.Models
 {
-    public class EmployeeTypeRequestModel
+    public class EmployeeTypeResponseModel
     {
         public int Id { get; set; }
         public string TypeName { get; set; }

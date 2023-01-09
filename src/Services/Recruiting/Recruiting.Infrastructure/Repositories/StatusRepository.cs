@@ -11,10 +11,8 @@ namespace Recruiting.Infrastructure.Repositories
 {
     public class StatusRepository : BaseRepository<Status>, IStatusRepository
     {
-        RecruitingDbContext _dbContext;
         public StatusRepository(RecruitingDbContext context) : base(context)
         {
-            _dbContext = context;
         }
     }
 }

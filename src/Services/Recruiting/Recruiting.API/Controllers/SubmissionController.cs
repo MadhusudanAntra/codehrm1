@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Recruiting.ApplicationCore.Contracts.Services;
 using Recruiting.ApplicationCore.Models;
+using Recruiting.Infrastructure.Services;
 
 namespace Recruiting.API.Controllers
 {
@@ -21,11 +22,19 @@ namespace Recruiting.API.Controllers
         public async Task<IActionResult> GetAllSubmissions()
         {
             var submission = await submissionService.GetAllSubmissions();
-            if (!submission.Any() || submission.Count == 0)
+            if (!submission.Any() || submission.Count() == 0)
             {
                 return NotFound();
             }
             return Ok(submission);
+        }
+
+        [HttpGet]
+        [Route("{id:int", Name = "GetSubmission")]
+        public async Task<ActionResult<SubmissionResponseModel>> GetSubmission(int id)
+        {
+            var sub = await submissionService.GetSubmissionByIdAsync(id);
+            return Ok(sub);
         }
 
         // GET api/<SubmissionController>/5
@@ -48,7 +57,7 @@ namespace Recruiting.API.Controllers
         }
 
         [HttpDelete]
-        [Route("{id}")]
+        [Route("delete-{id}")]
         public async Task<IActionResult> Delete(int id)
         {
             var response = new { Message = "submission is deleted" };

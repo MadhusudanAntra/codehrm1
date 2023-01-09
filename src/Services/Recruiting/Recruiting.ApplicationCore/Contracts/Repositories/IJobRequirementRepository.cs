@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Recruiting.ApplicationCore.Contracts.Repositories
 {
-    public interface IJobRequirementRepository : IRepository<JobRequirement>
+    public interface IJobRequirementRepository : IBaseRepository<JobRequirement>
     {
         public Task<IEnumerable<JobRequirement>> GetJobRequirementsIncludingCategory(Expression<Func<JobRequirement, bool>> filter);
     }

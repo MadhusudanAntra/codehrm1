@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Recruiting.ApplicationCore.Contracts.Repositories
 {
-    public interface IJobCategoryRepository : IRepository<JobCategory>
+    public interface IJobCategoryRepository : IBaseRepository<JobCategory>
     {
     }
 }

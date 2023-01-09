@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Recruiting.ApplicationCore.Contracts.Services;
 using Recruiting.ApplicationCore.Models;
+using Recruiting.Infrastructure.Services;
 
 namespace Recruiting.API.Controllers
 {
@@ -21,13 +22,20 @@ namespace Recruiting.API.Controllers
         public async Task<IActionResult> GetAllStatuss()
         {
             var status = await statusService.GetAllStatus();
-            if (!status.Any() || status.Count == 0)
+            if (!status.Any() || status.Count() == 0)
             {
                 return NotFound();
             }
             return Ok(status);
         }
 
+        [HttpGet]
+        [Route("{id:int", Name = "GetStatus")]
+        public async Task<ActionResult<StatusResponseModel>> GetStatus(int id)
+        {
+            var stat = await statusService.GetStatusByIdAsync(id);
+            return Ok(stat);
+        }
         // GET api/<StatusController>/5
         //[HttpGet("{id}")]
         //public string Get(int id)
@@ -48,7 +56,7 @@ namespace Recruiting.API.Controllers
         }
 
         [HttpDelete]
-        [Route("{id}")]
+        [Route("delete-{id}")]
         public async Task<IActionResult> Delete(int id)
         {
             var response = new { Message = "Status is deleted" };

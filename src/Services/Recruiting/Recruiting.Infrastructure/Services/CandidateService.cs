@@ -1,7 +1,9 @@
 ﻿using Recruiting.ApplicationCore.Contracts.Repositories;
 using Recruiting.ApplicationCore.Contracts.Services;
 using Recruiting.ApplicationCore.Entities;
+using Recruiting.ApplicationCore.Exceptions;
 using Recruiting.ApplicationCore.Models;
+using Recruiting.Infrastructure.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,8 +19,9 @@ namespace Recruiting.Infrastructure.Services
         {
             candidateRepository = _candidates;
         }
-        public async Task<int> AddCandidateAsync(CandidateCreateRequestModel model)
+        public async Task<int> AddCandidateAsync(CandidateRequestModel model)
         {
+            // Get User By Email uses FirstorDefault which allows Null as return. 
             var existingCandidate = await candidateRepository.GetUserByEmail(model.Email);
             if(existingCandidate != null)
             {
@@ -43,12 +46,28 @@ namespace Recruiting.Infrastructure.Services
             return await candidateRepository.DeleteAsync(id);
         }
 
-        public async Task<List<Candidate>> GetAllCandidates()
+        public async Task<IEnumerable<CandidateResponseModel>> GetAllCandidates()
         {
-            return (await candidateRepository.GetAllAsync()).ToList();
+            var candidates = await candidateRepository.GetAllAsync();
+            var response = candidates.Select(x => x.ToCandidateResponseModel());
+            return response;
         }
 
-        public async Task<int> UpdateCandidateAsync(CandidateCreateRequestModel model)
+        public async Task<CandidateResponseModel> GetCandidateByIdAsync(int id)
+        {
+            var candidate = await candidateRepository.GetByIdAsync(id);
+            if (candidate != null)
+            {
+                var response = candidate.ToCandidateResponseModel();
+                return response;
+            }
+            else
+            {
+                throw new NotFoundException("Candidate", id);
+            }
+        }
+
+        public async Task<int> UpdateCandidateAsync(CandidateRequestModel model)
         {
             var existingCandidate = await candidateRepository.GetUserByEmail(model.Email);
             if (existingCandidate == null)
@@ -58,7 +77,7 @@ namespace Recruiting.Infrastructure.Services
             Candidate candidate = new Candidate();
             if (model != null)
             {
-                candidate.CandidateId = model.CandidateId;
+                candidate.Id = model.Id;
                 candidate.FirstName = model.FirstName;
                 candidate.MiddleName = model.MiddleName;
                 candidate.LastName = model.LastName;

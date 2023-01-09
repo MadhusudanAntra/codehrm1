@@ -1,7 +1,10 @@
 ﻿using Recruiting.ApplicationCore.Contracts.Repositories;
 using Recruiting.ApplicationCore.Contracts.Services;
 using Recruiting.ApplicationCore.Entities;
+using Recruiting.ApplicationCore.Exceptions;
 using Recruiting.ApplicationCore.Models;
+using Recruiting.Infrastructure.Helpers;
+using Recruiting.Infrastructure.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +22,8 @@ namespace Recruiting.Infrastructure.Services
         }
         public async Task<int> AddSubmissionAsync(SubmissionRequestModel model)
         {
-            var existingSubmission = await submissionRepository.GetSubmissionsByJobAndCandidateId(model.JobRequirementId, model.CandidateId);
+            var existingSubmission = await submissionRepository
+                .GetSubmissionsByJobAndCandidateId(model.JobRequirementId, model.CandidateId);
             if (existingSubmission != null)
             {
                 throw new Exception("Submission already made");
@@ -43,9 +47,25 @@ namespace Recruiting.Infrastructure.Services
             return await submissionRepository.DeleteAsync(id);
         }
 
-        public async Task<List<Submission>> GetAllSubmissions()
+        public async Task<IEnumerable<SubmissionResponseModel>> GetAllSubmissions()
         {
-            return (await submissionRepository.GetAllAsync()).ToList();
+            var submissions = await submissionRepository.GetAllAsync();
+            var response = submissions.Select(x => x.ToSubmissionResponseModel());
+            return response;
+        }
+
+        public async Task<SubmissionResponseModel> GetSubmissionByIdAsync(int id)
+        {
+            var sub = await submissionRepository.GetByIdAsync(id);
+            if (sub != null)
+            {
+                var response = sub.ToSubmissionResponseModel();
+                return response;
+            }
+            else
+            {
+                throw new NotFoundException("EmployeeType", id);
+            }
         }
 
         public async Task<int> UpdateSubmissionAsync(SubmissionRequestModel model)
@@ -59,7 +79,7 @@ namespace Recruiting.Infrastructure.Services
             Submission submission = new Submission();
             if (model != null)
             {
-                submission.SubmissionId = model.SubmissionId;
+                submission.Id = model.Id;
                 submission.JobRequirementId = model.JobRequirementId;
                 submission.CandidateId = model.CandidateId;
                 submission.SubmittedOn = model.SubmittedOn;

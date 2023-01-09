@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Recruiting.ApplicationCore.Contracts.Repositories
 {
-    public interface ICandidateRepository : IRepository<Candidate>
+    public interface ICandidateRepository : IBaseRepository<Candidate>
     {
         Task<Candidate> GetUserByEmail(string email);
     }

@@ -13,6 +13,7 @@ namespace Recruiting.ApplicationCore.Contracts.Services
         Task<int> AddEmployeeTypeAsync(EmployeeTypeRequestModel model);
         Task<int> UpdateEmployeeTypeAsync(EmployeeTypeRequestModel model);
         Task<int> DeleteEmployeeTypeAsync(int id);
-        Task<List<EmployeeType>> GetAllEmployeeTypes();
+        Task<IEnumerable<EmployeeTypeResponseModel>> GetAllEmployeeTypes();
+        Task<EmployeeTypeResponseModel> GetEmployeeTypeByIdAsync(int id);
     }
 }

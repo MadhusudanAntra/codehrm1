@@ -1,7 +1,9 @@
 ﻿using Recruiting.ApplicationCore.Contracts.Repositories;
 using Recruiting.ApplicationCore.Contracts.Services;
 using Recruiting.ApplicationCore.Entities;
+using Recruiting.ApplicationCore.Exceptions;
 using Recruiting.ApplicationCore.Models;
+using Recruiting.Infrastructure.Helpers;
 using Recruiting.Infrastructure.Repositories;
 using System;
 using System.Collections.Generic;
@@ -19,13 +21,7 @@ namespace Recruiting.Infrastructure.Services
             jobRequirementRepository = _jr;
         }
         public async Task<int> AddJobRequirementAsync(JobRequirementRequestModel model)
-        {
-            var existingJobRequirement = await jobRequirementRepository.GetJobRequirementsIncludingCategory(x => model.JobCategory.Id == x.JobCategoryId && model.Title == x.Title);
-            
-            if (existingJobRequirement != null)
-            {
-                throw new Exception("Job Category is already used");
-            }
+        {   
             JobRequirement jobRequirement = new JobRequirement();
             if (model != null)
             {
@@ -50,9 +46,24 @@ namespace Recruiting.Infrastructure.Services
             return await jobRequirementRepository.DeleteAsync(id);
         }
 
-        public async Task<List<JobRequirement>> GetAllJobRequirements()
+        public async Task<IEnumerable<JobRequirementResponseModel>> GetAllJobRequirements()
         {
-            return (await jobRequirementRepository.GetAllAsync()).ToList();
+            var jRTypes = await jobRequirementRepository.GetAllAsync();
+            var response = jRTypes.Select(x => x.ToJobRequirementResponseModel());
+            return response;
+        }
+        public async Task<JobRequirementResponseModel> GetJobRequirementByIdAsync(int id)
+        {
+            var jR = await jobRequirementRepository.GetByIdAsync(id);
+            if (jR != null)
+            {
+                var response = jR.ToJobRequirementResponseModel();
+                return response;
+            }
+            else
+            {
+                throw new NotFoundException("JobRequirement", id);
+            }
         }
 
         public async Task<int> UpdateJobRequirementAsync(JobRequirementRequestModel model)

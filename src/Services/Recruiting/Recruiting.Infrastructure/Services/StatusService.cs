@@ -1,7 +1,9 @@
 ﻿using Recruiting.ApplicationCore.Contracts.Repositories;
 using Recruiting.ApplicationCore.Contracts.Services;
 using Recruiting.ApplicationCore.Entities;
+using Recruiting.ApplicationCore.Exceptions;
 using Recruiting.ApplicationCore.Models;
+using Recruiting.Infrastructure.Helpers;
 using Recruiting.Infrastructure.Repositories;
 using System;
 using System.Collections.Generic;
@@ -42,9 +44,25 @@ namespace Recruiting.Infrastructure.Services
             return await statusRepository.DeleteAsync(id);
         }
 
-        public async Task<List<Status>> GetAllStatus()
+        public async Task<IEnumerable<StatusResponseModel>> GetAllStatus()
         {
-            return (await statusRepository.GetAllAsync()).ToList();
+            var statuses = await statusRepository.GetAllAsync();
+            var response = statuses.Select(x => x.ToStatusResponseModel());
+            return response;
+        }
+
+        public async Task<StatusResponseModel> GetStatusByIdAsync(int id)
+        {
+            var stat = await statusRepository.GetByIdAsync(id);
+            if (stat != null)
+            {
+                var response = stat.ToStatusResponseModel();
+                return response;
+            }
+            else
+            {
+                throw new NotFoundException("Status", id);
+            }
         }
 
         public async Task<int> UpdateStatusAsync(StatusRequestModel model)

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Recruiting.ApplicationCore.Models
 {
-    internal class JobCategoryRequestModel
+    public class JobCategoryRequestModel
     {
     }
 }

@@ -12,11 +12,10 @@ namespace Recruiting.Infrastructure.Repositories
 {
     public class SubmissionRepository : BaseRepository<Submission>, ISubmissionRepository
     {
-        RecruitingDbContext _dbContext;
         public SubmissionRepository(RecruitingDbContext context) : base(context)
         {
-            _dbContext = context;
         }
+
         public async Task<Submission> GetSubmissionsByJobAndCandidateId(int jobReqId, int candidateId)
         {
             return await _dbContext.Submissions.Where(x => x.JobRequirementId == jobReqId && x.CandidateId == candidateId).FirstOrDefaultAsync();

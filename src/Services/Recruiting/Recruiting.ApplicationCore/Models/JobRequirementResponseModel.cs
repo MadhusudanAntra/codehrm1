@@ -18,7 +18,7 @@ namespace Recruiting.ApplicationCore.Models
         public DateTime StartDate { get; set; }
         public bool IsActive { get; set; }
         public DateTime? ClosedOn { get; set; }
-        public bool ClosedReason { get; set; }
+        public string? ClosedReason { get; set; }
         public DateTime CreatedOn { get; set; }
         public int JobCategoryId { get; set; }
     }

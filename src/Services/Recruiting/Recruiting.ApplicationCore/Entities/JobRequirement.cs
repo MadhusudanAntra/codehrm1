@@ -21,7 +21,7 @@ namespace Recruiting.ApplicationCore.Entities
         public DateTime CreatedOn { get; set; }
         public int JobCategoryId { get; set; }
         public JobCategory JobCategory { get; set; } //Manager, employee, Lead, Senior, 
-        public List<EmployeeRequirementType> EmployeeRequirementType {get; set;} 
+        public List<EmployeeRequirementType> EmployeeRequirementType {get; set;} //PArttime, intern, Fulltime
         public List<Submission> Submissions { get; set; }
 
     }
