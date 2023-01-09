@@ -10,3 +10,15 @@
 /Users/shiyunliu/Desktop/Antra/AntraHRM/src/Services/Interviews/Interviews.ApplicationCore/obj/Debug/net6.0/refint/Interviews.ApplicationCore.dll
 /Users/shiyunliu/Desktop/Antra/AntraHRM/src/Services/Interviews/Interviews.ApplicationCore/obj/Debug/net6.0/Interviews.ApplicationCore.pdb
 /Users/shiyunliu/Desktop/Antra/AntraHRM/src/Services/Interviews/Interviews.ApplicationCore/obj/Debug/net6.0/ref/Interviews.ApplicationCore.dll
+/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Interviews/Interviews.ApplicationCore/bin/Debug/net6.0/Interviews.ApplicationCore.deps.json
+/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Interviews/Interviews.ApplicationCore/bin/Debug/net6.0/Interviews.ApplicationCore.dll
+/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Interviews/Interviews.ApplicationCore/bin/Debug/net6.0/Interviews.ApplicationCore.pdb
+/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Interviews/Interviews.ApplicationCore/obj/Debug/net6.0/Interviews.ApplicationCore.csproj.AssemblyReference.cache
+/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Interviews/Interviews.ApplicationCore/obj/Debug/net6.0/Interviews.ApplicationCore.GeneratedMSBuildEditorConfig.editorconfig
+/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Interviews/Interviews.ApplicationCore/obj/Debug/net6.0/Interviews.ApplicationCore.AssemblyInfoInputs.cache
+/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Interviews/Interviews.ApplicationCore/obj/Debug/net6.0/Interviews.ApplicationCore.AssemblyInfo.cs
+/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Interviews/Interviews.ApplicationCore/obj/Debug/net6.0/Interviews.ApplicationCore.csproj.CoreCompileInputs.cache
+/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Interviews/Interviews.ApplicationCore/obj/Debug/net6.0/Interviews.ApplicationCore.dll
+/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Interviews/Interviews.ApplicationCore/obj/Debug/net6.0/refint/Interviews.ApplicationCore.dll
+/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Interviews/Interviews.ApplicationCore/obj/Debug/net6.0/Interviews.ApplicationCore.pdb
+/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Interviews/Interviews.ApplicationCore/obj/Debug/net6.0/ref/Interviews.ApplicationCore.dll

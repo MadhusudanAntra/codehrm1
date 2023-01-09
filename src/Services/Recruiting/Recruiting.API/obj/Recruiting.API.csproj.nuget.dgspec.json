@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/shiyunliu/Desktop/Antra/AntraHRM/src/Services/Recruiting/Recruiting.API/Recruiting.API.csproj": {}
+    "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Recruiting/Recruiting.API/Recruiting.API.csproj": {}
   },
   "projects": {
-    "/Users/shiyunliu/Desktop/Antra/AntraHRM/src/Services/Recruiting/Recruiting.API/Recruiting.API.csproj": {
+    "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Recruiting/Recruiting.API/Recruiting.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/shiyunliu/Desktop/Antra/AntraHRM/src/Services/Recruiting/Recruiting.API/Recruiting.API.csproj",
+        "projectUniqueName": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Recruiting/Recruiting.API/Recruiting.API.csproj",
         "projectName": "Recruiting.API",
-        "projectPath": "/Users/shiyunliu/Desktop/Antra/AntraHRM/src/Services/Recruiting/Recruiting.API/Recruiting.API.csproj",
-        "packagesPath": "/Users/shiyunliu/.nuget/packages/",
-        "outputPath": "/Users/shiyunliu/Desktop/Antra/AntraHRM/src/Services/Recruiting/Recruiting.API/obj/",
+        "projectPath": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Recruiting/Recruiting.API/Recruiting.API.csproj",
+        "packagesPath": "/Users/karim/.nuget/packages/",
+        "outputPath": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Recruiting/Recruiting.API/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/shiyunliu/.nuget/NuGet/NuGet.Config"
+          "/Users/karim/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -38,6 +38,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.OpenApi": {
+              "target": "Package",
+              "version": "[1.2.3, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"
@@ -62,7 +66,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.403/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.100-rc.2.22477.23/RuntimeIdentifierGraph.json"
         }
       }
     }

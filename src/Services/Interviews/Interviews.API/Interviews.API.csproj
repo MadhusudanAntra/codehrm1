@@ -9,6 +9,7 @@
 
     <ItemGroup>
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+        <PackageReference Include="System.Text.Json" Version="7.0.0" />
     </ItemGroup>
 
     <ItemGroup>
@@ -21,4 +22,7 @@
       </Content>
     </ItemGroup>
 
+    <ItemGroup>
+      <None Remove="System.Text.Json" />
+    </ItemGroup>
 </Project>

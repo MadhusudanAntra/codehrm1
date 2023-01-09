@@ -11,7 +11,8 @@
           "Dapper": "2.0.123",
           "Interviews.ApplicationCore": "1.0.0",
           "Microsoft.Extensions.Configuration.Json": "7.0.0",
-          "System.Data.SqlClient": "4.8.5"
+          "System.Data.SqlClient": "4.8.5",
+          "System.Text.Json": "7.0.0"
         },
         "runtime": {
           "Interviews.Infrastructure.dll": {}
