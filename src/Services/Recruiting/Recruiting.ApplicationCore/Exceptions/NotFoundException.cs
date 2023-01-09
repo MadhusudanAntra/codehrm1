@@ -27,4 +27,3 @@ namespace Recruiting.ApplicationCore.Exceptions
         }
     }
 }
-}

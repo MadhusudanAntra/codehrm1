@@ -68,7 +68,8 @@ namespace Recruiting.Infrastructure.Services
 
         public async Task<int> UpdateJobRequirementAsync(JobRequirementRequestModel model)
         {
-            var existingJobRequirement = await jobRequirementRepository.GetJobRequirementsIncludingCategory(x => model.JobCategory.Id == x.JobCategoryId && model.Title == x.Title);
+            var existingJobRequirement = await jobRequirementRepository
+                .GetJobRequirementsIncludingCategory(x => model.Id == x.Id);
             if (existingJobRequirement == null)
             {
                 throw new Exception("JobRequirement does not exist");

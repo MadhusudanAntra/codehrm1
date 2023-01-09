@@ -27,7 +27,7 @@ namespace Recruiting.API.Controllers
             return Ok(candidates);
         }
         [HttpGet]
-        [Route("{id:int", Name = "GetCandidate")]
+        [Route("{id:int}", Name = "GetCandidate")]
         public async Task<ActionResult<CandidateResponseModel>> GetCandidate(int id)
         {
             var candidate = await candidateService.GetCandidateByIdAsync(id);

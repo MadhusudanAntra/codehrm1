@@ -16,15 +16,20 @@ namespace Recruiting.Infrastructure.Services
     public class SubmissionService : ISubmissionService
     {
         ISubmissionRepository submissionRepository;
-        public SubmissionService(ISubmissionRepository _Submissions)
+        ICandidateRepository candidateRepository;
+        public SubmissionService(ISubmissionRepository _Submissions, ICandidateRepository candidateRepository)
         {
             submissionRepository = _Submissions;
+            this.candidateRepository = candidateRepository;
         }
+
+        //Check if the candidate's submission is linked with jR to see if candidate has already submitted a submission to that same jR
         public async Task<int> AddSubmissionAsync(SubmissionRequestModel model)
         {
-            var existingSubmission = await submissionRepository
-                .GetSubmissionsByJobAndCandidateId(model.JobRequirementId, model.CandidateId);
-            if (existingSubmission != null)
+            var candidateJRSubs = await candidateRepository.FirstOrDefaultWithIncludesAsync(x => x.Id == model.CandidateId, x=> x.Submissions);
+            var exists = candidateJRSubs.Submissions.FirstOrDefault(s => s.JobRequirementId == model.JobRequirementId);
+
+            if (exists != null)
             {
                 throw new Exception("Submission already made");
             }
@@ -36,7 +41,7 @@ namespace Recruiting.Infrastructure.Services
                 submission.SubmittedOn = model.SubmittedOn;
                 submission.ConfirmedOn = model.ConfirmedOn;
                 submission.RejectedOn = model.RejectedOn;
-    }
+            }
             //returns number of rows affected, typically 1
             return await submissionRepository.InsertAsync(submission);
         }
@@ -70,8 +75,7 @@ namespace Recruiting.Infrastructure.Services
 
         public async Task<int> UpdateSubmissionAsync(SubmissionRequestModel model)
         {
-            var existingSubmission = await submissionRepository
-                .GetSubmissionsByJobAndCandidateId(model.JobRequirementId, model.CandidateId);
+            var existingSubmission = await submissionRepository.GetByIdAsync(model.Id);
             if (existingSubmission == null)
             {
                 throw new Exception("Submission does not exist");

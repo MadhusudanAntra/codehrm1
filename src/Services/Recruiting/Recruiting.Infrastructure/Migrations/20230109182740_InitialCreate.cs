@@ -15,7 +15,7 @@ namespace Recruiting.Infrastructure.Migrations
                 name: "Candidates",
                 columns: table => new
                 {
-                    CandidateId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     FirstName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     MiddleName = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -25,7 +25,7 @@ namespace Recruiting.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Candidates", x => x.CandidateId);
+                    table.PrimaryKey("PK_Candidates", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -52,21 +52,6 @@ namespace Recruiting.Infrastructure.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_JobCategories", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Statuses",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    State = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ChangedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    StatusMessage = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Statuses", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -102,14 +87,14 @@ namespace Recruiting.Infrastructure.Migrations
                 name: "EmployeeRequirementTypes",
                 columns: table => new
                 {
-                    EmployeeRequirementTypeId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     JobRequirementId = table.Column<int>(type: "int", nullable: false),
                     EmployeeTypeId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_EmployeeRequirementTypes", x => x.EmployeeRequirementTypeId);
+                    table.PrimaryKey("PK_EmployeeRequirementTypes", x => x.Id);
                     table.ForeignKey(
                         name: "FK_EmployeeRequirementTypes_EmployeeTypes_EmployeeTypeId",
                         column: x => x.EmployeeTypeId,
@@ -128,22 +113,23 @@ namespace Recruiting.Infrastructure.Migrations
                 name: "Submissions",
                 columns: table => new
                 {
-                    SubmissionId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     JobRequirementId = table.Column<int>(type: "int", nullable: false),
                     CandidateId = table.Column<int>(type: "int", nullable: false),
+                    MostRecentStatusId = table.Column<int>(type: "int", nullable: false),
                     SubmittedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ConfirmedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     RejectedOn = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Submissions", x => x.SubmissionId);
+                    table.PrimaryKey("PK_Submissions", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Submissions_Candidates_CandidateId",
                         column: x => x.CandidateId,
                         principalTable: "Candidates",
-                        principalColumn: "CandidateId",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Submissions_JobRequirements_JobRequirementId",
@@ -154,28 +140,24 @@ namespace Recruiting.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "SubmissionStatuses",
+                name: "Statuses",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    SubmissionId = table.Column<int>(type: "int", nullable: false),
-                    StatusId = table.Column<int>(type: "int", nullable: false)
+                    State = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ChangedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    StatusMessage = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    SubmissionId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SubmissionStatuses", x => x.Id);
+                    table.PrimaryKey("PK_Statuses", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_SubmissionStatuses_Statuses_StatusId",
-                        column: x => x.StatusId,
-                        principalTable: "Statuses",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_SubmissionStatuses_Submissions_SubmissionId",
+                        name: "FK_Statuses_Submissions_SubmissionId",
                         column: x => x.SubmissionId,
                         principalTable: "Submissions",
-                        principalColumn: "SubmissionId",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -195,6 +177,11 @@ namespace Recruiting.Infrastructure.Migrations
                 column: "JobCategoryId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Statuses_SubmissionId",
+                table: "Statuses",
+                column: "SubmissionId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Submissions_CandidateId",
                 table: "Submissions",
                 column: "CandidateId");
@@ -203,16 +190,6 @@ namespace Recruiting.Infrastructure.Migrations
                 name: "IX_Submissions_JobRequirementId",
                 table: "Submissions",
                 column: "JobRequirementId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_SubmissionStatuses_StatusId",
-                table: "SubmissionStatuses",
-                column: "StatusId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_SubmissionStatuses_SubmissionId",
-                table: "SubmissionStatuses",
-                column: "SubmissionId");
         }
 
         /// <inheritdoc />
@@ -222,13 +199,10 @@ namespace Recruiting.Infrastructure.Migrations
                 name: "EmployeeRequirementTypes");
 
             migrationBuilder.DropTable(
-                name: "SubmissionStatuses");
+                name: "Statuses");
 
             migrationBuilder.DropTable(
                 name: "EmployeeTypes");
-
-            migrationBuilder.DropTable(
-                name: "Statuses");
 
             migrationBuilder.DropTable(
                 name: "Submissions");

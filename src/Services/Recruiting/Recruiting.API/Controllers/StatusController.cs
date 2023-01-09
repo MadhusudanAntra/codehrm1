@@ -19,7 +19,8 @@ namespace Recruiting.API.Controllers
 
         // GET: api/<StatusController>
         [HttpGet]
-        public async Task<IActionResult> GetAllStatuss()
+        [Route("getall")]
+        public async Task<IActionResult> GetAllStatus()
         {
             var status = await statusService.GetAllStatus();
             if (!status.Any() || status.Count() == 0)
@@ -30,7 +31,7 @@ namespace Recruiting.API.Controllers
         }
 
         [HttpGet]
-        [Route("{id:int", Name = "GetStatus")]
+        [Route("{id:int}", Name = "GetStatus")]
         public async Task<ActionResult<StatusResponseModel>> GetStatus(int id)
         {
             var stat = await statusService.GetStatusByIdAsync(id);

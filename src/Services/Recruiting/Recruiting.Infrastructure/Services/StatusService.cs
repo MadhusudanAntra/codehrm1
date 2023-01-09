@@ -16,20 +16,26 @@ namespace Recruiting.Infrastructure.Services
     public class StatusService : IStatusService
     {
         IStatusRepository statusRepository;
-        public StatusService(IStatusRepository _status)
+        ISubmissionRepository submissionRepository;
+        public StatusService(IStatusRepository _status, ISubmissionRepository submissionRepository)
         {
             statusRepository = _status;
+            this.submissionRepository = submissionRepository;
         }
         public async Task<int> AddStatusAsync(StatusRequestModel model)
         {
-            var existingStatus = await statusRepository.GetAllAsync();
-            if (existingStatus != null && existingStatus.First(x => x.ChangedOn == existingStatus.Max(x => x.ChangedOn)).State == model.State)
+            //Looks for the associated submission to compare status states.If it isnt changed, reject status addition.
+            var relevantSubmission = await submissionRepository.FirstOrDefaultWithIncludesAsync(s => s.Id == model.SubmissionId, s => s.Status);
+            var existingStatus = relevantSubmission.Status.FirstOrDefault(s => s.Id == relevantSubmission.MostRecentStatusId);
+            if (existingStatus != null && existingStatus.State == model.State)
             {
                 throw new Exception("Status is not changing");
             }
             Status status = new Status();
             if (model != null)
             {
+                status.Id= model.Id;
+                status.SubmissionId = model.SubmissionId;
                 status.State = model.State;
                 status.ChangedOn = DateTime.Now;
                 status.StatusMessage = model.StatusMessage;
@@ -67,14 +73,18 @@ namespace Recruiting.Infrastructure.Services
 
         public async Task<int> UpdateStatusAsync(StatusRequestModel model)
         {
-            var existingStatus = await statusRepository.GetAllAsync();
-            if (existingStatus != null && existingStatus.First(x => x.ChangedOn == existingStatus.Max(x => x.ChangedOn)).State == model.State)
+            // Could be improved because now we have status Id but its fine 
+            var relevantSubmission = await submissionRepository.FirstOrDefaultWithIncludesAsync(s => s.Id == model.SubmissionId, s => s.Status);
+            var existingStatus = relevantSubmission.Status.FirstOrDefault(s => s.Id == relevantSubmission.MostRecentStatusId);
+            if (existingStatus != null && existingStatus.State == model.State)
             {
                 throw new Exception("Status is not changing");
             }
             Status status = new Status();
             if (model != null)
             {
+                status.Id = model.Id;
+                status.SubmissionId = model.SubmissionId;
                 status.State = model.State;
                 status.ChangedOn = DateTime.Now;
                 status.StatusMessage = model.StatusMessage;

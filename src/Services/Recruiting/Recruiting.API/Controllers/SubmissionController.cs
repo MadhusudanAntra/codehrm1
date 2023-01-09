@@ -19,6 +19,7 @@ namespace Recruiting.API.Controllers
 
         // GET: api/<SubmissionController>
         [HttpGet]
+        [Route("getall")]
         public async Task<IActionResult> GetAllSubmissions()
         {
             var submission = await submissionService.GetAllSubmissions();
@@ -30,7 +31,7 @@ namespace Recruiting.API.Controllers
         }
 
         [HttpGet]
-        [Route("{id:int", Name = "GetSubmission")]
+        [Route("{id:int}", Name = "GetSubmission")]
         public async Task<ActionResult<SubmissionResponseModel>> GetSubmission(int id)
         {
             var sub = await submissionService.GetSubmissionByIdAsync(id);

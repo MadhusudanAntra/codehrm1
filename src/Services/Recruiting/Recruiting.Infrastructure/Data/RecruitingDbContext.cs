@@ -21,8 +21,5 @@ namespace Recruiting.Infrastructure.Data
         public DbSet<EmployeeRequirementType> EmployeeRequirementTypes { get; set; }
         public DbSet<Submission> Submissions { get; set; }
         public DbSet<Status> Statuses { get; set; }
-        public DbSet<SubmissionStatus> SubmissionStatuses { get; set; }
-
-        
     }
 }

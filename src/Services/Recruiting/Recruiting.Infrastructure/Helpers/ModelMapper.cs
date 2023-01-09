@@ -55,6 +55,7 @@ namespace Recruiting.Infrastructure.Helpers
             return new StatusResponseModel
             {
                 Id = status.Id,
+                SubmissionId = status.SubmissionId,
                 State = status.State,
                 ChangedOn = status.ChangedOn,
                 StatusMessage = status.StatusMessage

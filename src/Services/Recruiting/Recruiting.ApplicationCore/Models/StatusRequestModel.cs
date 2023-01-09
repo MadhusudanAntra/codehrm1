@@ -12,5 +12,6 @@ namespace Recruiting.ApplicationCore.Models
         public string State { get; set; }
         public DateTime? ChangedOn { get; set; }
         public string StatusMessage { get; set; }
+        public int SubmissionId { get; set; }
     }
 }

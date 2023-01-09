@@ -19,6 +19,7 @@ namespace Recruiting.API.Controllers
 
         // GET: api/<EmployeeTypeController>
         [HttpGet]
+        [Route("getall")]
         public async Task<IActionResult> GetAllEmployeeTypes()
         {
             var employeeType = await employeeTypeService.GetAllEmployeeTypes();
@@ -29,7 +30,7 @@ namespace Recruiting.API.Controllers
             return Ok(employeeType);
         }
         [HttpGet]
-        [Route("{id:int", Name = "GetEmployeeType")]
+        [Route("{id:int}", Name = "GetEmployeeType")]
         public async Task<ActionResult<EmployeeTypeResponseModel>> GetEmployeeType(int id)
         {
             var empType = await employeeTypeService.GetEmployeeTypeByIdAsync(id);

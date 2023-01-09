@@ -12,8 +12,8 @@ namespace Recruiting.ApplicationCore.Entities
         public string State { get; set; }
         public DateTime? ChangedOn { get; set; }
         public string StatusMessage { get; set; }
-
+        public int SubmissionId { get; set; }
         //naviagational property
-        public List<SubmissionStatus> SubmissionStatuses { get; set; }
+        public Submission Submission { get; set; }
     }
 }

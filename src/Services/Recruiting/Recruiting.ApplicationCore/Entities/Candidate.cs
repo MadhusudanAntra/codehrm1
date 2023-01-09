@@ -17,7 +17,7 @@ namespace Recruiting.ApplicationCore.Entities
         public string LastName { get; set; }
         public string Email { get; set; }
         public string ResumeURL { get; set; }
-        List<Submission>? Submissions { get; set; }
+        public List<Submission>? Submissions { get; set; }
 
     }
 }

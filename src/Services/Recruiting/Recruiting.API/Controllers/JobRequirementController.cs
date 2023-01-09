@@ -20,6 +20,7 @@ namespace Recruiting.API.Controllers
 
         // GET: api/<JobRequirementController>
         [HttpGet]
+        [Route("getall")]
         public async Task<IActionResult> GetAllJobRequirements()
         {
             var jobRequirement = await jobRequirementService.GetAllJobRequirements();
@@ -30,7 +31,7 @@ namespace Recruiting.API.Controllers
             return Ok(jobRequirement);
         }
         [HttpGet]
-        [Route("{id:int", Name = "GetJobRequirement")]
+        [Route("{id:int}", Name = "GetJobRequirement")]
         public async Task<ActionResult<JobRequirementResponseModel>> GetJobRequirement(int id)
         {
             var jR = await jobRequirementService.GetJobRequirementByIdAsync(id);
