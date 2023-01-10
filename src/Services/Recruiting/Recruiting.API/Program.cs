@@ -29,18 +29,21 @@ builder.Services.AddScoped<IStatusService, StatusService>();
 builder.Services.AddScoped<IEmployeeTypeRepository, EmployeeTypeRepository>();
 builder.Services.AddScoped<IEmployeeTypeService, EmployeeTypeService>();
 
+var dockerRelated = Environment.GetEnvironmentVariable("MSSQLConnectionString");
+
 builder.Services.AddDbContext<RecruitingDbContext>(option => {
     option.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
-    option.UseSqlServer(builder.Configuration.GetConnectionString("RecruitingDb"));
+    option.UseSqlServer(dockerRelated);
+    //option.UseSqlServer(builder.Configuration.GetConnectionString("RecruitingDb"));
 });
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
+//if (app.Environment.IsDevelopment())
+//{
     app.UseSwagger();
     app.UseSwaggerUI();
-}
+//}
 
 app.UseHttpsRedirection();
 

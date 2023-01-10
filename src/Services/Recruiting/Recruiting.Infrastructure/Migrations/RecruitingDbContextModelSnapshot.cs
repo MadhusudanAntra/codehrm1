@@ -207,9 +207,6 @@ namespace Recruiting.Infrastructure.Migrations
                     b.Property<int>("JobRequirementId")
                         .HasColumnType("int");
 
-                    b.Property<int>("MostRecentStatusId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("RejectedOn")
                         .HasColumnType("datetime2");
 

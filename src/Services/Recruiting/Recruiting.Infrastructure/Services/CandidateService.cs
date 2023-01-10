@@ -69,7 +69,7 @@ namespace Recruiting.Infrastructure.Services
 
         public async Task<int> UpdateCandidateAsync(CandidateRequestModel model)
         {
-            var existingCandidate = await candidateRepository.GetUserByEmail(model.Email);
+            var existingCandidate = await candidateRepository.GetByIdAsync(model.Id);
             if (existingCandidate == null)
             {
                 throw new Exception("Candidate does not exist");

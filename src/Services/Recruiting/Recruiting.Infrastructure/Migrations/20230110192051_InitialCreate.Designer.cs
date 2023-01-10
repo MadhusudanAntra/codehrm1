@@ -12,7 +12,7 @@ using Recruiting.Infrastructure.Data;
 namespace Recruiting.Infrastructure.Migrations
 {
     [DbContext(typeof(RecruitingDbContext))]
-    [Migration("20230109182740_InitialCreate")]
+    [Migration("20230110192051_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -208,9 +208,6 @@ namespace Recruiting.Infrastructure.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<int>("JobRequirementId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MostRecentStatusId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("RejectedOn")

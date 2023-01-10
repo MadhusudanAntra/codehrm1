@@ -117,7 +117,6 @@ namespace Recruiting.Infrastructure.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     JobRequirementId = table.Column<int>(type: "int", nullable: false),
                     CandidateId = table.Column<int>(type: "int", nullable: false),
-                    MostRecentStatusId = table.Column<int>(type: "int", nullable: false),
                     SubmittedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ConfirmedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     RejectedOn = table.Column<DateTime>(type: "datetime2", nullable: false)

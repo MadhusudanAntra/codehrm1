@@ -26,7 +26,9 @@ namespace Recruiting.Infrastructure.Services
         {
             //Looks for the associated submission to compare status states.If it isnt changed, reject status addition.
             var relevantSubmission = await submissionRepository.FirstOrDefaultWithIncludesAsync(s => s.Id == model.SubmissionId, s => s.Status);
-            var existingStatus = relevantSubmission.Status.FirstOrDefault(s => s.Id == relevantSubmission.MostRecentStatusId);
+            //Last changed status
+            var statusList = relevantSubmission.Status.Count -1;
+            var existingStatus = relevantSubmission.Status.FirstOrDefault(s => s.Id == relevantSubmission.Status[statusList].Id);
             if (existingStatus != null && existingStatus.State == model.State)
             {
                 throw new Exception("Status is not changing");
@@ -75,7 +77,9 @@ namespace Recruiting.Infrastructure.Services
         {
             // Could be improved because now we have status Id but its fine 
             var relevantSubmission = await submissionRepository.FirstOrDefaultWithIncludesAsync(s => s.Id == model.SubmissionId, s => s.Status);
-            var existingStatus = relevantSubmission.Status.FirstOrDefault(s => s.Id == relevantSubmission.MostRecentStatusId);
+            //Last changed status
+            var statusList = relevantSubmission.Status.Count - 1;
+            var existingStatus = relevantSubmission.Status.FirstOrDefault(s => s.Id == relevantSubmission.Status[statusList].Id);
             if (existingStatus != null && existingStatus.State == model.State)
             {
                 throw new Exception("Status is not changing");
