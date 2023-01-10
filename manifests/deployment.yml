@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: hrmapp 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hrmapp
+  template:
+    metadata:
+      labels:
+        app: hrmapp 
+    spec:
+      containers:
+        - name: hrmapp 
+          image: hrmimageregistry.azurecr.io/hrmapp
+          ports:
+          - containerPort: 8080
