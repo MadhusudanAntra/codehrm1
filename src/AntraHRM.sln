@@ -1,5 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32819.101
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{815100E3-BDE9-4A1D-A366-B6C83A01C16C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{D28DACBE-D342-416C-9F17-7C5987C636FE}"
@@ -7,67 +10,49 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OnBoarding", "OnBoarding", "{F19A849C-4726-4419-954F-DF2302BA5F24}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Recruiting", "Recruiting", "{261851D6-B287-447E-8F88-05B3312A0DD4}"
+	ProjectSection(SolutionItems) = preProject
+		Questions.txt = Questions.txt
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Authentication", "Authentication", "{2629869E-D4D8-4D07-A036-D308D9E7C837}"
 	ProjectSection(SolutionItems) = preProject
 		Services\Authentication\Readme.md = Services\Authentication\Readme.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Authentication.API", "Services\Authentication\Authentication.API\Authentication.API.csproj", "{6A8BCD8E-947A-41F0-A565-3C3A979F5AF8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Authentication.API", "Services\Authentication\Authentication.API\Authentication.API.csproj", "{6A8BCD8E-947A-41F0-A565-3C3A979F5AF8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Authentication.UnitTests", "Services\Authentication\Authentication.UnitTests\Authentication.UnitTests.csproj", "{64E69227-E4F6-4BB5-8AC1-2AC743B8A326}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Authentication.UnitTests", "Services\Authentication\Authentication.UnitTests\Authentication.UnitTests.csproj", "{64E69227-E4F6-4BB5-8AC1-2AC743B8A326}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnBoarding.UnitTests", "Services\OnBoarding\OnBoarding.UnitTests\OnBoarding.UnitTests.csproj", "{FC9460FA-FF16-4321-8D73-28F36F5A9350}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnBoarding.UnitTests", "Services\OnBoarding\OnBoarding.UnitTests\OnBoarding.UnitTests.csproj", "{FC9460FA-FF16-4321-8D73-28F36F5A9350}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnBoarding.API", "Services\OnBoarding\OnBoarding.API\OnBoarding.API.csproj", "{891318C8-0E62-4C8F-B819-F56E21B2141C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnBoarding.API", "Services\OnBoarding\OnBoarding.API\OnBoarding.API.csproj", "{891318C8-0E62-4C8F-B819-F56E21B2141C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recruiting.API", "Services\Recruiting\Recruiting.API\Recruiting.API.csproj", "{8521B4DD-3307-4F88-95D2-693FC8E27EC4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Recruiting.API", "Services\Recruiting\Recruiting.API\Recruiting.API.csproj", "{8521B4DD-3307-4F88-95D2-693FC8E27EC4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recruiting.UnitTests", "Services\Recruiting\Recruiting.UnitTests\Recruiting.UnitTests.csproj", "{604FCACF-7EEB-4C6A-BBD5-BACCF5C7FA7E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Recruiting.UnitTests", "Services\Recruiting\Recruiting.UnitTests\Recruiting.UnitTests.csproj", "{604FCACF-7EEB-4C6A-BBD5-BACCF5C7FA7E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnBoarding.Infrastructure", "Services\OnBoarding\OnBoarding.Infrastructure\OnBoarding.Infrastructure.csproj", "{5FE2F420-25E0-4E9E-B658-4CAA291C654D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnBoarding.Infrastructure", "Services\OnBoarding\OnBoarding.Infrastructure\OnBoarding.Infrastructure.csproj", "{5FE2F420-25E0-4E9E-B658-4CAA291C654D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnBoarding.ApplicationCore", "Services\OnBoarding\OnBoarding.ApplicationCore\OnBoarding.ApplicationCore.csproj", "{D2CC274A-5B75-4D2E-995D-E5F631D861E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnBoarding.ApplicationCore", "Services\OnBoarding\OnBoarding.ApplicationCore\OnBoarding.ApplicationCore.csproj", "{D2CC274A-5B75-4D2E-995D-E5F631D861E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recruiting.ApplicationCore", "Services\Recruiting\Recruiting.ApplicationCore\Recruiting.ApplicationCore.csproj", "{BEE38B5A-BB5A-4511-83A6-EA80A6FBB35C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Recruiting.ApplicationCore", "Services\Recruiting\Recruiting.ApplicationCore\Recruiting.ApplicationCore.csproj", "{BEE38B5A-BB5A-4511-83A6-EA80A6FBB35C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recruiting.Infrastructure", "Services\Recruiting\Recruiting.Infrastructure\Recruiting.Infrastructure.csproj", "{A1A948DD-EC7C-4F5B-AA04-DD0F0EA01073}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Recruiting.Infrastructure", "Services\Recruiting\Recruiting.Infrastructure\Recruiting.Infrastructure.csproj", "{A1A948DD-EC7C-4F5B-AA04-DD0F0EA01073}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Interviews", "Interviews", "{3512C8AB-C140-48EB-9473-539BFFB5B22C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interviews.API", "Services\Interviews\Interviews.API\Interviews.API.csproj", "{4855BA16-FC83-4647-BD2B-E7B51FAF4575}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interviews.API", "Services\Interviews\Interviews.API\Interviews.API.csproj", "{4855BA16-FC83-4647-BD2B-E7B51FAF4575}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interviews.ApplicationCore", "Services\Interviews\Interviews.ApplicationCore\Interviews.ApplicationCore.csproj", "{6397D1FB-F6A0-45DE-9545-8059D9FF0428}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interviews.ApplicationCore", "Services\Interviews\Interviews.ApplicationCore\Interviews.ApplicationCore.csproj", "{6397D1FB-F6A0-45DE-9545-8059D9FF0428}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interviews.Infrastructure", "Services\Interviews\Interviews.Infrastructure\Interviews.Infrastructure.csproj", "{AF34C991-AF72-4844-9DCB-8A825B0C4F86}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interviews.Infrastructure", "Services\Interviews\Interviews.Infrastructure\Interviews.Infrastructure.csproj", "{AF34C991-AF72-4844-9DCB-8A825B0C4F86}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interviews.UnitTests", "Services\Interviews\Interviews.UnitTests\Interviews.UnitTests.csproj", "{E8F2D992-765A-4AC7-949F-CC7C2890247E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interviews.UnitTests", "Services\Interviews\Interviews.UnitTests\Interviews.UnitTests.csproj", "{E8F2D992-765A-4AC7-949F-CC7C2890247E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{D28DACBE-D342-416C-9F17-7C5987C636FE} = {815100E3-BDE9-4A1D-A366-B6C83A01C16C}
-		{F19A849C-4726-4419-954F-DF2302BA5F24} = {D28DACBE-D342-416C-9F17-7C5987C636FE}
-		{261851D6-B287-447E-8F88-05B3312A0DD4} = {D28DACBE-D342-416C-9F17-7C5987C636FE}
-		{2629869E-D4D8-4D07-A036-D308D9E7C837} = {D28DACBE-D342-416C-9F17-7C5987C636FE}
-		{6A8BCD8E-947A-41F0-A565-3C3A979F5AF8} = {2629869E-D4D8-4D07-A036-D308D9E7C837}
-		{64E69227-E4F6-4BB5-8AC1-2AC743B8A326} = {2629869E-D4D8-4D07-A036-D308D9E7C837}
-		{FC9460FA-FF16-4321-8D73-28F36F5A9350} = {F19A849C-4726-4419-954F-DF2302BA5F24}
-		{891318C8-0E62-4C8F-B819-F56E21B2141C} = {F19A849C-4726-4419-954F-DF2302BA5F24}
-		{8521B4DD-3307-4F88-95D2-693FC8E27EC4} = {261851D6-B287-447E-8F88-05B3312A0DD4}
-		{604FCACF-7EEB-4C6A-BBD5-BACCF5C7FA7E} = {261851D6-B287-447E-8F88-05B3312A0DD4}
-		{5FE2F420-25E0-4E9E-B658-4CAA291C654D} = {F19A849C-4726-4419-954F-DF2302BA5F24}
-		{D2CC274A-5B75-4D2E-995D-E5F631D861E1} = {F19A849C-4726-4419-954F-DF2302BA5F24}
-		{BEE38B5A-BB5A-4511-83A6-EA80A6FBB35C} = {261851D6-B287-447E-8F88-05B3312A0DD4}
-		{A1A948DD-EC7C-4F5B-AA04-DD0F0EA01073} = {261851D6-B287-447E-8F88-05B3312A0DD4}
-		{3512C8AB-C140-48EB-9473-539BFFB5B22C} = {D28DACBE-D342-416C-9F17-7C5987C636FE}
-		{4855BA16-FC83-4647-BD2B-E7B51FAF4575} = {3512C8AB-C140-48EB-9473-539BFFB5B22C}
-		{6397D1FB-F6A0-45DE-9545-8059D9FF0428} = {3512C8AB-C140-48EB-9473-539BFFB5B22C}
-		{AF34C991-AF72-4844-9DCB-8A825B0C4F86} = {3512C8AB-C140-48EB-9473-539BFFB5B22C}
-		{E8F2D992-765A-4AC7-949F-CC7C2890247E} = {3512C8AB-C140-48EB-9473-539BFFB5B22C}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{6A8BCD8E-947A-41F0-A565-3C3A979F5AF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -126,5 +111,32 @@ Global
 		{E8F2D992-765A-4AC7-949F-CC7C2890247E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E8F2D992-765A-4AC7-949F-CC7C2890247E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E8F2D992-765A-4AC7-949F-CC7C2890247E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D28DACBE-D342-416C-9F17-7C5987C636FE} = {815100E3-BDE9-4A1D-A366-B6C83A01C16C}
+		{F19A849C-4726-4419-954F-DF2302BA5F24} = {D28DACBE-D342-416C-9F17-7C5987C636FE}
+		{261851D6-B287-447E-8F88-05B3312A0DD4} = {D28DACBE-D342-416C-9F17-7C5987C636FE}
+		{2629869E-D4D8-4D07-A036-D308D9E7C837} = {D28DACBE-D342-416C-9F17-7C5987C636FE}
+		{6A8BCD8E-947A-41F0-A565-3C3A979F5AF8} = {2629869E-D4D8-4D07-A036-D308D9E7C837}
+		{64E69227-E4F6-4BB5-8AC1-2AC743B8A326} = {2629869E-D4D8-4D07-A036-D308D9E7C837}
+		{FC9460FA-FF16-4321-8D73-28F36F5A9350} = {F19A849C-4726-4419-954F-DF2302BA5F24}
+		{891318C8-0E62-4C8F-B819-F56E21B2141C} = {F19A849C-4726-4419-954F-DF2302BA5F24}
+		{8521B4DD-3307-4F88-95D2-693FC8E27EC4} = {261851D6-B287-447E-8F88-05B3312A0DD4}
+		{604FCACF-7EEB-4C6A-BBD5-BACCF5C7FA7E} = {261851D6-B287-447E-8F88-05B3312A0DD4}
+		{5FE2F420-25E0-4E9E-B658-4CAA291C654D} = {F19A849C-4726-4419-954F-DF2302BA5F24}
+		{D2CC274A-5B75-4D2E-995D-E5F631D861E1} = {F19A849C-4726-4419-954F-DF2302BA5F24}
+		{BEE38B5A-BB5A-4511-83A6-EA80A6FBB35C} = {261851D6-B287-447E-8F88-05B3312A0DD4}
+		{A1A948DD-EC7C-4F5B-AA04-DD0F0EA01073} = {261851D6-B287-447E-8F88-05B3312A0DD4}
+		{3512C8AB-C140-48EB-9473-539BFFB5B22C} = {D28DACBE-D342-416C-9F17-7C5987C636FE}
+		{4855BA16-FC83-4647-BD2B-E7B51FAF4575} = {3512C8AB-C140-48EB-9473-539BFFB5B22C}
+		{6397D1FB-F6A0-45DE-9545-8059D9FF0428} = {3512C8AB-C140-48EB-9473-539BFFB5B22C}
+		{AF34C991-AF72-4844-9DCB-8A825B0C4F86} = {3512C8AB-C140-48EB-9473-539BFFB5B22C}
+		{E8F2D992-765A-4AC7-949F-CC7C2890247E} = {3512C8AB-C140-48EB-9473-539BFFB5B22C}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A51B4770-33ED-4E97-B0B8-C6DD08C67658}
 	EndGlobalSection
 EndGlobal
