@@ -1,5 +1,5 @@
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
-WORKDIR /src
+WORKDIR /src/Services/OnBoarding/OnBoarding.API
 RUN dotnet dev-certs https
 COPY bin/Release/net6.0/publish/ app/
 ENV ASPNETCORE_URLS https://+:83

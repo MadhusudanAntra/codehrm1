@@ -26,7 +26,7 @@
 #ENTRYPOINT ["dotnet", "Recruiting.API.dll"]
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
-WORKDIR /src
+WORKDIR /src/Services/Recruiting/Recruiting.API
 RUN dotnet dev-certs https
 COPY bin/Release/net6.0/publish/ app/
 ENV ASPNETCORE_URLS https://+:99

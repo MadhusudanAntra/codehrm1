@@ -13,8 +13,6 @@
 /Users/shiyunliu/Desktop/Antra/AntraHRM/src/Services/Interviews/Interviews.Infrastructure/obj/Debug/net6.0/refint/Interviews.Infrastructure.dll
 /Users/shiyunliu/Desktop/Antra/AntraHRM/src/Services/Interviews/Interviews.Infrastructure/obj/Debug/net6.0/Interviews.Infrastructure.pdb
 /Users/shiyunliu/Desktop/Antra/AntraHRM/src/Services/Interviews/Interviews.Infrastructure/obj/Debug/net6.0/ref/Interviews.Infrastructure.dll
-/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Interviews/Interviews.Infrastructure/obj/Debug/net6.0/Interviews.Infrastructure.dll
-/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Interviews/Interviews.Infrastructure/obj/Debug/net6.0/refint/Interviews.Infrastructure.dll
 /Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Interviews/Interviews.Infrastructure/bin/Debug/net6.0/Interviews.Infrastructure.deps.json
 /Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Interviews/Interviews.Infrastructure/bin/Debug/net6.0/Interviews.Infrastructure.dll
 /Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Interviews/Interviews.Infrastructure/bin/Debug/net6.0/Interviews.Infrastructure.pdb
@@ -26,5 +24,7 @@
 /Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Interviews/Interviews.Infrastructure/obj/Debug/net6.0/Interviews.Infrastructure.AssemblyInfo.cs
 /Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Interviews/Interviews.Infrastructure/obj/Debug/net6.0/Interviews.Infrastructure.csproj.CoreCompileInputs.cache
 /Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Interviews/Interviews.Infrastructure/obj/Debug/net6.0/Interviews.Infrastructure.csproj.CopyComplete
+/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Interviews/Interviews.Infrastructure/obj/Debug/net6.0/Interviews.Infrastructure.dll
+/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Interviews/Interviews.Infrastructure/obj/Debug/net6.0/refint/Interviews.Infrastructure.dll
 /Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Interviews/Interviews.Infrastructure/obj/Debug/net6.0/Interviews.Infrastructure.pdb
 /Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Interviews/Interviews.Infrastructure/obj/Debug/net6.0/ref/Interviews.Infrastructure.dll

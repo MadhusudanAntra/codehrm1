@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/shiyunliu/Desktop/Antra/AntraHRM/src/Services/Recruiting/Recruiting.UnitTests/Recruiting.UnitTests.csproj": {}
+    "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Recruiting/Recruiting.UnitTests/Recruiting.UnitTests.csproj": {}
   },
   "projects": {
-    "/Users/shiyunliu/Desktop/Antra/AntraHRM/src/Services/Recruiting/Recruiting.UnitTests/Recruiting.UnitTests.csproj": {
+    "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Recruiting/Recruiting.UnitTests/Recruiting.UnitTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/shiyunliu/Desktop/Antra/AntraHRM/src/Services/Recruiting/Recruiting.UnitTests/Recruiting.UnitTests.csproj",
+        "projectUniqueName": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Recruiting/Recruiting.UnitTests/Recruiting.UnitTests.csproj",
         "projectName": "Recruiting.UnitTests",
-        "projectPath": "/Users/shiyunliu/Desktop/Antra/AntraHRM/src/Services/Recruiting/Recruiting.UnitTests/Recruiting.UnitTests.csproj",
-        "packagesPath": "/Users/shiyunliu/.nuget/packages/",
-        "outputPath": "/Users/shiyunliu/Desktop/Antra/AntraHRM/src/Services/Recruiting/Recruiting.UnitTests/obj/",
+        "projectPath": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Recruiting/Recruiting.UnitTests/Recruiting.UnitTests.csproj",
+        "packagesPath": "/Users/karim/.nuget/packages/",
+        "outputPath": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Recruiting/Recruiting.UnitTests/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/shiyunliu/.nuget/NuGet/NuGet.Config"
+          "/Users/karim/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -38,25 +38,49 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.2, )"
+            },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
-              "version": "[17.1.0, )"
+              "version": "[17.4.1, )"
             },
             "NUnit": {
               "target": "Package",
               "version": "[3.13.3, )"
             },
             "NUnit.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[3.3.0, )"
+              "version": "[3.5.0, )"
             },
             "NUnit3TestAdapter": {
               "target": "Package",
-              "version": "[4.2.1, )"
+              "version": "[4.3.1, )"
             },
             "coverlet.collector": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[3.1.2, )"
+              "version": "[3.2.0, )"
             }
           },
           "imports": [
@@ -75,7 +99,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.403/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.100-rc.2.22477.23/RuntimeIdentifierGraph.json"
         }
       }
     }
