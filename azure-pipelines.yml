@@ -14,7 +14,7 @@ variables:
   dockerRegistryServiceConnection: '62f83d66-4049-4fbc-a319-03a94b816cea'
   imageRepository: 'hrmappimage'
   containerRegistry: 'hrmdockerimages.azurecr.io'
-  dockerfilePath: '**/Dockerfile'
+  dockerfilePath: '**/Dockerfile.authentication'
   tag: '$(Build.BuildId)'
   imagePullSecret: 'hrmdockerimages5933d3df-auth'
 
