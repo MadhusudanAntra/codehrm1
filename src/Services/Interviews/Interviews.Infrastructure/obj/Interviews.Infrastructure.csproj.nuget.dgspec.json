@@ -1,0 +1,142 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Interviews/Interviews.Infrastructure/Interviews.Infrastructure.csproj": {}
+  },
+  "projects": {
+    "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Interviews/Interviews.ApplicationCore/Interviews.ApplicationCore.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Interviews/Interviews.ApplicationCore/Interviews.ApplicationCore.csproj",
+        "projectName": "Interviews.ApplicationCore",
+        "projectPath": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Interviews/Interviews.ApplicationCore/Interviews.ApplicationCore.csproj",
+        "packagesPath": "/Users/karim/.nuget/packages/",
+        "outputPath": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Interviews/Interviews.ApplicationCore/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/karim/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.100-rc.2.22477.23/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Interviews/Interviews.Infrastructure/Interviews.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Interviews/Interviews.Infrastructure/Interviews.Infrastructure.csproj",
+        "projectName": "Interviews.Infrastructure",
+        "projectPath": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Interviews/Interviews.Infrastructure/Interviews.Infrastructure.csproj",
+        "packagesPath": "/Users/karim/.nuget/packages/",
+        "outputPath": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Interviews/Interviews.Infrastructure/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/karim/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Interviews/Interviews.ApplicationCore/Interviews.ApplicationCore.csproj": {
+                "projectPath": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Interviews/Interviews.ApplicationCore/Interviews.ApplicationCore.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.0.123, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.5, )"
+            },
+            "System.Text.Json": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.100-rc.2.22477.23/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
