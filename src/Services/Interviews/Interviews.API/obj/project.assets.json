@@ -1784,39 +1784,32 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Lynn\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "/Users/karim/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Lynn\\Documents\\latestCode\\Lynn Directory Branch\\AntraHRM\\src\\Services\\Interviews\\Interviews.API\\Interviews.API.csproj",
+      "projectUniqueName": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Interviews/Interviews.API/Interviews.API.csproj",
       "projectName": "Interviews.API",
-      "projectPath": "C:\\Users\\Lynn\\Documents\\latestCode\\Lynn Directory Branch\\AntraHRM\\src\\Services\\Interviews\\Interviews.API\\Interviews.API.csproj",
-      "packagesPath": "C:\\Users\\Lynn\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Lynn\\Documents\\latestCode\\Lynn Directory Branch\\AntraHRM\\src\\Services\\Interviews\\Interviews.API\\obj\\",
+      "projectPath": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Interviews/Interviews.API/Interviews.API.csproj",
+      "packagesPath": "/Users/karim/.nuget/packages/",
+      "outputPath": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Interviews/Interviews.API/obj/",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Lynn\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/karim/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\Lynn\\Documents\\latestCode\\Lynn Directory Branch\\AntraHRM\\src\\Services\\Interviews\\Interviews.Infrastructure\\Interviews.Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\Lynn\\Documents\\latestCode\\Lynn Directory Branch\\AntraHRM\\src\\Services\\Interviews\\Interviews.Infrastructure\\Interviews.Infrastructure.csproj"
+            "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Interviews/Interviews.Infrastructure/Interviews.Infrastructure.csproj": {
+              "projectPath": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Interviews/Interviews.Infrastructure/Interviews.Infrastructure.csproj"
             }
           }
         }
@@ -1859,7 +1852,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.101/RuntimeIdentifierGraph.json"
       }
     }
   }
