@@ -14,4 +14,12 @@
     <ItemGroup>
       <None Remove="Microsoft.OpenApi" />
     </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\Recruiting.Infrastructure\Recruiting.Infrastructure.csproj">
+        <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+      </ProjectReference>
+      <ProjectReference Include="..\Recruiting.ApplicationCore\Recruiting.ApplicationCore.csproj">
+        <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+      </ProjectReference>
+    </ItemGroup>
 </Project>

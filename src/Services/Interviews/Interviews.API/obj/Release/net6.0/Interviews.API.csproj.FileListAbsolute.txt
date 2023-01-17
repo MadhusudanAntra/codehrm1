@@ -101,3 +101,12 @@
 /Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Interviews/Interviews.API/obj/Release/net6.0/Interviews.API.pdb
 /Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Interviews/Interviews.API/obj/Release/net6.0/Interviews.API.genruntimeconfig.cache
 /Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Interviews/Interviews.API/obj/Release/net6.0/ref/Interviews.API.dll
+/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Interviews/Interviews.API/bin/Release/net6.0/Microsoft.EntityFrameworkCore.dll
+/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Interviews/Interviews.API/bin/Release/net6.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Interviews/Interviews.API/bin/Release/net6.0/Microsoft.Extensions.Caching.Abstractions.dll
+/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Interviews/Interviews.API/bin/Release/net6.0/Microsoft.Extensions.Caching.Memory.dll
+/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Interviews/Interviews.API/bin/Release/net6.0/Microsoft.Extensions.DependencyInjection.dll
+/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Interviews/Interviews.API/bin/Release/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Interviews/Interviews.API/bin/Release/net6.0/Microsoft.Extensions.Logging.dll
+/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Interviews/Interviews.API/bin/Release/net6.0/Microsoft.Extensions.Logging.Abstractions.dll
+/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Interviews/Interviews.API/bin/Release/net6.0/Microsoft.Extensions.Options.dll
