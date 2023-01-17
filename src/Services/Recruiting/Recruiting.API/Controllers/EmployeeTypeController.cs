@@ -23,10 +23,12 @@ namespace Recruiting.API.Controllers
         public async Task<IActionResult> GetAllEmployeeTypes()
         {
             var employeeType = await employeeTypeService.GetAllEmployeeTypes();
+            /*
             if (!employeeType.Any() || employeeType.Count() == 0)
             {
                 return NotFound();
             }
+            */
             return Ok(employeeType);
         }
         [HttpGet]

@@ -23,10 +23,12 @@ namespace Recruiting.API.Controllers
         public async Task<IActionResult> GetAllStatus()
         {
             var status = await statusService.GetAllStatus();
+            /*
             if (!status.Any() || status.Count() == 0)
             {
                 return NotFound();
             }
+            */
             return Ok(status);
         }
 

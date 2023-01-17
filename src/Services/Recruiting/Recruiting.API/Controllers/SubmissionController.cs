@@ -23,10 +23,12 @@ namespace Recruiting.API.Controllers
         public async Task<IActionResult> GetAllSubmissions()
         {
             var submission = await submissionService.GetAllSubmissions();
+            /*
             if (!submission.Any() || submission.Count() == 0)
             {
                 return NotFound();
             }
+            */
             return Ok(submission);
         }
 

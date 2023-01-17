@@ -20,10 +20,14 @@ namespace Recruiting.API.Controllers
         public async Task<IActionResult> GetAllCandidate()
         {
             var candidates = await candidateService.GetAllCandidates();
+            
+            /*
             if(!candidates.Any() || candidates.Count() == 0)
             {
                 return NotFound();
             }
+            */
+            
             return Ok(candidates);
         }
         [HttpGet]
