@@ -477,3 +477,4 @@ $RECYCLE.BIN/
 *.lnk
 src/.idea/.idea.AntraHRM/.idea/vcs.xml
 src/.idea/.idea.AntraHRM/.idea/workspace.xml
+*.editorconfig
