@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/OnBoarding/OnBoarding.API/OnBoarding.API.csproj": {}
+    "/Users/abhilash/Repos/AntraHRM/src/Services/OnBoarding/OnBoarding.API/OnBoarding.API.csproj": {}
   },
   "projects": {
-    "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/OnBoarding/OnBoarding.API/OnBoarding.API.csproj": {
+    "/Users/abhilash/Repos/AntraHRM/src/Services/OnBoarding/OnBoarding.API/OnBoarding.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/OnBoarding/OnBoarding.API/OnBoarding.API.csproj",
+        "projectUniqueName": "/Users/abhilash/Repos/AntraHRM/src/Services/OnBoarding/OnBoarding.API/OnBoarding.API.csproj",
         "projectName": "OnBoarding.API",
-        "projectPath": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/OnBoarding/OnBoarding.API/OnBoarding.API.csproj",
-        "packagesPath": "/Users/karim/.nuget/packages/",
-        "outputPath": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/OnBoarding/OnBoarding.API/obj/",
+        "projectPath": "/Users/abhilash/Repos/AntraHRM/src/Services/OnBoarding/OnBoarding.API/OnBoarding.API.csproj",
+        "packagesPath": "/Users/abhilash/.nuget/packages/",
+        "outputPath": "/Users/abhilash/Repos/AntraHRM/src/Services/OnBoarding/OnBoarding.API/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/karim/.nuget/NuGet/NuGet.Config"
+          "/Users/abhilash/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -26,11 +26,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/OnBoarding/OnBoarding.ApplicationCore/OnBoarding.ApplicationCore.csproj": {
-                "projectPath": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/OnBoarding/OnBoarding.ApplicationCore/OnBoarding.ApplicationCore.csproj"
+              "/Users/abhilash/Repos/AntraHRM/src/Services/OnBoarding/OnBoarding.ApplicationCore/OnBoarding.ApplicationCore.csproj": {
+                "projectPath": "/Users/abhilash/Repos/AntraHRM/src/Services/OnBoarding/OnBoarding.ApplicationCore/OnBoarding.ApplicationCore.csproj"
               },
-              "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/OnBoarding/OnBoarding.Infrastructure/OnBoarding.Infrastructure.csproj": {
-                "projectPath": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/OnBoarding/OnBoarding.Infrastructure/OnBoarding.Infrastructure.csproj"
+              "/Users/abhilash/Repos/AntraHRM/src/Services/OnBoarding/OnBoarding.Infrastructure/OnBoarding.Infrastructure.csproj": {
+                "projectPath": "/Users/abhilash/Repos/AntraHRM/src/Services/OnBoarding/OnBoarding.Infrastructure/OnBoarding.Infrastructure.csproj"
               }
             }
           }
@@ -99,6 +99,20 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.13, 6.0.13]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.osx-arm64",
+              "version": "[6.0.13, 6.0.13]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.13, 6.0.13]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -107,21 +121,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.101/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.102/RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/OnBoarding/OnBoarding.ApplicationCore/OnBoarding.ApplicationCore.csproj": {
+    "/Users/abhilash/Repos/AntraHRM/src/Services/OnBoarding/OnBoarding.ApplicationCore/OnBoarding.ApplicationCore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/OnBoarding/OnBoarding.ApplicationCore/OnBoarding.ApplicationCore.csproj",
+        "projectUniqueName": "/Users/abhilash/Repos/AntraHRM/src/Services/OnBoarding/OnBoarding.ApplicationCore/OnBoarding.ApplicationCore.csproj",
         "projectName": "OnBoarding.ApplicationCore",
-        "projectPath": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/OnBoarding/OnBoarding.ApplicationCore/OnBoarding.ApplicationCore.csproj",
-        "packagesPath": "/Users/karim/.nuget/packages/",
-        "outputPath": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/OnBoarding/OnBoarding.ApplicationCore/obj/",
+        "projectPath": "/Users/abhilash/Repos/AntraHRM/src/Services/OnBoarding/OnBoarding.ApplicationCore/OnBoarding.ApplicationCore.csproj",
+        "packagesPath": "/Users/abhilash/.nuget/packages/",
+        "outputPath": "/Users/abhilash/Repos/AntraHRM/src/Services/OnBoarding/OnBoarding.ApplicationCore/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/karim/.nuget/NuGet/NuGet.Config"
+          "/Users/abhilash/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -187,26 +201,36 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.13, 6.0.13]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.13, 6.0.13]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.101/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.102/RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/OnBoarding/OnBoarding.Infrastructure/OnBoarding.Infrastructure.csproj": {
+    "/Users/abhilash/Repos/AntraHRM/src/Services/OnBoarding/OnBoarding.Infrastructure/OnBoarding.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/OnBoarding/OnBoarding.Infrastructure/OnBoarding.Infrastructure.csproj",
+        "projectUniqueName": "/Users/abhilash/Repos/AntraHRM/src/Services/OnBoarding/OnBoarding.Infrastructure/OnBoarding.Infrastructure.csproj",
         "projectName": "OnBoarding.Infrastructure",
-        "projectPath": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/OnBoarding/OnBoarding.Infrastructure/OnBoarding.Infrastructure.csproj",
-        "packagesPath": "/Users/karim/.nuget/packages/",
-        "outputPath": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/OnBoarding/OnBoarding.Infrastructure/obj/",
+        "projectPath": "/Users/abhilash/Repos/AntraHRM/src/Services/OnBoarding/OnBoarding.Infrastructure/OnBoarding.Infrastructure.csproj",
+        "packagesPath": "/Users/abhilash/.nuget/packages/",
+        "outputPath": "/Users/abhilash/Repos/AntraHRM/src/Services/OnBoarding/OnBoarding.Infrastructure/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/karim/.nuget/NuGet/NuGet.Config"
+          "/Users/abhilash/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -218,8 +242,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/OnBoarding/OnBoarding.ApplicationCore/OnBoarding.ApplicationCore.csproj": {
-                "projectPath": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/OnBoarding/OnBoarding.ApplicationCore/OnBoarding.ApplicationCore.csproj"
+              "/Users/abhilash/Repos/AntraHRM/src/Services/OnBoarding/OnBoarding.ApplicationCore/OnBoarding.ApplicationCore.csproj": {
+                "projectPath": "/Users/abhilash/Repos/AntraHRM/src/Services/OnBoarding/OnBoarding.ApplicationCore/OnBoarding.ApplicationCore.csproj"
               }
             }
           }
@@ -276,12 +300,22 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.13, 6.0.13]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.13, 6.0.13]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.101/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.102/RuntimeIdentifierGraph.json"
         }
       }
     }
