@@ -1,3 +1,4 @@
+using System.Net.Http.Json;
 using Interviews.ApplicationCore.Contracts.Repositories;
 using Interviews.ApplicationCore.Contracts.Services;
 using Interviews.ApplicationCore.DataModels.RequestModels;
@@ -10,10 +11,12 @@ namespace Interviews.Infrastructure.Services;
 public class InterviewService : IInterviewService
 {
     private readonly IInterviewRepository _interviewRepository;
+    private readonly HttpClient _httpClient;
 
-    public InterviewService(IInterviewRepository interviewRepository)
+    public InterviewService(IInterviewRepository interviewRepository, HttpClient httpClient)
     {
         _interviewRepository = interviewRepository;
+        _httpClient = httpClient;
     }
     
     public async Task<IEnumerable<InterviewResponseModel>> GetAllInterviews()
@@ -38,6 +41,18 @@ public class InterviewService : IInterviewService
     {
         var createdInterview = requestModel.ToInterview();
         var interview = await _interviewRepository.Create(createdInterview);
+        //get submission ID from frontend request
+        var submissionId = interview.SubmissionId;
+        //get submission object from recruiting microservice
+        var submission = await _httpClient.GetFromJsonAsync<SubmissionResponseModel>($"api/Submission/{submissionId}");
+        //update status -- missing property
+        submission.CurrentStatus = "Interview Created";
+        //make a put request to update status
+        HttpResponseMessage updateSubmissionResponse = await _httpClient.PutAsJsonAsync($"api/Submission/put", submission);
+        if (!updateSubmissionResponse.IsSuccessStatusCode)
+        {
+            throw new Exception("Submission status has not been updated successfully");
+        }
         var response = interview.ToInterviewResponseModel();
         return response;
     }

@@ -25,7 +25,8 @@ namespace Recruiting.Infrastructure.Services
         public async Task<int> AddStatusAsync(StatusRequestModel model)
         {
             //Looks for the associated submission to compare status states.If it isnt changed, reject status addition.
-            var relevantSubmission = await submissionRepository.FirstOrDefaultWithIncludesAsync(s => s.Id == model.SubmissionId, s => s.Status);
+            var relevantSubmission = await submissionRepository.FirstOrDefaultWithIncludesAsync(s => s.CandidateId == model.CandidateId && 
+                s.JobRequirementId == model.JobRequirementId, s => s.Status);
             //Last changed status
             var statusList = relevantSubmission.Status.Count -1;
             var existingStatus = relevantSubmission.Status.FirstOrDefault(s => s.Id == relevantSubmission.Status[statusList].Id);
@@ -36,11 +37,11 @@ namespace Recruiting.Infrastructure.Services
             Status status = new Status();
             if (model != null)
             {
-                status.Id= model.Id;
-                status.SubmissionId = model.SubmissionId;
+                status.SubmissionId = relevantSubmission.Id;
                 status.State = model.State;
                 status.ChangedOn = DateTime.Now;
                 status.StatusMessage = model.StatusMessage;
+                status.Submission = relevantSubmission;
             }
             //returns number of rows affected, typically 1
             return await statusRepository.InsertAsync(status);
