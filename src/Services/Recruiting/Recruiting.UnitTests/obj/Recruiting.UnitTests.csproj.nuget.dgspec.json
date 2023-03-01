@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Recruiting/Recruiting.UnitTests/Recruiting.UnitTests.csproj": {}
+    "/Users/abhilash/Repos/AntraHRM/src/Services/Recruiting/Recruiting.UnitTests/Recruiting.UnitTests.csproj": {}
   },
   "projects": {
-    "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Recruiting/Recruiting.UnitTests/Recruiting.UnitTests.csproj": {
+    "/Users/abhilash/Repos/AntraHRM/src/Services/Recruiting/Recruiting.UnitTests/Recruiting.UnitTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Recruiting/Recruiting.UnitTests/Recruiting.UnitTests.csproj",
+        "projectUniqueName": "/Users/abhilash/Repos/AntraHRM/src/Services/Recruiting/Recruiting.UnitTests/Recruiting.UnitTests.csproj",
         "projectName": "Recruiting.UnitTests",
-        "projectPath": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Recruiting/Recruiting.UnitTests/Recruiting.UnitTests.csproj",
-        "packagesPath": "/Users/karim/.nuget/packages/",
-        "outputPath": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Recruiting/Recruiting.UnitTests/obj/",
+        "projectPath": "/Users/abhilash/Repos/AntraHRM/src/Services/Recruiting/Recruiting.UnitTests/Recruiting.UnitTests.csproj",
+        "packagesPath": "/Users/abhilash/.nuget/packages/",
+        "outputPath": "/Users/abhilash/Repos/AntraHRM/src/Services/Recruiting/Recruiting.UnitTests/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/karim/.nuget/NuGet/NuGet.Config"
+          "/Users/abhilash/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -94,12 +94,22 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.13, 6.0.13]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.13, 6.0.13]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.101/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.102/RuntimeIdentifierGraph.json"
         }
       }
     }
