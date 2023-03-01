@@ -17,6 +17,7 @@ builder.Services.AddScoped<IInterviewerRepository, InterviewerRepository>();
 builder.Services.AddScoped<IInterviewerService, InterviewerService>();
 builder.Services.AddScoped<IInterviewRepository, InterviewRepository>();
 builder.Services.AddScoped<IInterviewService, InterviewService>();
+builder.Services.AddHttpClient<InterviewService>();
 builder.Services.AddSingleton<DbConnection>(); 
 
 builder.Services.AddControllers();
