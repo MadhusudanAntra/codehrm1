@@ -36,6 +36,14 @@ builder.Services.AddDbContext<RecruitingDbContext>(option => {
     option.UseSqlServer(dockerRelated);
     //option.UseSqlServer(builder.Configuration.GetConnectionString("RecruitingDb"));
 });
+
+var RedisConnectionString = Environment.GetEnvironmentVariable("RedisConnectionString");
+
+builder.Services.AddStackExchangeRedisCache(options =>
+{
+    options.Configuration = RedisConnectionString;
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

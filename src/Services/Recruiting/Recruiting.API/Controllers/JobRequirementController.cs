@@ -1,8 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Caching.Memory;
 using Recruiting.ApplicationCore.Contracts.Services;
 using Recruiting.ApplicationCore.Models;
+using System.Text.Json;
 using Recruiting.Infrastructure.Services;
+using System.Text;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -15,41 +18,46 @@ namespace Recruiting.API.Controllers
         private readonly IJobRequirementService jobRequirementService;
         //In Memory caching IMemoryCache object creation
         private readonly IMemoryCache _memoryCache;
-        public JobRequirementController(IJobRequirementService jobRequirementService, IMemoryCache memoryCache)
+        private readonly IDistributedCache _RedisCache;
+        public JobRequirementController(IJobRequirementService jobRequirementService, IMemoryCache memoryCache, IDistributedCache RedisCache)
         {
             this.jobRequirementService = jobRequirementService;
             //Injecting cache object in constructor
             _memoryCache = memoryCache;
+            _RedisCache = RedisCache;
         }
 
 
         // GET: api/<JobRequirementController>
+        //Redis Caching version of the function
         [HttpGet]
         [Route("getall")]
         public async Task<IActionResult> GetAllJobRequirements()
         {
-            //Check if job requirements are already in cache
-            if (_memoryCache.TryGetValue("all", out IEnumerable<JobRequirementResponseModel> jobRequirements))
+            //Check if job requirements are already in Redis cache
+            var jobRequirements = _RedisCache.Get("all");
+            if (jobRequirements != null)
             {
-                //If so, return cached job requirements
-                return Ok(jobRequirements);
+                //If so, we first Decode the bytes into a JSON string then Deserialize the JSON string to get our data
+                var JSONString = Encoding.UTF8.GetString(jobRequirements);
+                var result = JsonSerializer.Deserialize<IEnumerable<JobRequirementResponseModel>>(JSONString);
+                return Ok(result);
 
             }
-            //Else fetch the job requirements again from DB and then add them to cache
+            //Else fetch the job requirements again from DB and then add them to Redis cache
             else
             {
                 var jobRequirement = await jobRequirementService.GetAllJobRequirements();
+                //Serialize job requirements from DB
+                var cachedJobRequirements = JsonSerializer.Serialize(jobRequirement);
 
-                //Configure cache entry options
-                var cacheEntryOptions = new MemoryCacheEntryOptions()
+                //Configuring cache entry options
+                var cacheEntryOptions = new DistributedCacheEntryOptions()
                     .SetSlidingExpiration(TimeSpan.FromMinutes(5))
-                    .SetAbsoluteExpiration(TimeSpan.FromMinutes(30))
-                    .SetPriority(CacheItemPriority.Normal)
-                    //SetSize function refers to number of cache entries that the cache can hold. In this case 1024 jobs is the limit
-                    .SetSize(1024);
+                    .SetAbsoluteExpiration(TimeSpan.FromMinutes(30));
 
-                //add item to cache with the key "all" and the cache entry options object
-                _memoryCache.Set("all", jobRequirement, cacheEntryOptions);
+                //Encoding JSON to Byte and storing it in Redis Cache to be retrieved the next time method is called
+                await _RedisCache.SetAsync("all", Encoding.UTF8.GetBytes(cachedJobRequirements), cacheEntryOptions);
         
                 /*
                 if (!jobRequirement.Any() || jobRequirement.Count() == 0)
@@ -57,10 +65,50 @@ namespace Recruiting.API.Controllers
                     return NotFound();
                 }
                 */
-                return Ok(jobRequirement);
+                return Ok(jobRequirements);
             }
             
         }
+
+        //In-Memory Caching Version of the Function
+        //[HttpGet]
+        //[Route("getall")]
+        //public async Task<IActionResult> GetAllJobRequirements()
+        //{
+        //    //Check if job requirements are already in cache
+        //    if (_memoryCache.TryGetValue("all", out IEnumerable<JobRequirementResponseModel> jobRequirements))
+        //    {
+        //        //If so, return cached job requirements
+        //        return Ok(jobRequirements);
+
+        //    }
+        //    //Else fetch the job requirements again from DB and then add them to cache
+        //    else
+        //    {
+        //        var jobRequirement = await jobRequirementService.GetAllJobRequirements();
+
+        //        //Configure cache entry options
+        //        var cacheEntryOptions = new MemoryCacheEntryOptions()
+        //            .SetSlidingExpiration(TimeSpan.FromMinutes(5))
+        //            .SetAbsoluteExpiration(TimeSpan.FromMinutes(30))
+        //            .SetPriority(CacheItemPriority.Normal)
+        //            //SetSize function refers to number of cache entries that the cache can hold. In this case 1024 jobs is the limit
+        //            .SetSize(1024);
+
+        //        //add item to cache with the key "all" and the cache entry options object
+        //        _memoryCache.Set("all", jobRequirement, cacheEntryOptions);
+
+        //        /*
+        //        if (!jobRequirement.Any() || jobRequirement.Count() == 0)
+        //        {
+        //            return NotFound();
+        //        }
+        //        */
+        //        return Ok(jobRequirement);
+        //    }
+
+        //}
+
         [HttpGet]
         [Route("{id:int}", Name = "GetJobRequirement")]
         public async Task<ActionResult<JobRequirementResponseModel>> GetJobRequirement(int id)
