@@ -24,10 +24,12 @@ namespace Recruiting.API.Controllers
         public async Task<IActionResult> GetAllJobRequirements()
         {
             var jobRequirement = await jobRequirementService.GetAllJobRequirements();
+            /*
             if (!jobRequirement.Any() || jobRequirement.Count() == 0)
             {
                 return NotFound();
             }
+            */
             return Ok(jobRequirement);
         }
         [HttpGet]
