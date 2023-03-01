@@ -35,12 +35,11 @@ namespace Recruiting.API.Controllers
         public async Task<IActionResult> GetAllJobRequirements()
         {
             //Check if job requirements are already in Redis cache
-            var jobRequirements = _RedisCache.Get("all");
+            var jobRequirements = await _RedisCache.GetStringAsync("all");
             if (jobRequirements != null)
             {
                 //If so, we first Decode the bytes into a JSON string then Deserialize the JSON string to get our data
-                var JSONString = Encoding.UTF8.GetString(jobRequirements);
-                var result = JsonSerializer.Deserialize<IEnumerable<JobRequirementResponseModel>>(JSONString);
+                var result = JsonSerializer.Deserialize<IEnumerable<JobRequirementResponseModel>>(jobRequirements);
                 return Ok(result);
 
             }
@@ -48,7 +47,7 @@ namespace Recruiting.API.Controllers
             else
             {
                 var jobRequirement = await jobRequirementService.GetAllJobRequirements();
-                //Serialize job requirements from DB
+                //Serialize job requirements to JSON from DB
                 var cachedJobRequirements = JsonSerializer.Serialize(jobRequirement);
 
                 //Configuring cache entry options
@@ -56,8 +55,8 @@ namespace Recruiting.API.Controllers
                     .SetSlidingExpiration(TimeSpan.FromMinutes(5))
                     .SetAbsoluteExpiration(TimeSpan.FromMinutes(30));
 
-                //Encoding JSON to Byte and storing it in Redis Cache to be retrieved the next time method is called
-                await _RedisCache.SetAsync("all", Encoding.UTF8.GetBytes(cachedJobRequirements), cacheEntryOptions);
+                //Putting JSON in Redis Cache to be retrieved the next time method is called
+                await _RedisCache.SetStringAsync("all", cachedJobRequirements, cacheEntryOptions);
         
                 /*
                 if (!jobRequirement.Any() || jobRequirement.Count() == 0)
