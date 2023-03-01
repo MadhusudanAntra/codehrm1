@@ -560,4 +560,9 @@ src/Services/Recruiting/Recruiting.UnitTests/obj/Debug/net6.0/Recruiting.UnitTes
 src/Services/Recruiting/Recruiting.UnitTests/obj/project.assets.json
 src/Services/Recruiting/Recruiting.UnitTests/obj/Recruiting.UnitTests.csproj.nuget.dgspec.json
 src/Services/Recruiting/Recruiting.UnitTests/obj/Recruiting.UnitTests.csproj.nuget.g.props
+<<<<<<< Updated upstream
 src/Services/Recruiting/Recruiting.UnitTests/obj/Recruiting.UnitTests.csproj.nuget.g.targets
+=======
+src/Services/Recruiting/Recruiting.UnitTests/obj/rider.project.restore.info
+src/Services/OnBoarding/OnBoarding.ApplicationCore/bin/Release/net6.0/OnBoarding.ApplicationCore.runtimeconfig.json
+>>>>>>> Stashed changes

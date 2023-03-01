@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 using Recruiting.ApplicationCore.Contracts.Services;
 using Recruiting.ApplicationCore.Models;
 using Recruiting.Infrastructure.Services;
@@ -12,9 +13,13 @@ namespace Recruiting.API.Controllers
     public class JobRequirementController : ControllerBase
     {
         private readonly IJobRequirementService jobRequirementService;
-        public JobRequirementController(IJobRequirementService jobRequirementService)
+        //In Memory caching IMemoryCache object creation
+        private readonly IMemoryCache _memoryCache;
+        public JobRequirementController(IJobRequirementService jobRequirementService, IMemoryCache memoryCache)
         {
             this.jobRequirementService = jobRequirementService;
+            //Injecting cache object in constructor
+            _memoryCache = memoryCache;
         }
 
 
@@ -23,14 +28,38 @@ namespace Recruiting.API.Controllers
         [Route("getall")]
         public async Task<IActionResult> GetAllJobRequirements()
         {
-            var jobRequirement = await jobRequirementService.GetAllJobRequirements();
-            /*
-            if (!jobRequirement.Any() || jobRequirement.Count() == 0)
+            //Check if job requirements are already in cache
+            if (_memoryCache.TryGetValue("all", out IEnumerable<JobRequirementResponseModel> jobRequirements))
             {
-                return NotFound();
+                //If so, return cached job requirements
+                return Ok(jobRequirements);
+
             }
-            */
-            return Ok(jobRequirement);
+            //Else fetch the job requirements again from DB and then add them to cache
+            else
+            {
+                var jobRequirement = await jobRequirementService.GetAllJobRequirements();
+
+                //Configure cache entry options
+                var cacheEntryOptions = new MemoryCacheEntryOptions()
+                    .SetSlidingExpiration(TimeSpan.FromMinutes(5))
+                    .SetAbsoluteExpiration(TimeSpan.FromMinutes(30))
+                    .SetPriority(CacheItemPriority.Normal)
+                    //SetSize function refers to number of cache entries that the cache can hold. In this case 1024 jobs is the limit
+                    .SetSize(1024);
+
+                //add item to cache with the key "all" and the cache entry options object
+                _memoryCache.Set("all", jobRequirement, cacheEntryOptions);
+        
+                /*
+                if (!jobRequirement.Any() || jobRequirement.Count() == 0)
+                {
+                    return NotFound();
+                }
+                */
+                return Ok(jobRequirement);
+            }
+            
         }
         [HttpGet]
         [Route("{id:int}", Name = "GetJobRequirement")]
