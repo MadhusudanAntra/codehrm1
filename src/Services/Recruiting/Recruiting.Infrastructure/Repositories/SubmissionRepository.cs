@@ -27,10 +27,11 @@ namespace Recruiting.Infrastructure.Repositories
 
             return await query.FirstOrDefaultAsync(where);
         }
-
-        public async Task<Submission> GetSubmissionsByJobAndCandidateId(int jobReqId, int candidateId)
+        /*
+        public async Task<Submission> GetSubmissionsByJobAndCandidateIdAsync(int jobReqId, int candidateId)
         {
             return await _dbContext.Submissions.Where(x => x.JobRequirementId == jobReqId && x.CandidateId == candidateId).FirstOrDefaultAsync();
         }
+        */
     }
 }
