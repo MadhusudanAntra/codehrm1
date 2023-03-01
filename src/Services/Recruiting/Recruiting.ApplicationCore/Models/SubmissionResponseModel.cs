@@ -14,5 +14,7 @@ namespace Recruiting.ApplicationCore.Models
         public DateTime SubmittedOn { get; set; }
         public DateTime ConfirmedOn { get; set; }
         public DateTime RejectedOn { get; set; }
+        
+        public string CurrentStatus { get; set; }
     }
 }

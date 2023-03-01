@@ -15,18 +15,20 @@ namespace Recruiting.Infrastructure.Services
 {
     public class SubmissionService : ISubmissionService
     {
-        ISubmissionRepository submissionRepository;
-        ICandidateRepository candidateRepository;
-        public SubmissionService(ISubmissionRepository _Submissions, ICandidateRepository candidateRepository)
+        ISubmissionRepository _submissionRepository;
+        ICandidateRepository _candidateRepository;
+        IStatusService _statusService;
+        public SubmissionService(ISubmissionRepository submissions, ICandidateRepository candidateRepository, IStatusService statusService)
         {
-            submissionRepository = _Submissions;
-            this.candidateRepository = candidateRepository;
+            _submissionRepository = submissions;
+            _candidateRepository = candidateRepository;
+            _statusService = statusService;
         }
 
         //Check if the candidate's submission is linked with jR to see if candidate has already submitted a submission to that same jR
         public async Task<int> AddSubmissionAsync(SubmissionRequestModel model)
         {
-            var candidateJRSubs = await candidateRepository.FirstOrDefaultWithIncludesAsync(x => x.Id == model.CandidateId, x=> x.Submissions);
+            var candidateJRSubs = await _candidateRepository.FirstOrDefaultWithIncludesAsync(x => x.Id == model.CandidateId, x=> x.Submissions);
             var exists = candidateJRSubs.Submissions.FirstOrDefault(s => s.JobRequirementId == model.JobRequirementId);
 
             if (exists != null)
@@ -34,6 +36,18 @@ namespace Recruiting.Infrastructure.Services
                 throw new Exception("Submission already made");
             }
             Submission submission = new Submission();
+            
+            //Id is assigned once the Submission enters the database (Identity column)
+            // Submission created -> Id assigned -> add to status history
+            
+            /*
+                public int Id { get; set; }
+                public string State { get; set; }
+                public DateTime? ChangedOn { get; set; }
+                public string StatusMessage { get; set; }
+                public int SubmissionId { get; set; }
+                public Submission Submission { get; set; }
+            */
             if (model != null)
             {
                 submission.JobRequirementId = model.JobRequirementId;
@@ -41,27 +55,36 @@ namespace Recruiting.Infrastructure.Services
                 submission.SubmittedOn = model.SubmittedOn;
                 submission.ConfirmedOn = model.ConfirmedOn;
                 submission.RejectedOn = model.RejectedOn;
+                submission.CurrentStatus = "Submitted";
             }
             //returns number of rows affected, typically 1
-            return await submissionRepository.InsertAsync(submission);
+            await _submissionRepository.InsertAsync(submission);
+            await _statusService.AddStatusAsync(new StatusRequestModel()
+            {
+                CandidateId = submission.CandidateId,
+                JobRequirementId = submission.JobRequirementId,
+                State = submission.CurrentStatus,
+                StatusMessage = "Submission created"
+            });
+            return 1; //Add in statusService for some reason with candidateid and job id
         }
 
         public async Task<int> DeleteSubmissionAsync(int id)
         {
             //returns number of rows affected, typically 1
-            return await submissionRepository.DeleteAsync(id);
+            return await _submissionRepository.DeleteAsync(id);
         }
 
         public async Task<IEnumerable<SubmissionResponseModel>> GetAllSubmissions()
         {
-            var submissions = await submissionRepository.GetAllAsync();
+            var submissions = await _submissionRepository.GetAllAsync();
             var response = submissions.Select(x => x.ToSubmissionResponseModel());
             return response;
         }
 
         public async Task<SubmissionResponseModel> GetSubmissionByIdAsync(int id)
         {
-            var sub = await submissionRepository.GetByIdAsync(id);
+            var sub = await _submissionRepository.GetByIdAsync(id);
             if (sub != null)
             {
                 var response = sub.ToSubmissionResponseModel();
@@ -75,7 +98,7 @@ namespace Recruiting.Infrastructure.Services
 
         public async Task<int> UpdateSubmissionAsync(SubmissionRequestModel model)
         {
-            var existingSubmission = await submissionRepository.GetByIdAsync(model.Id);
+            var existingSubmission = await _submissionRepository.GetByIdAsync(model.Id);
             if (existingSubmission == null)
             {
                 throw new Exception("Submission does not exist");
@@ -89,7 +112,9 @@ namespace Recruiting.Infrastructure.Services
                 submission.SubmittedOn = model.SubmittedOn;
                 submission.ConfirmedOn = model.ConfirmedOn;
                 submission.RejectedOn = model.RejectedOn;
-                return await submissionRepository.UpdateAsync(submission);
+                // Consider the impact of status history on this statement below
+                submission.CurrentStatus = model.CurrentStatus;
+                return await _submissionRepository.UpdateAsync(submission);
             }
             else
             {

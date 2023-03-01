@@ -15,6 +15,7 @@ namespace Recruiting.ApplicationCore.Entities
         public DateTime SubmittedOn { get; set; }
         public DateTime ConfirmedOn { get; set; }
         public DateTime RejectedOn { get; set; }
+        public string CurrentStatus { get; set; }
         public List<Status> Status { get; set; }
         public JobRequirement JobRequirement { get; set; }
         public Candidate Candidate { get; set; }

@@ -71,7 +71,8 @@ namespace Recruiting.Infrastructure.Helpers
                 CandidateId = sub.CandidateId,
                 SubmittedOn = sub.SubmittedOn,
                 ConfirmedOn = sub.ConfirmedOn,
-                RejectedOn = sub.RejectedOn
+                RejectedOn = sub.RejectedOn,
+                CurrentStatus = sub.CurrentStatus
             };
         }
 
