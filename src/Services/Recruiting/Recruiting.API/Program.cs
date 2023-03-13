@@ -71,6 +71,9 @@ var filterLogger = new LoggerConfiguration()
     .WriteTo.File("filterLog.json", rollingInterval: RollingInterval.Day)
     .CreateLogger();
 
+builder.Services.AddSingleton(exceptionLogger);
+builder.Services.AddSingleton(filterLogger);
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
