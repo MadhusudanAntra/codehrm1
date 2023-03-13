@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Recruiting.ApplicationCore.Contracts.Services;
 using Recruiting.ApplicationCore.Models;
+using Recruiting.Infrastructure.Helpers;
 using Recruiting.Infrastructure.Services;
 
 namespace Recruiting.API.Controllers
@@ -47,6 +48,7 @@ namespace Recruiting.API.Controllers
         //    return "value";
         //}
 
+        [ServiceFilter(typeof(LogExecutionTimeFilter))]
         [HttpPost]
         [Route("addSubmission")]
         public async Task<IActionResult> Post(SubmissionRequestModel model)

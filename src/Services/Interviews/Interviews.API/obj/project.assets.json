@@ -1943,25 +1943,26 @@
   },
   "projectFileDependencyGroups": {
     "net7.0": [
+      "Interviews.ApplicationCore >= 1.0.0",
       "Interviews.Infrastructure >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.5.0",
       "System.Text.Json >= 7.0.2"
     ]
   },
   "packageFolders": {
-    "/Users/karim/.nuget/packages/": {}
+    "/Users/shiyunliu/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Interviews/Interviews.API/Interviews.API.csproj",
+      "projectUniqueName": "/Users/shiyunliu/Desktop/Antra/AntraHRM/src/Services/Interviews/Interviews.API/Interviews.API.csproj",
       "projectName": "Interviews.API",
-      "projectPath": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Interviews/Interviews.API/Interviews.API.csproj",
-      "packagesPath": "/Users/karim/.nuget/packages/",
-      "outputPath": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Interviews/Interviews.API/obj/",
+      "projectPath": "/Users/shiyunliu/Desktop/Antra/AntraHRM/src/Services/Interviews/Interviews.API/Interviews.API.csproj",
+      "packagesPath": "/Users/shiyunliu/.nuget/packages/",
+      "outputPath": "/Users/shiyunliu/Desktop/Antra/AntraHRM/src/Services/Interviews/Interviews.API/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/karim/.nuget/NuGet/NuGet.Config"
+        "/Users/shiyunliu/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -1973,8 +1974,11 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Interviews/Interviews.Infrastructure/Interviews.Infrastructure.csproj": {
-              "projectPath": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Interviews/Interviews.Infrastructure/Interviews.Infrastructure.csproj"
+            "/Users/shiyunliu/Desktop/Antra/AntraHRM/src/Services/Interviews/Interviews.ApplicationCore/Interviews.ApplicationCore.csproj": {
+              "projectPath": "/Users/shiyunliu/Desktop/Antra/AntraHRM/src/Services/Interviews/Interviews.ApplicationCore/Interviews.ApplicationCore.csproj"
+            },
+            "/Users/shiyunliu/Desktop/Antra/AntraHRM/src/Services/Interviews/Interviews.Infrastructure/Interviews.Infrastructure.csproj": {
+              "projectPath": "/Users/shiyunliu/Desktop/Antra/AntraHRM/src/Services/Interviews/Interviews.Infrastructure/Interviews.Infrastructure.csproj"
             }
           }
         }
@@ -2017,7 +2021,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.101/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.201/RuntimeIdentifierGraph.json"
       }
     }
   }

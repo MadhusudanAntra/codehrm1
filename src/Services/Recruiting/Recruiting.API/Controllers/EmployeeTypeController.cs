@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Recruiting.ApplicationCore.Contracts.Services;
 using Recruiting.ApplicationCore.Models;
@@ -46,6 +47,7 @@ namespace Recruiting.API.Controllers
         //    return "value";
         //}
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [Route("addemployeetype")]
         public async Task<IActionResult> Post(EmployeeTypeRequestModel model)
@@ -58,6 +60,7 @@ namespace Recruiting.API.Controllers
             return BadRequest();
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpDelete]
         [Route("delete-{id}")]
         public async Task<IActionResult> Delete(int id)
@@ -67,6 +70,8 @@ namespace Recruiting.API.Controllers
                 return Ok(response);
             return NoContent();
         }
+        
+        [Authorize(Roles = "Admin")]
         [HttpPut]
         public async Task<IActionResult> Put(EmployeeTypeRequestModel model)
         {

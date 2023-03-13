@@ -4415,19 +4415,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/karim/.nuget/packages/": {}
+    "/Users/shiyunliu/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Recruiting/Recruiting.UnitTests/Recruiting.UnitTests.csproj",
+      "projectUniqueName": "/Users/shiyunliu/Desktop/Antra/AntraHRM/src/Services/Recruiting/Recruiting.UnitTests/Recruiting.UnitTests.csproj",
       "projectName": "Recruiting.UnitTests",
-      "projectPath": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Recruiting/Recruiting.UnitTests/Recruiting.UnitTests.csproj",
-      "packagesPath": "/Users/karim/.nuget/packages/",
-      "outputPath": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Recruiting/Recruiting.UnitTests/obj/",
+      "projectPath": "/Users/shiyunliu/Desktop/Antra/AntraHRM/src/Services/Recruiting/Recruiting.UnitTests/Recruiting.UnitTests.csproj",
+      "packagesPath": "/Users/shiyunliu/.nuget/packages/",
+      "outputPath": "/Users/shiyunliu/Desktop/Antra/AntraHRM/src/Services/Recruiting/Recruiting.UnitTests/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/karim/.nuget/NuGet/NuGet.Config"
+        "/Users/shiyunliu/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -4512,7 +4512,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.101/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.201/RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Recruiting/Recruiting.API/Recruiting.API.csproj": {}
+    "/Users/shiyunliu/Desktop/Antra/AntraHRM/src/Services/Recruiting/Recruiting.API/Recruiting.API.csproj": {}
   },
   "projects": {
-    "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Recruiting/Recruiting.API/Recruiting.API.csproj": {
+    "/Users/shiyunliu/Desktop/Antra/AntraHRM/src/Services/Recruiting/Recruiting.API/Recruiting.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Recruiting/Recruiting.API/Recruiting.API.csproj",
+        "projectUniqueName": "/Users/shiyunliu/Desktop/Antra/AntraHRM/src/Services/Recruiting/Recruiting.API/Recruiting.API.csproj",
         "projectName": "Recruiting.API",
-        "projectPath": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Recruiting/Recruiting.API/Recruiting.API.csproj",
-        "packagesPath": "/Users/karim/.nuget/packages/",
-        "outputPath": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Recruiting/Recruiting.API/obj/",
+        "projectPath": "/Users/shiyunliu/Desktop/Antra/AntraHRM/src/Services/Recruiting/Recruiting.API/Recruiting.API.csproj",
+        "packagesPath": "/Users/shiyunliu/.nuget/packages/",
+        "outputPath": "/Users/shiyunliu/Desktop/Antra/AntraHRM/src/Services/Recruiting/Recruiting.API/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/karim/.nuget/NuGet/NuGet.Config"
+          "/Users/shiyunliu/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -26,11 +26,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Recruiting/Recruiting.ApplicationCore/Recruiting.ApplicationCore.csproj": {
-                "projectPath": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Recruiting/Recruiting.ApplicationCore/Recruiting.ApplicationCore.csproj"
+              "/Users/shiyunliu/Desktop/Antra/AntraHRM/src/Services/Recruiting/Recruiting.ApplicationCore/Recruiting.ApplicationCore.csproj": {
+                "projectPath": "/Users/shiyunliu/Desktop/Antra/AntraHRM/src/Services/Recruiting/Recruiting.ApplicationCore/Recruiting.ApplicationCore.csproj"
               },
-              "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Recruiting/Recruiting.Infrastructure/Recruiting.Infrastructure.csproj": {
-                "projectPath": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Recruiting/Recruiting.Infrastructure/Recruiting.Infrastructure.csproj"
+              "/Users/shiyunliu/Desktop/Antra/AntraHRM/src/Services/Recruiting/Recruiting.Infrastructure/Recruiting.Infrastructure.csproj": {
+                "projectPath": "/Users/shiyunliu/Desktop/Antra/AntraHRM/src/Services/Recruiting/Recruiting.Infrastructure/Recruiting.Infrastructure.csproj"
               }
             }
           }
@@ -81,21 +81,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.101/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.201/RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Recruiting/Recruiting.ApplicationCore/Recruiting.ApplicationCore.csproj": {
+    "/Users/shiyunliu/Desktop/Antra/AntraHRM/src/Services/Recruiting/Recruiting.ApplicationCore/Recruiting.ApplicationCore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Recruiting/Recruiting.ApplicationCore/Recruiting.ApplicationCore.csproj",
+        "projectUniqueName": "/Users/shiyunliu/Desktop/Antra/AntraHRM/src/Services/Recruiting/Recruiting.ApplicationCore/Recruiting.ApplicationCore.csproj",
         "projectName": "Recruiting.ApplicationCore",
-        "projectPath": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Recruiting/Recruiting.ApplicationCore/Recruiting.ApplicationCore.csproj",
-        "packagesPath": "/Users/karim/.nuget/packages/",
-        "outputPath": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Recruiting/Recruiting.ApplicationCore/obj/",
+        "projectPath": "/Users/shiyunliu/Desktop/Antra/AntraHRM/src/Services/Recruiting/Recruiting.ApplicationCore/Recruiting.ApplicationCore.csproj",
+        "packagesPath": "/Users/shiyunliu/.nuget/packages/",
+        "outputPath": "/Users/shiyunliu/Desktop/Antra/AntraHRM/src/Services/Recruiting/Recruiting.ApplicationCore/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/karim/.nuget/NuGet/NuGet.Config"
+          "/Users/shiyunliu/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -156,21 +156,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.101/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.201/RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Recruiting/Recruiting.Infrastructure/Recruiting.Infrastructure.csproj": {
+    "/Users/shiyunliu/Desktop/Antra/AntraHRM/src/Services/Recruiting/Recruiting.Infrastructure/Recruiting.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Recruiting/Recruiting.Infrastructure/Recruiting.Infrastructure.csproj",
+        "projectUniqueName": "/Users/shiyunliu/Desktop/Antra/AntraHRM/src/Services/Recruiting/Recruiting.Infrastructure/Recruiting.Infrastructure.csproj",
         "projectName": "Recruiting.Infrastructure",
-        "projectPath": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Recruiting/Recruiting.Infrastructure/Recruiting.Infrastructure.csproj",
-        "packagesPath": "/Users/karim/.nuget/packages/",
-        "outputPath": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Recruiting/Recruiting.Infrastructure/obj/",
+        "projectPath": "/Users/shiyunliu/Desktop/Antra/AntraHRM/src/Services/Recruiting/Recruiting.Infrastructure/Recruiting.Infrastructure.csproj",
+        "packagesPath": "/Users/shiyunliu/.nuget/packages/",
+        "outputPath": "/Users/shiyunliu/Desktop/Antra/AntraHRM/src/Services/Recruiting/Recruiting.Infrastructure/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/karim/.nuget/NuGet/NuGet.Config"
+          "/Users/shiyunliu/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -182,8 +182,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Recruiting/Recruiting.ApplicationCore/Recruiting.ApplicationCore.csproj": {
-                "projectPath": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Recruiting/Recruiting.ApplicationCore/Recruiting.ApplicationCore.csproj"
+              "/Users/shiyunliu/Desktop/Antra/AntraHRM/src/Services/Recruiting/Recruiting.ApplicationCore/Recruiting.ApplicationCore.csproj": {
+                "projectPath": "/Users/shiyunliu/Desktop/Antra/AntraHRM/src/Services/Recruiting/Recruiting.ApplicationCore/Recruiting.ApplicationCore.csproj"
               }
             }
           }
@@ -217,6 +217,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[7.0.3, )"
+            },
+            "Serilog.AspNetCore": {
+              "target": "Package",
+              "version": "[6.1.1-dev-00295, )"
             }
           },
           "imports": [
@@ -235,7 +239,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.101/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.201/RuntimeIdentifierGraph.json"
         }
       }
     }

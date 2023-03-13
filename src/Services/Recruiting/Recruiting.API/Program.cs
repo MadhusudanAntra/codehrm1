@@ -4,8 +4,16 @@ using Recruiting.ApplicationCore.Contracts.Services;
 using Recruiting.Infrastructure.Data;
 using Recruiting.Infrastructure.Repositories;
 using Recruiting.Infrastructure.Services;
+using Serilog;
 
+
+var allowedOrigins = "_allowedOrigins";
 var builder = WebApplication.CreateBuilder(args);
+
+Log.Logger = new LoggerConfiguration()
+    .Enrich.FromLogContext()
+    .WriteTo.Console()
+    .CreateLogger();
 
 // Add services to the container.
 
@@ -29,13 +37,24 @@ builder.Services.AddScoped<IStatusService, StatusService>();
 builder.Services.AddScoped<IEmployeeTypeRepository, EmployeeTypeRepository>();
 builder.Services.AddScoped<IEmployeeTypeService, EmployeeTypeService>();
 
-var dockerRelated = Environment.GetEnvironmentVariable("MSSQLConnectionString");
-
+//var dockerRelated = Environment.GetEnvironmentVariable("MSSQLConnectionString");
+var dockerRelated = builder.Configuration.GetConnectionString("RecruitingDb");
+    
 builder.Services.AddDbContext<RecruitingDbContext>(option => {
     option.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
     option.UseSqlServer(dockerRelated);
     //option.UseSqlServer(builder.Configuration.GetConnectionString("RecruitingDb"));
 });
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: allowedOrigins,
+        builder =>
+        {
+            builder.WithOrigins("https://localhost:4200");
+        });
+});
+
 
 var RedisConnectionString = Environment.GetEnvironmentVariable("RedisConnectionString");
 
