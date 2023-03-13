@@ -1,10 +1,12 @@
 using Microsoft.EntityFrameworkCore;
+using Recruiting.API.CustomMiddleware;
 using Recruiting.ApplicationCore.Contracts.Repositories;
 using Recruiting.ApplicationCore.Contracts.Services;
 using Recruiting.Infrastructure.Data;
 using Recruiting.Infrastructure.Repositories;
 using Recruiting.Infrastructure.Services;
 using Serilog;
+using Serilog.Events;
 using Serilog.Exceptions;
 using Serilog.Sinks.File;
 
@@ -60,19 +62,13 @@ builder.Services.AddStackExchangeRedisCache(options =>
     options.Configuration = RedisConnectionString;
 });
 
-var exceptionLogger = new LoggerConfiguration()
+Log.Logger = new LoggerConfiguration()
     .Enrich.FromLogContext()
     .Enrich.WithExceptionDetails()
-    .WriteTo.File("exceptionLog.json", rollingInterval: RollingInterval.Day)
+    .WriteTo.Logger(l => l.Filter.ByIncludingOnly(e => e.Level == LogEventLevel.Information).WriteTo.File("SubmissionLogs.json", rollingInterval: RollingInterval.Day))
+    .WriteTo.Logger(l => l.Filter.ByIncludingOnly(e => e.Level == LogEventLevel.Error).WriteTo.File("ExceptionLogs.json", rollingInterval: RollingInterval.Day))
     .CreateLogger();
-
-var filterLogger = new LoggerConfiguration()
-    .Enrich.FromLogContext()
-    .WriteTo.File("filterLog.json", rollingInterval: RollingInterval.Day)
-    .CreateLogger();
-
-builder.Services.AddSingleton(exceptionLogger);
-builder.Services.AddSingleton(filterLogger);
+builder.Host.UseSerilog(Log.Logger);
 
 var app = builder.Build();
 
@@ -86,6 +82,10 @@ var app = builder.Build();
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+app.UseMiddleware<ExceptionHandler>();
+
+app.UseSerilogRequestLogging();
 
 app.MapControllers();
 

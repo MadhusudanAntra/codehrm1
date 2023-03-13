@@ -1,0 +1,23 @@
+2023-03-13 17:19:17.594 -04:00 [INF] Now listening on: https://localhost:7095
+2023-03-13 17:19:17.603 -04:00 [INF] Now listening on: http://localhost:5051
+2023-03-13 17:19:17.604 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-03-13 17:19:17.604 -04:00 [INF] Hosting environment: Development
+2023-03-13 17:19:17.604 -04:00 [INF] Content root path: /Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Recruiting/Recruiting.API
+2023-03-13 17:19:19.026 -04:00 [INF] Request starting HTTP/1.1 GET https://localhost:7095/swagger/index.html - -
+2023-03-13 17:19:19.085 -04:00 [INF] Request finished HTTP/1.1 GET https://localhost:7095/swagger/index.html - - - 200 - text/html;charset=utf-8 60.5399ms
+2023-03-13 17:19:19.205 -04:00 [INF] Request starting HTTP/1.1 GET https://localhost:7095/swagger/v1/swagger.json - -
+2023-03-13 17:19:19.253 -04:00 [INF] Request finished HTTP/1.1 GET https://localhost:7095/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 47.5467ms
+2023-03-13 17:19:38.917 -04:00 [INF] Request starting HTTP/1.1 POST https://localhost:7095/api/Candidate/addcandidate application/json 178
+2023-03-13 17:19:38.932 -04:00 [INF] Executing endpoint 'Recruiting.API.Controllers.CandidateController.Post (Recruiting.API)'
+2023-03-13 17:19:38.948 -04:00 [INF] Route matched with {action = "Post", controller = "Candidate"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Recruiting.ApplicationCore.Models.CandidateRequestModel) on controller Recruiting.API.Controllers.CandidateController (Recruiting.API).
+2023-03-13 17:19:39.030 -04:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2023-03-13 17:19:39.034 -04:00 [INF] Executed action Recruiting.API.Controllers.CandidateController.Post (Recruiting.API) in 84.1872ms
+2023-03-13 17:19:39.034 -04:00 [INF] Executed endpoint 'Recruiting.API.Controllers.CandidateController.Post (Recruiting.API)'
+2023-03-13 17:19:39.035 -04:00 [INF] HTTP POST /api/Candidate/addcandidate responded 400 in 105.1078 ms
+2023-03-13 17:19:39.036 -04:00 [INF] Request finished HTTP/1.1 POST https://localhost:7095/api/Candidate/addcandidate application/json 178 - 400 - application/problem+json;+charset=utf-8 119.0025ms
+2023-03-13 17:20:34.397 -04:00 [INF] Request starting HTTP/1.1 GET https://localhost:7095/api/Candidate/500 - -
+2023-03-13 17:20:34.403 -04:00 [INF] Executing endpoint 'Recruiting.API.Controllers.CandidateController.GetCandidate (Recruiting.API)'
+2023-03-13 17:20:34.415 -04:00 [INF] Route matched with {action = "GetCandidate", controller = "Candidate"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[Recruiting.ApplicationCore.Models.CandidateResponseModel]] GetCandidate(Int32) on controller Recruiting.API.Controllers.CandidateController (Recruiting.API).
+2023-03-13 17:20:35.387 -04:00 [INF] Executed action Recruiting.API.Controllers.CandidateController.GetCandidate (Recruiting.API) in 971.1675ms
+2023-03-13 17:20:35.387 -04:00 [INF] Executed endpoint 'Recruiting.API.Controllers.CandidateController.GetCandidate (Recruiting.API)'
+2023-03-13 17:20:35.438 -04:00 [INF] Request finished HTTP/1.1 GET https://localhost:7095/api/Candidate/500 - - - 500 - application/json;+charset=utf-8 1041.6127ms

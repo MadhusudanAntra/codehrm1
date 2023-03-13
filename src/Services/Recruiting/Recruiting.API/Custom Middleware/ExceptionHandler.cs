@@ -33,7 +33,7 @@ namespace Recruiting.API.CustomMiddleware
                 context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
                 context.Response.ContentType = "application/json";
 
-                Log.Error(ex, "An unhandled exception occurred");
+                _logger.LogError(ex, "An unhandled exception occurred");
 
                 await context.Response.WriteAsJsonAsync(new
                 {
