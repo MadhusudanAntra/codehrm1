@@ -31,6 +31,7 @@ namespace OnBoarding.Infrastructure.Services
                 EmployeeCategoryCode = employee.EmployeeCategoryCode,
                 EmployeeStatusCode = employee.EmployeeStatusCode,
                 Address = employee.Address,
+                PhoneNumber = employee.PhoneNumber,
                 Email = employee.Email,
                 EmployeeRoleId = employee.EmployeeRoleId
             };

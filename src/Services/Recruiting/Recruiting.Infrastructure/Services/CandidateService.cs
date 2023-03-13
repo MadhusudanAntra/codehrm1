@@ -34,6 +34,8 @@ namespace Recruiting.Infrastructure.Services
                 candidate.MiddleName = model.MiddleName;
                 candidate.LastName = model.LastName;
                 candidate.Email = model.Email;
+                candidate.Address = model.Address;
+                candidate.PhoneNumber = model.PhoneNumber;
                 candidate.ResumeURL = model.ResumeURL;
             }
             //returns number of rows affected, typically 1

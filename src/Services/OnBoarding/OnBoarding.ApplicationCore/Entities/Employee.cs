@@ -16,6 +16,7 @@ namespace OnBoarding.ApplicationCore.Entities
 		public EmployeeCategory EmployeeCategoryCode { get; set; }
 		public EmployeeStatus EmployeeStatusCode { get; set; }
 		public string Address { get; set; }
+		public string PhoneNumber { get; set; }
 		public string Email { get; set; }
 		public EmployeeRole EmployeeRoleId { get; set; }
 	} 
