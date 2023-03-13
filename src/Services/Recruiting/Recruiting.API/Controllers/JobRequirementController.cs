@@ -6,6 +6,7 @@ using Recruiting.ApplicationCore.Models;
 using System.Text.Json;
 using Recruiting.Infrastructure.Services;
 using System.Text;
+using Microsoft.AspNetCore.Authorization;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -123,6 +124,7 @@ namespace Recruiting.API.Controllers
         //    return "value";
         //}
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [Route("addjobrequirement")]
         public async Task<IActionResult> Post(JobRequirementRequestModel model)
@@ -135,6 +137,7 @@ namespace Recruiting.API.Controllers
             return BadRequest();
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpDelete]
         [Route("delete-{id}")]
         public async Task<IActionResult> Delete(int id)
@@ -144,6 +147,8 @@ namespace Recruiting.API.Controllers
                 return Ok(response);
             return NoContent();
         }
+        
+        [Authorize(Roles = "Admin")]
         [HttpPut]
         public async Task<IActionResult> Put(JobRequirementRequestModel model)
         {
