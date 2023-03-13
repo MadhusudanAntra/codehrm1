@@ -11,10 +11,15 @@
         <PackageReference Include="Microsoft.OpenApi" Version="1.6.3" />
         <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="7.0.3" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Analyzers" Version="7.0.3" />
+        <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+        <PackageReference Include="Serilog.AspNetCore" Version="6.1.0" />
+        <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
+        <PackageReference Include="Serilog.Exceptions" Version="8.4.0" />
     </ItemGroup>
 
     <ItemGroup>
       <None Remove="Microsoft.OpenApi" />
+      <None Remove="Custom Middleware\" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\Recruiting.Infrastructure\Recruiting.Infrastructure.csproj">
@@ -23,5 +28,8 @@
       <ProjectReference Include="..\Recruiting.ApplicationCore\Recruiting.ApplicationCore.csproj">
         <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
       </ProjectReference>
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="Custom Middleware\" />
     </ItemGroup>
 </Project>

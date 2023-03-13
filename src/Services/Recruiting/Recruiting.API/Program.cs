@@ -1,9 +1,13 @@
 using Microsoft.EntityFrameworkCore;
+using Recruiting.API.CustomMiddleware;
 using Recruiting.ApplicationCore.Contracts.Repositories;
 using Recruiting.ApplicationCore.Contracts.Services;
 using Recruiting.Infrastructure.Data;
 using Recruiting.Infrastructure.Repositories;
 using Recruiting.Infrastructure.Services;
+using Serilog;
+using Serilog.Exceptions;
+using Serilog.Sinks.File;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -44,6 +48,13 @@ builder.Services.AddStackExchangeRedisCache(options =>
     options.Configuration = RedisConnectionString;
 });
 
+Log.Logger = new LoggerConfiguration()
+    .Enrich.FromLogContext()
+    .Enrich.WithExceptionDetails()
+    .WriteTo.File("log.json", rollingInterval: RollingInterval.Day)
+    .CreateLogger();
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -56,6 +67,10 @@ var app = builder.Build();
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+app.UseSerilogRequestLogging();
+
+app.UseMiddleware<ExceptionHandler>();
 
 app.MapControllers();
 
