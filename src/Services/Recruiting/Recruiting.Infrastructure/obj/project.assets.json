@@ -496,6 +496,25 @@
           "buildTransitive/net6.0/_._": {}
         }
       },
+      "Microsoft.Extensions.Options.ConfigurationExtensions/2.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "2.0.0",
+          "Microsoft.Extensions.Configuration.Binder": "2.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "2.0.0",
+          "Microsoft.Extensions.Options": "2.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Extensions.Options.ConfigurationExtensions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.Options.ConfigurationExtensions.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.Extensions.Primitives/7.0.0": {
         "type": "package",
         "compile": {
@@ -743,7 +762,7 @@
           }
         }
       },
-      "Serilog.AspNetCore/6.1.1-dev-00295": {
+      "Serilog.AspNetCore/6.1.0": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection": "5.0.0",
@@ -751,7 +770,7 @@
           "Serilog": "2.10.0",
           "Serilog.Extensions.Hosting": "5.0.1",
           "Serilog.Formatting.Compact": "1.1.0",
-          "Serilog.Settings.Configuration": "3.4.0",
+          "Serilog.Settings.Configuration": "3.3.0",
           "Serilog.Sinks.Console": "4.0.1",
           "Serilog.Sinks.Debug": "2.0.0",
           "Serilog.Sinks.File": "5.0.0"
@@ -823,11 +842,11 @@
           }
         }
       },
-      "Serilog.Settings.Configuration/3.4.0": {
+      "Serilog.Settings.Configuration/3.3.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.Configuration.Binder": "2.0.0",
           "Microsoft.Extensions.DependencyModel": "3.0.0",
+          "Microsoft.Extensions.Options.ConfigurationExtensions": "2.0.0",
           "Serilog": "2.10.0"
         },
         "compile": {
@@ -1364,6 +1383,7 @@
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "7.0.3",
+          "Microsoft.EntityFrameworkCore.Analyzers": "7.0.3",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.3"
         },
         "compile": {
@@ -2066,6 +2086,19 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "Microsoft.Extensions.Options.ConfigurationExtensions/2.0.0": {
+      "sha512": "Y/lGICwO27fCkQRK3tZseVzFjZaxfGmui990E67sB4MuiPzdJHnJDS/BeYWrHShSSBgCl4KyKRx4ux686fftPg==",
+      "type": "package",
+      "path": "microsoft.extensions.options.configurationextensions/2.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/Microsoft.Extensions.Options.ConfigurationExtensions.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Options.ConfigurationExtensions.xml",
+        "microsoft.extensions.options.configurationextensions.2.0.0.nupkg.sha512",
+        "microsoft.extensions.options.configurationextensions.nuspec"
+      ]
+    },
     "Microsoft.Extensions.Primitives/7.0.0": {
       "sha512": "um1KU5kxcRp3CNuI8o/GrZtD4AIOXDk+RLsytjZ9QPok3ttLUelLKpilVPuaFT3TFjOhSibUAso0odbOaCDj3Q==",
       "type": "package",
@@ -2428,10 +2461,10 @@
         "serilog.nuspec"
       ]
     },
-    "Serilog.AspNetCore/6.1.1-dev-00295": {
-      "sha512": "UJcZ8euIzqamdQpeK+iS6/8IdiSnJSJ0Ht1h6e7m++SRpOMy/k6H08fz7do0luy1jlnJQS5IpOappZKWd14gjw==",
+    "Serilog.AspNetCore/6.1.0": {
+      "sha512": "iMwFUJDN+/yWIPz4TKCliagJ1Yn//SceCYCzgdPwe/ECYUwb5/WUL8cTzRKV+tFwxGjLEV/xpm0GupS5RwbhSQ==",
       "type": "package",
-      "path": "serilog.aspnetcore/6.1.1-dev-00295",
+      "path": "serilog.aspnetcore/6.1.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2444,7 +2477,7 @@
         "lib/netstandard2.0/Serilog.AspNetCore.xml",
         "lib/netstandard2.1/Serilog.AspNetCore.dll",
         "lib/netstandard2.1/Serilog.AspNetCore.xml",
-        "serilog.aspnetcore.6.1.1-dev-00295.nupkg.sha512",
+        "serilog.aspnetcore.6.1.0.nupkg.sha512",
         "serilog.aspnetcore.nuspec"
       ]
     },
@@ -2495,10 +2528,10 @@
         "serilog.formatting.compact.nuspec"
       ]
     },
-    "Serilog.Settings.Configuration/3.4.0": {
-      "sha512": "ULloXSiapTb3zOWodC0G4WRDQzA5RjMEfZNZzOZpH8kC3t/lrISLblklIpKC44CX0sMDF40MnJwTIQ3pFQFs4g==",
+    "Serilog.Settings.Configuration/3.3.0": {
+      "sha512": "7GNudISZwqaT902hqEL2OFGTZeUFWfnrNLupJkOqeF41AR3GjcxX+Hwb30xb8gG2/CDXsCMVfF8o0+8KY0fJNg==",
       "type": "package",
-      "path": "serilog.settings.configuration/3.4.0",
+      "path": "serilog.settings.configuration/3.3.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2509,7 +2542,7 @@
         "lib/net461/Serilog.Settings.Configuration.xml",
         "lib/netstandard2.0/Serilog.Settings.Configuration.dll",
         "lib/netstandard2.0/Serilog.Settings.Configuration.xml",
-        "serilog.settings.configuration.3.4.0.nupkg.sha512",
+        "serilog.settings.configuration.3.3.0.nupkg.sha512",
         "serilog.settings.configuration.nuspec"
       ]
     },
@@ -3942,23 +3975,23 @@
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.3",
       "Microsoft.EntityFrameworkCore.Tools >= 7.0.3",
       "Recruiting.ApplicationCore >= 1.0.0",
-      "Serilog.AspNetCore >= 6.1.1-dev-00295"
+      "Serilog.AspNetCore >= 6.1.0"
     ]
   },
   "packageFolders": {
-    "/Users/shiyunliu/.nuget/packages/": {}
+    "/Users/karim/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/shiyunliu/Desktop/Antra/AntraHRM/src/Services/Recruiting/Recruiting.Infrastructure/Recruiting.Infrastructure.csproj",
+      "projectUniqueName": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Recruiting/Recruiting.Infrastructure/Recruiting.Infrastructure.csproj",
       "projectName": "Recruiting.Infrastructure",
-      "projectPath": "/Users/shiyunliu/Desktop/Antra/AntraHRM/src/Services/Recruiting/Recruiting.Infrastructure/Recruiting.Infrastructure.csproj",
-      "packagesPath": "/Users/shiyunliu/.nuget/packages/",
-      "outputPath": "/Users/shiyunliu/Desktop/Antra/AntraHRM/src/Services/Recruiting/Recruiting.Infrastructure/obj/",
+      "projectPath": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Recruiting/Recruiting.Infrastructure/Recruiting.Infrastructure.csproj",
+      "packagesPath": "/Users/karim/.nuget/packages/",
+      "outputPath": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Recruiting/Recruiting.Infrastructure/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/shiyunliu/.nuget/NuGet/NuGet.Config"
+        "/Users/karim/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -3970,8 +4003,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "/Users/shiyunliu/Desktop/Antra/AntraHRM/src/Services/Recruiting/Recruiting.ApplicationCore/Recruiting.ApplicationCore.csproj": {
-              "projectPath": "/Users/shiyunliu/Desktop/Antra/AntraHRM/src/Services/Recruiting/Recruiting.ApplicationCore/Recruiting.ApplicationCore.csproj"
+            "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Recruiting/Recruiting.ApplicationCore/Recruiting.ApplicationCore.csproj": {
+              "projectPath": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Recruiting/Recruiting.ApplicationCore/Recruiting.ApplicationCore.csproj"
             }
           }
         }
@@ -4008,7 +4041,7 @@
           },
           "Serilog.AspNetCore": {
             "target": "Package",
-            "version": "[6.1.1-dev-00295, )"
+            "version": "[6.1.0, )"
           }
         },
         "imports": [
@@ -4027,7 +4060,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.201/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.101/RuntimeIdentifierGraph.json"
       }
     }
   }

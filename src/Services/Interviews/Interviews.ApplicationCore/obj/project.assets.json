@@ -514,23 +514,24 @@
   },
   "projectFileDependencyGroups": {
     "net7.0": [
-      "Microsoft.EntityFrameworkCore >= 7.0.3"
+      "Microsoft.EntityFrameworkCore >= 7.0.3",
+      "Microsoft.EntityFrameworkCore.Analyzers >= 7.0.3"
     ]
   },
   "packageFolders": {
-    "/Users/shiyunliu/.nuget/packages/": {}
+    "/Users/karim/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/shiyunliu/Desktop/Antra/AntraHRM/src/Services/Interviews/Interviews.ApplicationCore/Interviews.ApplicationCore.csproj",
+      "projectUniqueName": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Interviews/Interviews.ApplicationCore/Interviews.ApplicationCore.csproj",
       "projectName": "Interviews.ApplicationCore",
-      "projectPath": "/Users/shiyunliu/Desktop/Antra/AntraHRM/src/Services/Interviews/Interviews.ApplicationCore/Interviews.ApplicationCore.csproj",
-      "packagesPath": "/Users/shiyunliu/.nuget/packages/",
-      "outputPath": "/Users/shiyunliu/Desktop/Antra/AntraHRM/src/Services/Interviews/Interviews.ApplicationCore/obj/",
+      "projectPath": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Interviews/Interviews.ApplicationCore/Interviews.ApplicationCore.csproj",
+      "packagesPath": "/Users/karim/.nuget/packages/",
+      "outputPath": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Interviews/Interviews.ApplicationCore/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/shiyunliu/.nuget/NuGet/NuGet.Config"
+        "/Users/karim/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -557,6 +558,10 @@
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
             "version": "[7.0.3, )"
+          },
+          "Microsoft.EntityFrameworkCore.Analyzers": {
+            "target": "Package",
+            "version": "[7.0.3, )"
           }
         },
         "imports": [
@@ -575,7 +580,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.201/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.101/RuntimeIdentifierGraph.json"
       }
     }
   }

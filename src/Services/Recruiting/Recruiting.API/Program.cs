@@ -5,15 +5,12 @@ using Recruiting.Infrastructure.Data;
 using Recruiting.Infrastructure.Repositories;
 using Recruiting.Infrastructure.Services;
 using Serilog;
+using Serilog.Exceptions;
+using Serilog.Sinks.File;
 
 
 var allowedOrigins = "_allowedOrigins";
 var builder = WebApplication.CreateBuilder(args);
-
-Log.Logger = new LoggerConfiguration()
-    .Enrich.FromLogContext()
-    .WriteTo.Console()
-    .CreateLogger();
 
 // Add services to the container.
 
@@ -62,6 +59,17 @@ builder.Services.AddStackExchangeRedisCache(options =>
 {
     options.Configuration = RedisConnectionString;
 });
+
+var exceptionLogger = new LoggerConfiguration()
+    .Enrich.FromLogContext()
+    .Enrich.WithExceptionDetails()
+    .WriteTo.File("exceptionLog.json", rollingInterval: RollingInterval.Day)
+    .CreateLogger();
+
+var filterLogger = new LoggerConfiguration()
+    .Enrich.FromLogContext()
+    .WriteTo.File("filterLog.json", rollingInterval: RollingInterval.Day)
+    .CreateLogger();
 
 var app = builder.Build();
 

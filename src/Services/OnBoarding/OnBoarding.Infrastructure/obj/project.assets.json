@@ -1151,6 +1151,7 @@
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "7.0.3",
+          "Microsoft.EntityFrameworkCore.Analyzers": "7.0.3",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.3",
           "Microsoft.Extensions.DependencyInjection": "7.0.0",
           "Microsoft.Extensions.Logging": "7.0.0",
@@ -3533,19 +3534,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/shiyunliu/.nuget/packages/": {}
+    "/Users/karim/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/shiyunliu/Desktop/Antra/AntraHRM/src/Services/OnBoarding/OnBoarding.Infrastructure/OnBoarding.Infrastructure.csproj",
+      "projectUniqueName": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/OnBoarding/OnBoarding.Infrastructure/OnBoarding.Infrastructure.csproj",
       "projectName": "OnBoarding.Infrastructure",
-      "projectPath": "/Users/shiyunliu/Desktop/Antra/AntraHRM/src/Services/OnBoarding/OnBoarding.Infrastructure/OnBoarding.Infrastructure.csproj",
-      "packagesPath": "/Users/shiyunliu/.nuget/packages/",
-      "outputPath": "/Users/shiyunliu/Desktop/Antra/AntraHRM/src/Services/OnBoarding/OnBoarding.Infrastructure/obj/",
+      "projectPath": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/OnBoarding/OnBoarding.Infrastructure/OnBoarding.Infrastructure.csproj",
+      "packagesPath": "/Users/karim/.nuget/packages/",
+      "outputPath": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/OnBoarding/OnBoarding.Infrastructure/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/shiyunliu/.nuget/NuGet/NuGet.Config"
+        "/Users/karim/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -3557,8 +3558,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "/Users/shiyunliu/Desktop/Antra/AntraHRM/src/Services/OnBoarding/OnBoarding.ApplicationCore/OnBoarding.ApplicationCore.csproj": {
-              "projectPath": "/Users/shiyunliu/Desktop/Antra/AntraHRM/src/Services/OnBoarding/OnBoarding.ApplicationCore/OnBoarding.ApplicationCore.csproj"
+            "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/OnBoarding/OnBoarding.ApplicationCore/OnBoarding.ApplicationCore.csproj": {
+              "projectPath": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/OnBoarding/OnBoarding.ApplicationCore/OnBoarding.ApplicationCore.csproj"
             }
           }
         }
@@ -3620,7 +3621,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.201/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.101/RuntimeIdentifierGraph.json"
       }
     }
   }

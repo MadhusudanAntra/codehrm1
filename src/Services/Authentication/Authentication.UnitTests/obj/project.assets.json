@@ -556,7 +556,7 @@
           "build/NUnit.props": {}
         }
       },
-      "NUnit.Analyzers/3.6.0": {
+      "NUnit.Analyzers/3.6.1": {
         "type": "package"
       },
       "NUnit3TestAdapter/4.4.2": {
@@ -1416,10 +1416,10 @@
         "nunit.nuspec"
       ]
     },
-    "NUnit.Analyzers/3.6.0": {
-      "sha512": "mjJALIl95nbvMJUpRx1AQa364LAmqnNxv4jHNgfLOXzEmOsnQWEK8jhy8IZymOHsW7Cjdkk91tuhd0WYyRRIKQ==",
+    "NUnit.Analyzers/3.6.1": {
+      "sha512": "RKP9tpKfl3DmRgUDGgh3XM3XzeLMrCXXMZm6vm1nMsObZ6vtQL1L9NrK7+oZh1jWearvNsbMis2+AIOY3NFmow==",
       "type": "package",
-      "path": "nunit.analyzers/3.6.0",
+      "path": "nunit.analyzers/3.6.1",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
@@ -1428,7 +1428,7 @@
         "docs/README.md",
         "images/nunit_256.png",
         "license.txt",
-        "nunit.analyzers.3.6.0.nupkg.sha512",
+        "nunit.analyzers.3.6.1.nupkg.sha512",
         "nunit.analyzers.nuspec",
         "tools/install.ps1",
         "tools/uninstall.ps1"
@@ -1488,25 +1488,25 @@
       "Microsoft.EntityFrameworkCore >= 7.0.3",
       "Microsoft.NET.Test.Sdk >= 17.5.0",
       "NUnit >= 3.13.3",
-      "NUnit.Analyzers >= 3.6.0",
+      "NUnit.Analyzers >= 3.6.1",
       "NUnit3TestAdapter >= 4.4.2",
       "coverlet.collector >= 3.2.0"
     ]
   },
   "packageFolders": {
-    "/Users/shiyunliu/.nuget/packages/": {}
+    "/Users/karim/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/shiyunliu/Desktop/Antra/AntraHRM/src/Services/Authentication/Authentication.UnitTests/Authentication.UnitTests.csproj",
+      "projectUniqueName": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Authentication/Authentication.UnitTests/Authentication.UnitTests.csproj",
       "projectName": "Authentication.UnitTests",
-      "projectPath": "/Users/shiyunliu/Desktop/Antra/AntraHRM/src/Services/Authentication/Authentication.UnitTests/Authentication.UnitTests.csproj",
-      "packagesPath": "/Users/shiyunliu/.nuget/packages/",
-      "outputPath": "/Users/shiyunliu/Desktop/Antra/AntraHRM/src/Services/Authentication/Authentication.UnitTests/obj/",
+      "projectPath": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Authentication/Authentication.UnitTests/Authentication.UnitTests.csproj",
+      "packagesPath": "/Users/karim/.nuget/packages/",
+      "outputPath": "/Users/karim/Documents/GitHub/repos/AntraHRM/src/Services/Authentication/Authentication.UnitTests/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/shiyunliu/.nuget/NuGet/NuGet.Config"
+        "/Users/karim/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -1546,7 +1546,7 @@
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
             "suppressParent": "All",
             "target": "Package",
-            "version": "[3.6.0, )"
+            "version": "[3.6.1, )"
           },
           "NUnit3TestAdapter": {
             "target": "Package",
@@ -1575,7 +1575,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.201/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.101/RuntimeIdentifierGraph.json"
       }
     }
   }
