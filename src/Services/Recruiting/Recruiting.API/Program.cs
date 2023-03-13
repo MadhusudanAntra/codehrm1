@@ -1,15 +1,19 @@
 using Microsoft.EntityFrameworkCore;
-using Recruiting.API.CustomMiddleware;
 using Recruiting.ApplicationCore.Contracts.Repositories;
 using Recruiting.ApplicationCore.Contracts.Services;
 using Recruiting.Infrastructure.Data;
 using Recruiting.Infrastructure.Repositories;
 using Recruiting.Infrastructure.Services;
 using Serilog;
-using Serilog.Exceptions;
-using Serilog.Sinks.File;
 
+
+var allowedOrigins = "_allowedOrigins";
 var builder = WebApplication.CreateBuilder(args);
+
+Log.Logger = new LoggerConfiguration()
+    .Enrich.FromLogContext()
+    .WriteTo.Console()
+    .CreateLogger();
 
 // Add services to the container.
 
@@ -33,13 +37,24 @@ builder.Services.AddScoped<IStatusService, StatusService>();
 builder.Services.AddScoped<IEmployeeTypeRepository, EmployeeTypeRepository>();
 builder.Services.AddScoped<IEmployeeTypeService, EmployeeTypeService>();
 
-var dockerRelated = Environment.GetEnvironmentVariable("MSSQLConnectionString");
-
+//var dockerRelated = Environment.GetEnvironmentVariable("MSSQLConnectionString");
+var dockerRelated = builder.Configuration.GetConnectionString("RecruitingDb");
+    
 builder.Services.AddDbContext<RecruitingDbContext>(option => {
     option.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
     option.UseSqlServer(dockerRelated);
     //option.UseSqlServer(builder.Configuration.GetConnectionString("RecruitingDb"));
 });
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: allowedOrigins,
+        builder =>
+        {
+            builder.WithOrigins("https://localhost:4200");
+        });
+});
+
 
 var RedisConnectionString = Environment.GetEnvironmentVariable("RedisConnectionString");
 
@@ -47,13 +62,6 @@ builder.Services.AddStackExchangeRedisCache(options =>
 {
     options.Configuration = RedisConnectionString;
 });
-
-Log.Logger = new LoggerConfiguration()
-    .Enrich.FromLogContext()
-    .Enrich.WithExceptionDetails()
-    .WriteTo.File("log.json", rollingInterval: RollingInterval.Day)
-    .CreateLogger();
-
 
 var app = builder.Build();
 
@@ -67,10 +75,6 @@ var app = builder.Build();
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
-
-app.UseSerilogRequestLogging();
-
-app.UseMiddleware<ExceptionHandler>();
 
 app.MapControllers();
 

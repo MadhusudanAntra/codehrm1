@@ -13,6 +13,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Interviews.ApplicationCore\Interviews.ApplicationCore.csproj" />
       <ProjectReference Include="..\Interviews.Infrastructure\Interviews.Infrastructure.csproj" />
     </ItemGroup>
 
